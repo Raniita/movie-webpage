@@ -41,7 +41,6 @@
              */
 
             $name = sgInfoUser($uuid['id']);
-            print_r($name);
 
             $_SESSION['id'] = $uuid['id'];
             $_SESSION['name'] = $name['name'];

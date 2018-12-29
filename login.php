@@ -24,10 +24,10 @@
 
         if($state == 'OK!'){
             //Redirigimos a la pagina principal
-            //header('Location:dashboard.php');
+            header('Location:dashboard.php');
 
-            echo $_SESSION['id'];
-            echo $_SESSION['name'];
+            //echo $_SESSION['id'];
+            //echo $_SESSION['name'];
         } else {
             //error
             echo "error";
