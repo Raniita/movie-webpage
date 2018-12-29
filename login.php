@@ -21,12 +21,14 @@
         $user = pgSecureCheck($_POST['name']);
         $passwd = pgSecureCheck($_POST['password']);
         $state = pgLogin($user, $passwd);
+        echo 'login';
         echo $state;
 
         if($state == 'OK!'){
             //Redirigimos a la pagina principal
 
             //header('Location:dashboard.php');
+            echo 'logeado';
             echo $_SESSION['id'];
             echo $_SESSION['name'];
         } else {
