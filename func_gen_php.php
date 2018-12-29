@@ -33,10 +33,10 @@
     function pgLogin($user, $passw) {
         $passw_crypt = pgCodifica($user, $passw);
         $uuid = sgLogin($user, $passw_crypt);
-        print_r($uuid);
+        $id = $uuid['id'];
 
         //Si el id es diferente al error...
-        if ($uuid <> 'KO!') {
+        if ($id <> 'KO!') {
             /**
              * Usuario Logeado
              */
