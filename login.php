@@ -67,7 +67,7 @@
 
 <body class="text-center">
 
-<form class="form-signin" method="POST" action="pruebasDB.php">
+<form class="form-signin" action="pruebasDB.php" method="POST" >
     <img class="mb-4" src="img/tuxflix_logo.svg" alt="" width="220" height="220">
     <h1 class="h3 mb-3 font-weight-normal">Please sign in!</h1>
     <label for="inputName" class="sr-only">Username</label>
