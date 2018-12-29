@@ -12,9 +12,7 @@
         $query = "SELECT id FROM users WHERE name='$user' and passwd='$passwd_crypt'";
         $result = $connect->query($query);
 
-        echo $result->num_rows;
         if ($result->num_rows==0) {
-            echo 'error login';
             $return = 'KO!';
         } else {
             while ($row = $result->fetch_assoc()) {

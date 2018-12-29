@@ -35,7 +35,7 @@
         $uuid = sgLogin($user, $passw_crypt);
 
         //Si el id es diferente al error...
-        if ($uuid['id'] <> 'KO!') {
+        if ($uuid <> 'KO!') {
             /**
              * Usuario Logeado
              */
@@ -50,7 +50,7 @@
             /**
              * Usuario no logeado
              */
-            return 'KO:(';
+            return 'KO!';
         }
     }
 
