@@ -4,10 +4,10 @@
     include('func_gen_sql.php');
 
     $state = '';
-    if(isset($_GET['logout'])){
-        if(!empty($_GET['logout'])){
+    if (isset($_GET['logout'])) {
+        if (!empty($_GET['logout'])) {
             $logout = pgSecureCheck($_GET['logout']);
-            if($logout=='timeout'){
+            if ($logout == 'timeout') {
                 $state = pgKillSession();
             }
         } else {
@@ -17,20 +17,19 @@
         $state = pgCheckSession();
     }
 
-    if(isset($_POST['name']) AND isset($_POST['password'])){
+    if (isset($_POST['name']) AND isset($_POST['password'])) {
         $user = pgSecureCheck($_POST['name']);
         $passwd = pgSecureCheck($_POST['password']);
         $state = pgLogin($user, $passwd);
 
-        if($state == 'OK!'){
+        if ($state == 'OK!') {
             //Redirigimos a la pagina principal
             header('Location:dashboard.php');
 
             //echo $_SESSION['id'];
             //echo $_SESSION['name'];
         } else {
-            //error
-            echo "error";
+            $error_login = true;
         }
     }
 
@@ -66,10 +65,17 @@
 
 <body class="text-center">
 
-<form class="form-signin" action="login.php" method="POST" >
+<form class="form-signin" action="login.php" method="POST">
     <img class="mb-4" src="img/tuxflix_logo.svg" alt="" width="220" height="220">
     <h1 class="h3 mb-3 font-weight-normal">Please sign in!</h1>
 
+    <?php
+        if ($error_login == true) {
+            echo "<div class=\"alert alert-success\">
+                    <strong>Success!</strong> Indicates a successful or positive action.
+                  </div>";
+        }
+    ?>
     <label for="inputName" class="sr-only">Username</label>
     <input type="text" name="name" id="inputName" class="form-control" placeholder="Username" required autofocus>
 
