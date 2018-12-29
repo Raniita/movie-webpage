@@ -17,7 +17,7 @@
         $state = pgCheckSession();
     }
 
-    if(isset($_POST['inputEmail']) AND isset($_POST['inputPassword'])){
+    if(isset($_POST['inputName']) AND isset($_POST['inputPassword'])){
         $user = pgSecureCheck($_POST['inputEmail']);
         $passwd = pgSecureCheck($_POST['inputPassword']);
         $state = pgLogin($user, $passwd);
