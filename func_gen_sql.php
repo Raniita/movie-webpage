@@ -1,9 +1,9 @@
 <?php
-    require $_SERVER['DOCUMENT_ROOT'].'secret.php';
+    require $_SERVER['DOCUMENT_ROOT'].'/secret.php';
 
     function sgLogin($user, $passwd_crypt) {
         $connect = sgConnectDB();
-        $query = "SELECT id FROM members WHERE user='$user' and passwd='$passwd_crypt'";
+        $query = "SELECT id FROM users WHERE name='$user' and passwd='$passwd_crypt'";
         $result = $connect->query($query);
 
         if ($result->num_rows == 0) {
