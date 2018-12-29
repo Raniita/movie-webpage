@@ -33,7 +33,7 @@
     function pgLogin($user, $passw) {
         $passw_crypt = pgCodifica($user, $passw);
         $uuid = sgLogin($user, $passw_crypt);
-        echo $uuid;
+        print_r($uuid);
 
         //Si el id es diferente al error...
         if ($uuid <> 'KO!') {
