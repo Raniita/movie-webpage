@@ -13,6 +13,7 @@
         $result = $connect->query($query);
 
         if ($result->num_rows == 0) {
+            echo 'error login';
             $return = 'KO!';
         } else {
             while ($row = $result->fetch_assoc()) {
