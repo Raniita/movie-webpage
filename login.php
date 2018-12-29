@@ -17,9 +17,9 @@
         $state = pgCheckSession();
     }
 
-    if(isset($_POST['inputName']) AND isset($_POST['inputPassword'])){
-        $user = pgSecureCheck($_POST['inputEmail']);
-        $passwd = pgSecureCheck($_POST['inputPassword']);
+    if(isset($_POST['name']) AND isset($_POST['password'])){
+        $user = pgSecureCheck($_POST['name']);
+        $passwd = pgSecureCheck($_POST['password']);
         $state = pgLogin($user, $passwd);
         echo $state;
 
@@ -67,7 +67,7 @@
 
 <body class="text-center">
 
-<form class="form-signin" action="pruebasDB.php" method="POST" >
+<form class="form-signin" action="login.php" method="POST" >
     <img class="mb-4" src="img/tuxflix_logo.svg" alt="" width="220" height="220">
     <h1 class="h3 mb-3 font-weight-normal">Please sign in!</h1>
 
