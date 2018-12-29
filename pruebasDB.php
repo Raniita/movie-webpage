@@ -6,6 +6,7 @@
     $passwd = pgCodifica('Ranii','123456');
     echo $passwd;
 
+    $connect = sgConnectDB();
 ?>
 
 <!DOCTYPE html>
@@ -33,8 +34,6 @@
     <![endif]-->
 </head>
 <body>
-
-<p>pruebassasassa</p>
 
 <!-- SCRIPTS -->
 <script src="js/bootstrap.min.js"></script>
