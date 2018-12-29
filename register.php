@@ -1,3 +1,13 @@
+<?php
+    session_start();
+    include('func_gen_php.php');
+    include('func_gen_sql.php');
+
+    $state = '';
+    if(isset($_GET['logout']){}
+
+?>
+
 <!DOCTYPE html>
 <html lang="">
 <head>
@@ -28,7 +38,7 @@
 
 <body class="text-center">
 
-<form class="form-signin">
+<form class="form-signin" method="post" action="register.php">
     <img class="mb-4" src="img/tuxflix_logo.svg" alt="tuxflix_logo" width="220" height="220">
     <h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
 

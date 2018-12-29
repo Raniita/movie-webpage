@@ -3,6 +3,8 @@
     include("func_gen_php.php");
     include("func_gen_sql.php");
 
+    $passwd = pgCodifica('Ranii','123456');
+
 ?>
 
 <!DOCTYPE html>

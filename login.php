@@ -1,3 +1,43 @@
+<?php
+    session_start();
+    include('func_gen_php.php');
+    include('func_gen_sql.php');
+
+    $state = '';
+    if(isset($_GET['logout'])){
+        if(!empty($_GET['logout'])){
+            $logout = pgSecureCheck($_GET['logout']);
+            if($logout=='timeout'){
+                $state = pgKillSession();
+            }
+        } else {
+            $state = pgKillSession();
+        }
+    } else {
+        $state = pgCheckSession();
+    }
+
+    if(isset($_POST['inputEmail']) AND isset($_POST['inputPassword'])){
+        $user = pgSecureCheck($_POST['inputEmail']);
+        $passwd = pgSecureCheck($_POST['inputPassword']);
+        $state = pgLogin($user, $passwd);
+        echo $state;
+
+        if($state == 'OK!'){
+            //Redirigimos a la pagina principal
+
+            //header('Location:dashboard.php');
+            echo $_SESSION['uuid'];
+            echo $_SESSION['nick'];
+            echo $_SESSION[''];
+        } else {
+            //error
+            echo "error";
+        }
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="">
 <head>
@@ -28,9 +68,9 @@
 
 <body class="text-center">
 
-<form class="form-signin">
-    <!--<img class="mb-4" src="/docs/4.2/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> -->
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+<form class="form-signin" method="POST" action="login.php">
+    <img class="mb-4" src="img/tuxflix_logo.svg" alt="" width="220" height="220">
+    <h1 class="h3 mb-3 font-weight-normal">Please sign in!</h1>
     <label for="inputEmail" class="sr-only">Email address</label>
     <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
     <label for="inputPassword" class="sr-only">Password</label>
