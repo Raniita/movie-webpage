@@ -8,8 +8,8 @@
 
     //$connect = sgConnectDB();
 
-    echo $_SESSION['inputName'];
-    echo $_SESSION['inputPassword'];
+    echo $_POST['name'];
+    echo $_POST['password'];
 ?>
 
 <!DOCTYPE html>
