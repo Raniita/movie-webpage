@@ -27,9 +27,8 @@
             //Redirigimos a la pagina principal
 
             //header('Location:dashboard.php');
-            echo $_SESSION['uuid'];
-            echo $_SESSION['nick'];
-            echo $_SESSION[''];
+            echo $_SESSION['id'];
+            echo $_SESSION['name'];
         } else {
             //error
             echo "error";
@@ -71,8 +70,8 @@
 <form class="form-signin" method="POST" action="login.php">
     <img class="mb-4" src="img/tuxflix_logo.svg" alt="" width="220" height="220">
     <h1 class="h3 mb-3 font-weight-normal">Please sign in!</h1>
-    <label for="inputEmail" class="sr-only">Email address</label>
-    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+    <label for="inputName" class="sr-only">Username</label>
+    <input type="text" id="inputName" class="form-control" placeholder="Username" required autofocus>
     <label for="inputPassword" class="sr-only">Password</label>
     <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
     <div class="checkbox mb-3">
