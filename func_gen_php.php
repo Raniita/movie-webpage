@@ -39,9 +39,14 @@
             /**
              * Usuario Logeado
              */
-            $name = sgInfoUser($uuid);
 
-            $_SESSION['id'] = $uuid;
+            foreach($uuid as $user){
+                $id = $user['id'];
+            }
+
+            $name = sgInfoUser($id);
+
+            $_SESSION['id'] = $id;
             $_SESSION['name'] = $name;
 
             return 'OK!';
