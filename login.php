@@ -71,8 +71,8 @@
 
     <?php
         if ($error_login == true) {
-            echo "<div class=\"alert alert-success\">
-                    <strong>Success!</strong> Indicates a successful or positive action.
+            echo "<div class=\"alert alert-danger\">
+                    <strong>Error!</strong> Incorrect username and password combination.
                   </div>";
         }
     ?>
