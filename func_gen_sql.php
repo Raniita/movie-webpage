@@ -1,5 +1,5 @@
 <?php
-    require 'secret.php';
+    require $_SERVER['DOCUMENT_ROOT'].'secret.php';
 
     function sgLogin($user, $passwd_crypt) {
         $connect = sgConnectDB();
