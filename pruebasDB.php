@@ -4,6 +4,7 @@
     include("func_gen_sql.php");
 
     $passwd = pgCodifica('Ranii','123456');
+    echo $passwd;
 
 ?>
 
