@@ -24,28 +24,25 @@
         return $return;
     }
 
-
-    function sgRegister($user, $passwd, $mail) {
+    function sgRegister($id, $user, $age, $gender, $occupation, $passwd) {
         $connect = sgConnectDB();
-        $query = "INSERT INTO users (id, name, edad, sex, ocupacion, pic, passwd) values ('$nick', '$pw', '$mail','$nick','1','spanish_es')";
+        $query = "INSERT INTO users (id, name, edad, sex, ocupacion, pic, passwd) values ('$id', '$user', '$age','$gender','$occupation','$passwd')";
         $result = $connect->query($query);
 
-        /* Devolvemos el uuid del user*/
+        // Devolvemos el uuid del user
         if ($result) {
-            $query = "SELECT id FROM users WHERE id='$nick'";
+            $query = "SELECT id FROM users WHERE id='$user'";
             $result = $connect->query($query);
             while ($row = $result->fetch_assoc()) {
-                $return = $row['id'];
+                $return = $row;
             }
         } else {
-            /*
-             * Codigo de error
-             */
-            $return = "";
+            //Codigo error
+            $return = "KO!";
         }
 
         mysqli_close($connect);
-        return $connect;
+        return $return;
     }
 
     /*
@@ -81,5 +78,4 @@
         mysqli_close($connect);
         return $return;
     }
-
 ?>

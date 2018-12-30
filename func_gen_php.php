@@ -54,8 +54,21 @@
         }
     }
 
-    function pgRegister() {
-        return null;
+    function pgRegister($user, $age, $gender, $occupation, $passwd) {
+        $id = uniqid();
+        $passw_crypt = pgCodifica($user,$passwd);
+        $uuid = sgRegister($id, $user, $age, $gender, $occupation, $passw_crypt);
+
+        //Si el id es diferente al error...
+        if($uuid <> 'KO!'){
+            //Usuario registrado
+
+
+            return 'OK!';
+        } else {
+            //Error al registrar
+            return 'KO!';
+        }
     }
 
     function pgKillSession(){

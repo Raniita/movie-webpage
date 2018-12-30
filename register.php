@@ -18,6 +18,39 @@
     }
 
     //Validacion del registro
+    if (isset($_POST['name']) AND isset($_POST['age']) AND isset($_POST['password']) AND isset($_POST['confirm_password'])) {
+        //Check and validate info
+        $user = pgSecureCheck($_POST['name']);
+        $passwd = pgSecureCheck($_POST['password']);
+        $confirm_passwd = pgSecureCheck($_POST['confirm_password']);
+        $age = $_POST['age'];
+        $occupation = $_POST['occupation'];
+
+        if($_POST['gender']=='Women'){
+            $gender='W';
+        }else{
+            $gender='M';
+        }
+
+        if ($passwd <> $confirm_passwd) {
+            //Passw diferentes
+            $error_passwd = true;
+        } else {
+            //Passw correctas
+            if ($age > 12 AND $age < 110) {
+                $state = pgRegister($user, $age, $gender, $occupation, $passwd);
+
+                if ($state == 'OK!') {
+                    header('Location:login.php');
+                } else {
+                    $error_login = true;
+                }
+            } else {
+                //Passw correctas, age incorrecta
+                $error_age = true;
+            }
+        }
+    }
 
 ?>
 
@@ -52,7 +85,7 @@
 
 <body class="text-center">
 
-<form class="form-signin" method="post" action="register.php">
+<form class="form-signin" action="register.php" method="post">
     <img class="mb-4" src="img/tuxflix_logo.svg" alt="tuxflix_logo" width="220" height="220">
     <h1 class="h3 mb-3 font-weight-normal">Create an account</h1>
 
@@ -66,7 +99,8 @@
     <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
 
     <label for="inputPassword2" class="sr-only">Confirm Password</label>
-    <input type="password" name="confirm_password" id="inputPassword2" class="form-control" placeholder="Confirm Password" required>
+    <input type="password" name="confirm_password" id="inputPassword2" class="form-control"
+           placeholder="Confirm Password" required>
 
 
     <label for="inputGender"></label>
