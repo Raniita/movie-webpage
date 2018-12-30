@@ -25,13 +25,20 @@
     }
 
     function sgRegister($id, $user, $age, $gender, $occupation, $passwd) {
+        echo 'id'.$id;
+        echo 'user'.$user;
+        echo 'age'.$age;
+        echo 'gender'.$gender;
+        echo 'occu'.$occupation;
+        echo 'pass'.$passwd;
+
         $connect = sgConnectDB();
         $query = "INSERT INTO users (id, name, edad, sex, ocupacion, pic, passwd) values ($id, '$user', '$age','$gender','$occupation', '','$passwd')";
         $result = $connect->query($query);
 
         echo "result: ".$result;
         // Devolvemos el uuid del user
-        if ($result) {
+        if ($result) { //1 -> Query succ
             $query = "SELECT id FROM users WHERE id='$user'";
             $result = $connect->query($query);
             while ($row = $result->fetch_assoc()) {
