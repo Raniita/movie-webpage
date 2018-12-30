@@ -19,6 +19,7 @@
 
     //Validacion del registro
     if (isset($_POST['name']) AND isset($_POST['age']) AND isset($_POST['password']) AND isset($_POST['confirm_password'])) {
+        echo 'validation';
         //Check and validate info
         $user = pgSecureCheck($_POST['name']);
         $passwd = pgSecureCheck($_POST['password']);
@@ -33,9 +34,11 @@
         }
 
         if ($passwd <> $confirm_passwd) {
+            echo 'pass dif';
             //Passw diferentes
             $error_passwd = true;
         } else {
+            echo 'passw correct';
             //Passw correctas
             if ($age > 12 AND $age < 110) {
                 $state = pgRegister($user, $age, $gender, $occupation, $passwd);
@@ -50,6 +53,8 @@
                 $error_age = true;
             }
         }
+    } else {
+        echo 'no comprobacion';
     }
 
 ?>
