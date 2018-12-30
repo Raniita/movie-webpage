@@ -54,13 +54,13 @@
     }
 
     /*
-     * Comprobamos si existe el usuario
+     * Comprobamos si existe el ID
      */
     function sgExists($id) {
         $connect = sgConnectDB();
         $query = "SELECT * FROM users WHERE id='$id'";
         $result = $connect->query($query);
-        if ($result->num_rows == 0) {
+        if ($result->num_rows==0) {
             $return = 'KO';
         } else {
             $return = 'OK!';
@@ -74,7 +74,7 @@
         $connect = sgConnectDB();
         $query = "SELECT name FROM users WHERE id='$uuid'";
         $result = $connect->query($query);
-        if($result->num_rows == 0){
+        if($result->num_rows==0){
             $return = "KO";
         } else {
             $return = array();

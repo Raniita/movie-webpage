@@ -55,7 +55,11 @@
     }
 
     function pgRegister($user, $age, $gender, $occupation, $passwd) {
-        $id = uniqid();
+        $id = rand(1,500000);
+        while(sgExists($id)=='OK!'){
+            $id = rand(1,500000);
+        }
+
         $passw_crypt = pgCodifica($user,$passwd);
         $uuid = sgRegister($id, $user, $age, $gender, $occupation, $passw_crypt);
 
