@@ -85,9 +85,23 @@
 
 <body class="text-center">
 
-<form class="form-signin" action="pruebasDB.php" method="post">
+<form class="form-signin" action="register.php" method="post">
     <img class="mb-4" src="img/tuxflix_logo.svg" alt="tuxflix_logo" width="220" height="220">
     <h1 class="h3 mb-3 font-weight-normal">Create an account</h1>
+
+    <?php
+        if ($error_passwd == true) {
+            echo "<div class=\"alert alert-danger\">
+                    <strong>Error!</strong> Incorrect passwords doesnt match.
+                  </div>";
+        }
+
+        if ($error_age == true) {
+            echo "<div class=\"alert alert-danger\">
+                    <strong>Error!</strong> Incorrect age. Send values more than 10 and less than 110.
+                  </div>";
+        }
+    ?>
 
     <label for="inputName" class="sr-only">Username</label>
     <input type="text" name="name" id="inputName" class="form-control" placeholder="Username" required autofocus>
