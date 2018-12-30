@@ -4,7 +4,20 @@
     include('func_gen_sql.php');
 
     $state = '';
-    if(isset($_GET['logout']){}
+    if (isset($_GET['logout'])) {
+        if (!empty($_GET['logout'])) {
+            $logout = pgSecureCheck($_GET['logout']);
+            if ($logout == 'timeout') {
+                $state = pgKillSession();
+            }
+        } else {
+            $state = pgKillSession();
+        }
+    } else {
+        $state = pgCheckSession();
+    }
+
+    //Validacion del registro
 
 ?>
 
@@ -43,14 +56,18 @@
     <img class="mb-4" src="img/tuxflix_logo.svg" alt="tuxflix_logo" width="220" height="220">
     <h1 class="h3 mb-3 font-weight-normal">Create an account</h1>
 
-    <label for="inputName" class="sr-only">Name</label>
-    <input type="text" name="name" id="inputName" class="form-control" placeholder="Name" required autofocus>
+    <label for="inputName" class="sr-only">Username</label>
+    <input type="text" name="name" id="inputName" class="form-control" placeholder="Username" required autofocus>
 
     <label for="inputAge" class="sr-only">Age</label>
     <input type="number" name="age" id="inputAge" class="form-control" placeholder="Age" required>
 
     <label for="inputPassword" class="sr-only">Password</label>
     <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+
+    <label for="inputPassword2" class="sr-only">Confirm Password</label>
+    <input type="password" name="confirm_password" id="inputPassword2" class="form-control" placeholder="Confirm Password" required>
+
 
     <label for="inputGender"></label>
     <select class="form-control" id="inputGender" name="gender" required>
