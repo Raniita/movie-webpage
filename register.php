@@ -19,7 +19,6 @@
 
     //Validacion del registro
     if (isset($_POST['name']) AND isset($_POST['age']) AND isset($_POST['password']) AND isset($_POST['confirm_password'])) {
-        echo 'validation';
         //Check and validate info
         $user = pgSecureCheck($_POST['name']);
         $passwd = pgSecureCheck($_POST['password']);
@@ -40,7 +39,7 @@
             //Passw correctas
             if ($age > 12 AND $age < 110) {
                 $state = pgRegister($user, $age, $gender, $occupation, $passwd);
-                echo $state;
+                echo "stateReg: ".$state;
 
                 if ($state == 'OK!') {
                     header('Location:login.php');

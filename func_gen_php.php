@@ -59,6 +59,7 @@
         $passw_crypt = pgCodifica($user,$passwd);
         $uuid = sgRegister($id, $user, $age, $gender, $occupation, $passw_crypt);
 
+        echo "uuid: ".$uuid;
         //Si el id es diferente al error...
         if($uuid <> 'KO!'){
             //Usuario registrado
