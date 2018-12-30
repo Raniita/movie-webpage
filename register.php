@@ -39,6 +39,7 @@
             $error_passwd = true;
         } else {
             echo 'passw correct';
+            echo $age;
             //Passw correctas
             if ($age > 12 AND $age < 110) {
                 echo 'age correct';
