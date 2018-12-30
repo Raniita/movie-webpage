@@ -27,7 +27,7 @@
         $occupation = $_POST['occupation'];
 
         if($_POST['gender']=='Women'){
-            $gender='W';
+            $gender='F';
         }else{
             $gender='M';
         }
