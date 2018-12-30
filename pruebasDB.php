@@ -3,13 +3,6 @@
     include("func_gen_php.php");
     include("func_gen_sql.php");
 
-    //$passwd = pgCodifica('Ranii','123456');
-    //echo $passwd;
-
-    //$connect = sgConnectDB();
-
-    echo $_POST['name'];
-    echo $_POST['password'];
 ?>
 
 <!DOCTYPE html>

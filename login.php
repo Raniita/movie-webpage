@@ -23,7 +23,6 @@
         $state = pgLogin($user, $passwd);
 
         if ($state == 'OK!') {
-            //Redirigimos a la pagina principal
             header('Location:dashboard.php');
 
             //echo $_SESSION['id'];
@@ -40,10 +39,11 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
-    <title>Sign in!</title>
+    <title>Sign in! - Tuxflix</title>
     <meta name="description" content="Sign in!">
     <meta name="author" content="Ranii">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="svg+xml" href="img/tuxflix_logo.svg">
 
     <!-- my css -->
     <link rel="stylesheet" href="css/main.css">

@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    include('func_gen_php.php');
+    include('func_gen_sql.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="">
 <head>
@@ -7,7 +14,6 @@
     <meta name="description" content="template">
     <meta name="author" content="Ranii">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="svg+xml" href="img/tuxflix_logo.svg">
 
     <!-- my css -->
     <link rel="stylesheet" href="css/main.css">
