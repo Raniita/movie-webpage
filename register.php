@@ -41,7 +41,9 @@
                 $state = pgRegister($user, $age, $gender, $occupation, $passwd);
 
                 if ($state == 'OK!') {
-                    header('Location:login.php');
+                    //Reg succesful
+                    $code = pgEncodeDecode('ackregister',1);
+                    header('Location:login.php?reg='.$code);
                 } else {
                     $error_register = true;
                 }

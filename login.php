@@ -32,6 +32,16 @@
         }
     }
 
+    if (isset($_GET['reg'])){
+        $status = pgSecureCheck($_GET['reg']);
+        $decode = pgEncodeDecode($status, 0);
+
+        if($decode=='ackregister'){
+           $succesfull_reg = true;
+        }
+
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -73,6 +83,12 @@
         if ($error_login == true) {
             echo "<div class=\"alert alert-danger\">
                     <strong>Error!</strong> Incorrect username and password combination.
+                  </div>";
+        }
+
+        if($succesfull_reg == true){
+            echo "<div class=\"alert alert-success\">
+                    <strong>Success!</strong> Register done. Please sign in!
                   </div>";
         }
     ?>

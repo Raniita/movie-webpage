@@ -14,6 +14,20 @@
         return sha1($passw);
     }
 
+    function pgEncodeDecode($code, $mode){
+        if($mode == 1){
+            //Encapsulamos
+            $new_code = base64_encode($code);
+            return $new_code;
+        } elseif ($mode == 0){
+            //Desencapsulamos
+            $decode = base64_decode($code);
+            return $decode;
+        } else {
+            return 'KO!';
+        }
+    }
+
     /**
      * Funcion para asegurar las entradas por GET y evitar SQL inyections
      * @param $unsecure
