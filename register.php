@@ -39,7 +39,6 @@
             //Passw correctas
             if ($age > 12 AND $age < 110) {
                 $state = pgRegister($user, $age, $gender, $occupation, $passwd);
-                echo "stateReg: ".$state;
 
                 if ($state == 'OK!') {
                     header('Location:login.php');
