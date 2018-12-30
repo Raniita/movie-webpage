@@ -29,6 +29,7 @@
         $query = "INSERT INTO users (id, name, edad, sex, ocupacion, pic, passwd) values ('$id', '$user', '$age','$gender','$occupation','$passwd')";
         $result = $connect->query($query);
 
+        echo $result;
         // Devolvemos el uuid del user
         if ($result) {
             $query = "SELECT id FROM users WHERE id='$user'";

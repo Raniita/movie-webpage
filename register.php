@@ -34,31 +34,24 @@
         }
 
         if ($passwd <> $confirm_passwd) {
-            echo 'pass dif';
             //Passw diferentes
             $error_passwd = true;
         } else {
-            echo 'passw correct';
-            echo $age;
             //Passw correctas
             if ($age > 12 AND $age < 110) {
-                echo 'age correct';
-                echo $age;
                 $state = pgRegister($user, $age, $gender, $occupation, $passwd);
                 echo $state;
 
                 if ($state == 'OK!') {
                     header('Location:login.php');
                 } else {
-                    $error_login = true;
+                    $error_register = true;
                 }
             } else {
                 //Passw correctas, age incorrecta
                 $error_age = true;
             }
         }
-    } else {
-        echo 'no comprobacion';
     }
 
 ?>
@@ -99,6 +92,12 @@
     <h1 class="h3 mb-3 font-weight-normal">Create an account</h1>
 
     <?php
+        if ($error_register == true) {
+            echo "<div class=\"alert alert-danger\">
+                    <strong>Error!</strong> Something goes wrong. Register error.
+                  </div>";
+        }
+
         if ($error_passwd == true) {
             echo "<div class=\"alert alert-danger\">
                     <strong>Error!</strong> Incorrect passwords doesnt match.
