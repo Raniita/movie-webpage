@@ -13,7 +13,7 @@
         }
 
         mysqli_close($connect);
-        return $return[0];
+        return $return['title'];
     }
 
     function smGetMovieBackground($id){
@@ -30,7 +30,7 @@
         }
 
         mysqli_close($connect);
-        return $return[0];
+        return $return['url_pic'];
     }
 
     //TODO
@@ -83,7 +83,7 @@
         }
 
         mysqli_close($connect);
-        return $return[0];
+        return $return['desc'];
     }
 
     function smGetMovieDate($id){
@@ -100,7 +100,7 @@
         }
 
         mysqli_close($connect);
-        return $return[0];
+        return $return['date'];
     }
 
     //TODO
