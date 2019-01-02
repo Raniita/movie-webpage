@@ -13,7 +13,7 @@
         }
 
         mysqli_close($connect);
-        return $return;
+        return $return[0];
     }
 
     function smGetMovieBackground($id){
@@ -30,7 +30,7 @@
         }
 
         mysqli_close($connect);
-        return $return;
+        return $return[0];
     }
 
     //TODO
@@ -48,7 +48,7 @@
         }
 
         mysqli_close($connect);
-        return $return;
+        return $return[0];
     }
 
     //TODO
@@ -66,7 +66,7 @@
         }
 
         mysqli_close($connect);
-        return $return;
+        return $return[0];
     }
 
     function smGetMovieDescription($id){
@@ -83,7 +83,7 @@
         }
 
         mysqli_close($connect);
-        return $return;
+        return $return[0];
     }
 
     function smGetMovieDate($id){
@@ -100,7 +100,7 @@
         }
 
         mysqli_close($connect);
-        return $return;
+        return $return[0];
     }
 
     //TODO
@@ -118,6 +118,6 @@
         }
 
         mysqli_close($connect);
-        return $return;
+        return $return[0];
     }
 ?>
