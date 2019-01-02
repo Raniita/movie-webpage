@@ -71,7 +71,7 @@
 
     function smGetMovieDescription($id){
         $connect = sgConnectDB();
-        $query = "SELECT desc FROM movie WHERE id='$id'";
+        $query = "SELECT description FROM movie WHERE id='$id'";
         $result = $connect->query($query);
 
         if($result->num_rows==0){
@@ -83,7 +83,7 @@
         }
 
         mysqli_close($connect);
-        return $return['desc'];
+        return $return['description'];
     }
 
     function smGetMovieDate($id){
