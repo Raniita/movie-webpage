@@ -2,9 +2,18 @@
 
     function pmGenerateMovieCard($id) {
         $movieName = smGetMovieName($id);
-        $movieBackground = "movie-images/".smGetMovieBackground($id);
+        $movieBackground = smGetMovieBackground($id);
         $movieDescription = smGetMovieDescription($id);
         $movieDate = smGetMovieDate($id);
+
+        //Hack img incoming
+        if (strlen($movieBackground) == 8) {
+            //No tiene caratula
+            $moviePoster = 'movie-images/default-movie.jpg';
+        } else {
+            //Si tiene caratula
+            $moviePoster = 'movie-images/' . $movieBackground;
+        }
 
         //GetMovieName
         //GetMovieBackground
@@ -16,7 +25,7 @@
 
         $return = "<div class=\"movie-card\">
             <div class=\"movie-header\"
-                 style=\"background: url(".$movieBackground.");
+                 style=\"background: url(" . $moviePoster . ");
                         background-size: cover;\">
                 <div class=\"header-icon-container\">
                     <a href=\"#\">
@@ -28,7 +37,7 @@
             <div class=\"movie-content\">
                 <div class=\"movie-content-header\">
                     <a href=\"#\">
-                        <h3 class=\"movie-title\">".$movieName."</h3>
+                        <h3 class=\"movie-title\">" . $movieName . "</h3>
                     </a>
                     <div class=\"info-section\">
                         <span class=\"fa fa-star checked\"></span>
@@ -43,12 +52,12 @@
                 <div class=\"movie-info\">
                     <div class=\"info-section\">
                         <label>Description</label>
-                        <span class=\"text-justify\" style=\"font-size: 60%;\">".$movieDescription."</span>
+                        <span class=\"text-justify\" style=\"font-size: 60%;\">" . $movieDescription . "</span>
                     </div>
 
                     <div class=\"info-section\">
                         <label>Date</label>
-                        <span>".$movieDate."</span>
+                        <span>" . $movieDate . "</span>
                     </div>
 
                     <div class=\"info-section\">
