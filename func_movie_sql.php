@@ -178,7 +178,7 @@
 
     function smGetAvgRateAllMovies(){
         $connect = sgConnectDB();
-        $query = "SELECT AVG(avgScore) AS score FROM (SELECT AVG(score) AS avgScore FROM user_score WHERE id_movie IN(SELECT id FROM movie)GROUP BY id_movie) AS avgTable";
+        $query = "SELECT AVG(avgScore) FROM (SELECT AVG(score) AS avgScore FROM user_score WHERE id_movie IN(SELECT id FROM movie)GROUP BY id_movie) AS avgTable";
         $result = $connect->query($query);
 
         if($result->num_rows==0){
@@ -190,7 +190,7 @@
         }
 
         mysqli_close($connect);
-        return $return['score'];
+        return $return['AVG(avgScore)'];
     }
 
 ?>
