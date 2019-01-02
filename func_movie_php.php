@@ -73,49 +73,52 @@
     }
 
     function pmGenerateStarRating($rating){
+        $starts = round($rating);
         $return = '';
-        if($rating<=0){
-            $return = "<span class=\"fa fa-star\"></span>
+
+        switch ($starts){
+            case 0:
+                $return = "<span class=\"fa fa-star\"></span>
                         <span class=\"fa fa-star\"></span>
                         <span class=\"fa fa-star\"></span>
                         <span class=\"fa fa-star\"></span>
                         <span class=\"fa fa-star\"></span>";
-        } elseif ($rating> 0 AND $rating <=1){
-            $return = "<span class=\"fa fa-star\"></span>
+                break;
+            case 1:
+                $return = "<span class=\"fa fa-star checked\"></span>
                         <span class=\"fa fa-star\"></span>
                         <span class=\"fa fa-star\"></span>
                         <span class=\"fa fa-star\"></span>
                         <span class=\"fa fa-star\"></span>";
-        } elseif ($rating>1 AND $rating<=2){
-            $return = "<span class=\"fa fa-star checked\"></span>
-                        <span class=\"fa fa-star\"></span>
-                        <span class=\"fa fa-star\"></span>
-                        <span class=\"fa fa-star\"></span>
-                        <span class=\"fa fa-star\"></span>";
-        } elseif ($rating>2 AND $rating<=3){
-            $return = "<span class=\"fa fa-star checked\"></span>
+                break;
+            case 2:
+                $return = "<span class=\"fa fa-star checked\"></span>
                         <span class=\"fa fa-star checked\"></span>
                         <span class=\"fa fa-star\"></span>
                         <span class=\"fa fa-star\"></span>
                         <span class=\"fa fa-star\"></span>";
-        } elseif ($rating>3 AND $rating<=4){
-            $return = "<span class=\"fa fa-star checked\"></span>
+                break;
+            case 3:
+                $return = "<span class=\"fa fa-star checked\"></span>
                         <span class=\"fa fa-star checked\"></span>
                         <span class=\"fa fa-star checked\"></span>
                         <span class=\"fa fa-star\"></span>
                         <span class=\"fa fa-star\"></span>";
-        } elseif ($rating>4 AND $rating<5){
-            $return = "<span class=\"fa fa-star checked\"></span>
+                break;
+            case 4:
+                $return = "<span class=\"fa fa-star checked\"></span>
                         <span class=\"fa fa-star checked\"></span>
                         <span class=\"fa fa-star checked\"></span>
                         <span class=\"fa fa-star checked\"></span>
                         <span class=\"fa fa-star\"></span>";
-        } else {
-            $return = "<span class=\"fa fa-star checked\"></span>
+                break;
+            case 5:
+                $return = "<span class=\"fa fa-star checked\"></span>
                         <span class=\"fa fa-star checked\"></span>
                         <span class=\"fa fa-star checked\"></span>
                         <span class=\"fa fa-star checked\"></span>
                         <span class=\"fa fa-star checked\"></span>";
+                break;
         }
 
         return $return;
