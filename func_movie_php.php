@@ -33,11 +33,7 @@
                         <h3 class=\"movie-title\">" . $movieName . "</h3>
                     </a>
                     <div class=\"info-section\">
-                        <span class=\"fa fa-star checked\"></span>
-                        <span class=\"fa fa-star checked\"></span>
-                        <span class=\"fa fa-star checked\"></span>
-                        <span class=\"fa fa-star checked\"></span>
-                        <span class=\"fa fa-star\"></span>
+                        ".pmGenerateStarRating($id)."
                         <span>".smGetCountRate($id)."</span>
                     </div>
                 </div><!--movie-content-header-->
@@ -66,19 +62,6 @@
     }
 
     function pmBayesianRating($id){
-        //Comprobamos si ya tenemos valores en la session.
-        /*if(isset($_SESSION['numberMovie']) AND isset($_SESSION['avgAllMovie'])){
-            //Recuperamos los valores;
-            $numberMovies = $_SESSION['numberMovies'];
-            $avgAllMovies = $_SESSION['avgAllMovies'];
-        } else {
-            //Guardamos en la session
-            $_SESSION['numberMovie'] = smGetNumberMovies();
-            $_SESSION['avgAllMovie'] = smGetAvgRateAllMovies();
-            $numberMovies = $_SESSION['numberMovie'];
-            $avgAllMovies = $_SESSION['avgAllMovie'];
-        }*/
-
         $numberMovies = smGetNumberMovies();
         $avgAllMovies = smGetAvgRateAllMovies();
         $numberRateID = smGetCountRate($id);
@@ -87,5 +70,54 @@
         $bayesian = ($numberMovies*$avgAllMovies + $numberRateID*$avgRateID)/($numberMovies + $numberRateID);
 
         return round($bayesian,2);
+    }
+
+    function pmGenerateStarRating($rating){
+        $return = '';
+        if($rating<=0){
+            $return = "<span class=\"fa fa-star\"></span>
+                        <span class=\"fa fa-star\"></span>
+                        <span class=\"fa fa-star\"></span>
+                        <span class=\"fa fa-star\"></span>
+                        <span class=\"fa fa-star\"></span>";
+        } elseif ($rating> 0 OR $rating <=1){
+            $return = "<span class=\"fa fa-star\"></span>
+                        <span class=\"fa fa-star\"></span>
+                        <span class=\"fa fa-star\"></span>
+                        <span class=\"fa fa-star\"></span>
+                        <span class=\"fa fa-star\"></span>";
+        } elseif ($rating>1 OR $rating<=2){
+            $return = "<span class=\"fa fa-star checked\"></span>
+                        <span class=\"fa fa-star\"></span>
+                        <span class=\"fa fa-star\"></span>
+                        <span class=\"fa fa-star\"></span>
+                        <span class=\"fa fa-star\"></span>";
+        } elseif ($rating>2 OR $rating<=3){
+            $return = "<span class=\"fa fa-star checked\"></span>
+                        <span class=\"fa fa-star checked\"></span>
+                        <span class=\"fa fa-star\"></span>
+                        <span class=\"fa fa-star\"></span>
+                        <span class=\"fa fa-star\"></span>";
+        } elseif ($rating>3 OR $rating<=4){
+            $return = "<span class=\"fa fa-star checked\"></span>
+                        <span class=\"fa fa-star checked\"></span>
+                        <span class=\"fa fa-star checked\"></span>
+                        <span class=\"fa fa-star\"></span>
+                        <span class=\"fa fa-star\"></span>";
+        } elseif ($rating>4 OR $rating<5){
+            $return = "<span class=\"fa fa-star checked\"></span>
+                        <span class=\"fa fa-star checked\"></span>
+                        <span class=\"fa fa-star checked\"></span>
+                        <span class=\"fa fa-star checked\"></span>
+                        <span class=\"fa fa-star\"></span>";
+        } else {
+            $return = "<span class=\"fa fa-star checked\"></span>
+                        <span class=\"fa fa-star checked\"></span>
+                        <span class=\"fa fa-star checked\"></span>
+                        <span class=\"fa fa-star checked\"></span>
+                        <span class=\"fa fa-star checked\"></span>";
+        }
+
+        return $return;
     }
 ?>
