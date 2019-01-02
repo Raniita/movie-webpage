@@ -73,12 +73,7 @@
             $avgAllMovies = $_SESSION['avgAllMovies'];
         } else {
             $numberMovies = smGetNumberMovies();
-
-            $rate = 0;
-            for($x = 1; $x <= $numberMovies; $x++){
-                $rate = smGetAvgRateMovie($x);
-            }
-            $avgAllMovies = $rate/$numberMovies;
+            $avgAllMovies = smGetAvgRateAllMovies();
 
             //Guardamos en la session
             $_SESSION['numberMovies'] = $numberMovies;
