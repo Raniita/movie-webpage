@@ -8,9 +8,11 @@
         if (!empty($_GET['logout'])) {
             $logout = pgSecureCheck($_GET['logout']);
             if ($logout == 'timeout') {
+                $error_logout = true;
                 $state = pgKillSession();
             }
         } else {
+            $error_logout = true;
             $state = pgKillSession();
         }
     } else {
@@ -89,6 +91,12 @@
         if($succesfull_reg == true){
             echo "<div class=\"alert alert-success\">
                     <strong>Success!</strong> Register done. Please sign in!
+                  </div>";
+        }
+
+        if($error_logout == true){
+            echo "<div class=\"alert alert-success\">
+                    <strong>Done!</strong> You successfully logged out.
                   </div>";
         }
     ?>

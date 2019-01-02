@@ -124,7 +124,7 @@
                                     <p class=\"text-left\"><strong>".$name."</strong></p>
                                     <p class=\"text-left small\">correoElectronico@email.com</p>
                                     <p class=\"text-left\">
-                                        <a class=\"btn btn-primary btn-block btn-sm\" href=\"settings.php\">Actualizar Datos</a>
+                                        <a class=\"btn btn-primary btn-block btn-sm\" href=\"settings.php\">User Settings</a>
                                     </p>
                                 </div>
                             </div>
@@ -136,7 +136,7 @@
                             <div class=\"row\">
                                 <div class=\"col-lg-12\">
                                     <p>
-                                        <a class=\"btn btn-danger btn-block\" href=\"login.php?logout\">Cerrar Sesion</a>
+                                        <a class=\"btn btn-danger btn-block\" href=\"login.php?logout\">Sign out</a>
                                     </p>
                                 </div>
                             </div>
