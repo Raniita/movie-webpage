@@ -9,19 +9,11 @@
         //Hack img incoming
         if (strlen($movieBackground) == 8) {
             //No tiene caratula
-            $moviePoster = 'movie-images/default-movie.jpg';
+            $moviePoster = 'movie-images/default_movie.jpg';
         } else {
             //Si tiene caratula
             $moviePoster = 'movie-images/' . $movieBackground;
         }
-
-        //GetMovieName
-        //GetMovieBackground
-        //GetMovieStarRating
-        //GetMovieNumRating
-        //GetMovieDescription
-        //GetMovieDate
-        //GetMovieRating
 
         $return = "<div class=\"movie-card\">
             <div class=\"movie-header\"
