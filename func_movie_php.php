@@ -38,7 +38,7 @@
                         <span class=\"fa fa-star checked\"></span>
                         <span class=\"fa fa-star checked\"></span>
                         <span class=\"fa fa-star\"></span>
-                        <span> (30)</span>
+                        <span>".smGetCountRate($id)."</span>
                     </div>
                 </div><!--movie-content-header-->
 
