@@ -5,6 +5,7 @@
         $movieBackground = smGetMovieBackground($id);
         $movieDescription = smGetMovieDescription($id);
         $movieDate = smGetMovieDate($id);
+        $movieRate = pmBayesianRating($id);
 
         //Hack img incoming
         if (strlen($movieBackground) == 8) {
@@ -54,7 +55,7 @@
 
                     <div class=\"info-section\">
                         <label>Rating</label>
-                        <span style=\"font-size: 70%;\">4.1</span>
+                        <span style=\"font-size: 70%;\">".$movieRate."</span>
                     </div>
 
                 </div><!-- movie-info-->
@@ -64,4 +65,31 @@
         return $return;
     }
 
+    function pmBayesianRating($id){
+        //Comprobamos si ya tenemos valores en la session.
+        if(isset($_SESSION['numberMovies']) AND isset($_SESSION['avgAllMovies'])){
+            //Recuperamos los valores;
+            $numberMovies = $_SESSION['numberMovies'];
+            $avgAllMovies = $_SESSION['avgAllMovies'];
+        } else {
+            $numberMovies = smGetNumberMovies();
+
+            $rate = 0;
+            for($x = 1; $x <= $numberMovies; $x++){
+                $rate = smGetAvgRateMovie($x);
+            }
+            $avgAllMovies = $rate/$numberMovies;
+
+            //Guardamos en la session
+            $_SESSION['numberMovies'] = $numberMovies;
+            $_SESSION['avgAllMovies'] = $avgAllMovies;
+        }
+
+        $numberRateID = smGetCountRate($id);
+        $avgRateID = smGetAvgRateMovie($id);
+
+        $bayesian = ($numberMovies*$avgAllMovies + $numberRateID*$avgRateID)/($numberMovies + $numberRateID);
+
+        return $bayesian;
+    }
 ?>
