@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="">
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta charset="utf-8">
     <title>Dashboard - Tuxflix</title>
-    <meta name="description" content="dashboard-tuxflix">
-    <meta name="author" content="Ranii">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="svg+xml" href="img/tuxflix_logo.svg">
+    <meta content="dashboard-tuxflix" name="description">
+    <meta content="Ranii" name="author">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="img/tuxflix_logo.svg" rel="icon" type="svg+xml">
 
     <!-- my css -->
-    <link rel="stylesheet" href="css/dashboard.css">
+    <link href="css/dashboard.css" rel="stylesheet">
 
     <!-- Boostrap 4 -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Fontawesome -->
-    <link rel="stylesheet" href="css/all.min.css">
+    <link href="css/all.min.css" rel="stylesheet">
 
     <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -25,17 +25,71 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-md navbar-light fixed-top bg-white" style="padding-left: 30px;">
-    <a class="navbar-brand" href="dashboard.php"><img class="d-inline-block align-top" src="img/tuxflix_logo+text.svg"
-                                                      alt="tuxflix" width="120" height="45"></a>
+<nav class="navbar navbar-expand-md navbar-light fixed-top bg-white ">
+    <a class="navbar-brand navbar-tuxflix" href="dashboard.php"><img alt="tuxflix" class="d-inline-block align-top"
+                                                                     height="45" src="img/tuxflix_logo+text.svg"
+                                                                     width="120"></a>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
-            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <button aria-controls="navbarsLinks" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
+            data-target="#navbarsLinks" data-toggle="collapse" type="button">
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <div class="left-navbar">
+
+        <!-- Buttons
+        <button type="button" class="btn btn-outline-info" onclick="location.href = 'login.php';" id="signInButton">Sign in</button>
+        <button type="button" class="btn btn-outline-secondary" onclick="location.href = 'register.php';" id="registerButton">Join us</button>
+        Buttons -->
+
+        <!-- User Panel
         <ul class="navbar-nav mr-auto">
+            <li class="dropdown">
+                <a class="dropdown-toggle text-dark" data-toggle="dropdown" href="#">
+                    <span class="fas fa-user"></span> 
+                    <b>Username</b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <div class="navbar-login">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <p class="text-center">
+                                        <span class="fas fa-user icon-size"></span>
+                                    </p>
+                                </div>
+                                <div class="col-lg-8">
+                                    <p class="text-left"><strong>Nombre Apellido</strong></p>
+                                    <p class="text-left small">correoElectronico@email.com</p>
+                                    <p class="text-left">
+                                        <a class="btn btn-primary btn-block btn-sm" href="#">Actualizar Datos</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <div class="navbar-login navbar-login-session">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <p>
+                                        <a class="btn btn-danger btn-block" href="#">Cerrar Sesion</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        User Panel -->
+
+    </div>
+
+    <!-- NavBar Links -->
+    <div class="collapse navbar-collapse" id="navbarsLinks">
+        <ul class="navbar-nav ml-auto navbar-links">
             <li class="nav-item active">
                 <a class="nav-link" href="#"><b>Home</b> <span class="sr-only">(current)</span></a>
             </li>
@@ -53,78 +107,10 @@
             </li>
         </ul>
 
-        <!-- Search Bar -->
-        <!--<form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>-->
-
-
         <form class="form-inline md-form form-sm">
-            <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search">
-            <i class="fas fa-search" aria-hidden="true"></i>
+            <input aria-label="Search" class="form-control form-control-sm mr-3 w-75" placeholder="Search" type="text">
+            <i aria-hidden="true" class="fas fa-search"></i>
         </form>
-
-        <!-- TEST 1
-        <div class="left-navbar" style="margin-left: 20px; margin-right: 70px;">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#"><b>Username</b> <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">Settings</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdown01">
-                        <a class="dropdown-item" href="#">Configuration</a>
-                        <a class="dropdown-item" href="#">Contact support</a>
-                        <a class="dropdown-item" href="#">Sign out</a>
-                    </div>
-                </li>
-            </ul>
-        </div> -->
-        <div class="left-navbar" style="margin-left: 10px; margin-right: 250px;">
-            <ul class="navbar-nav mr-auto">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle text-dark" data-toggle="dropdown">
-                        <span class="fas fa-user"></span> 
-                        <b>Username</b>
-                        <!--<span class="fas fa-chevron-down"></span>-->
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <div class="navbar-login">
-                                <div class="row">
-                                    <div class="col-lg-4">
-                                        <p class="text-center">
-                                            <span class="fas fa-user icon-size"></span>
-                                        </p>
-                                    </div>
-                                    <div class="col-lg-8">
-                                        <p class="text-left"><strong>Nombre Apellido</strong></p>
-                                        <p class="text-left small">correoElectronico@email.com</p>
-                                        <p class="text-left">
-                                            <a href="#" class="btn btn-primary btn-block btn-sm">Actualizar Datos</a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <div class="navbar-login navbar-login-session">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <p>
-                                            <a href="#" class="btn btn-danger btn-block">Cerrar Sesion</a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
 
     </div>
 </nav>
@@ -141,114 +127,235 @@
         </div>
     </div>
 
-    <div class="container">
-        <!-- Example row of columns -->
-        <div class="row" style="margin-top: 40px;">
-            <div class="col-md-3">
-                <h2>Heading</h2>
-                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
-                    mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna
-                    mollis euismod. Donec sed odio dui. </p>
-                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+    <div class="row" style="margin-right: 0px;margin-left: 0px;">
+        <div class="movie-card">
+            <div class="movie-header manOfSteel">
+                <div class="header-icon-container">
+                    <a href="#">
+                        <i class="fa fa-info header-icon"></i>
+                    </a>
+                </div>
+            </div><!--movie-header-->
+
+            <div class="movie-content">
+                <div class="movie-content-header">
+                    <a href="#">
+                        <h3 class="movie-title">Man of Steel</h3>
+                    </a>
+                    <div class="imax-logo"></div>
+                </div>
+                <div class="movie-info">
+                    <div class="info-section">
+                        <label>Date & Time</label>
+                        <span>Sun 8 Sept - 10:00PM</span>
+                    </div><!--date,time-->
+                    <div class="info-section">
+                        <label>Screen</label>
+                        <span>03</span>
+                    </div><!--screen-->
+                    <div class="info-section">
+                        <label>Row</label>
+                        <span>F</span>
+                    </div><!--row-->
+                    <div class="info-section">
+                        <label>Seat</label>
+                        <span>21,22</span>
+                    </div><!--seat-->
+                </div>
+            </div><!--movie-content-->
+        </div><!--movie-card-->
+
+        <div class="movie-card">
+            <div class="movie-header babyDriver">
+                <div class="header-icon-container">
+                    <a href="#">
+                        <i class="fa fa-info header-icon"></i>
+                    </a>
+                </div>
+            </div><!--movie-header-->
+            <div class="movie-content">
+                <div class="movie-content-header">
+                    <a href="#">
+                        <h3 class="movie-title">Baby Driver</h3>
+                    </a>
+                    <div class="imax-logo"></div>
+                </div>
+                <div class="movie-info">
+                    <div class="info-section">
+                        <label>Date & Time</label>
+                        <span>Tue 4 July - 05:00PM</span>
+                    </div><!--date,time-->
+                    <div class="info-section">
+                        <label>Screen</label>
+                        <span>01</span>
+                    </div><!--screen-->
+                    <div class="info-section">
+                        <label>Row</label>
+                        <span>H</span>
+                    </div><!--row-->
+                    <div class="info-section">
+                        <label>Seat</label>
+                        <span>15</span>
+                    </div><!--seat-->
+                </div>
+            </div><!--movie-content-->
+        </div><!--movie-card-->
+
+        <div class="movie-card">
+            <div class="movie-header theDarkTower">
+                <div class="header-icon-container">
+                    <a href="#">
+                        <i class="fa fa-info header-icon"></i>
+                    </a>
+                </div>
+            </div><!--movie-header-->
+            <div class="movie-content">
+                <div class="movie-content-header">
+                    <a href="#">
+                        <h3 class="movie-title">The Dark Tower</h3>
+                    </a>
+                    <div class="imax-logo"></div>
+                </div>
+                <div class="movie-info">
+                    <div class="info-section">
+                        <label>Date & Time</label>
+                        <span>Wed 16 Aug - 07:00PM</span>
+                    </div><!--date,time-->
+                    <div class="info-section">
+                        <label>Screen</label>
+                        <span>06</span>
+                    </div><!--screen-->
+                    <div class="info-section">
+                        <label>Row</label>
+                        <span>C</span>
+                    </div><!--row-->
+                    <div class="info-section">
+                        <label>Seat</label>
+                        <span>18</span>
+                    </div><!--seat-->
+                </div>
+            </div><!--movie-content-->
+        </div><!--movie-card-->
+
+        <div class="movie-card">
+            <div class="movie-header bladeRunner2049">
+                <div class="header-icon-container">
+                    <a href="#">
+                        <i class="fa fa-info header-icon"></i>
+                    </a>
+                </div>
+            </div><!--movie-header-->
+            <div class="movie-content">
+                <div class="movie-content-header">
+                    <a href="#">
+                        <h3 class="movie-title">Blade Runner 2049</h3>
+                    </a>
+                    <div class="imax-logo"></div>
+                </div>
+                <div class="movie-info">
+                    <div class="info-section">
+                        <label>Date & Time</label>
+                        <span>Mon 16 Oct - 10:00PM</span>
+                    </div><!--date,time-->
+                    <div class="info-section">
+                        <label>Screen</label>
+                        <span>06</span>
+                    </div><!--screen-->
+                    <div class="info-section">
+                        <label>Row</label>
+                        <span>D</span>
+                    </div><!--row-->
+                    <div class="info-section">
+                        <label>Seat</label>
+                        <span>05,06</span>
+                    </div><!--seat-->
+                </div>
+            </div><!--movie-content-->
+        </div><!--movie-card-->
+
+        <div class="movie-card">
+            <div class="movie-header theDarkTower">
+                <div class="header-icon-container">
+                    <a href="#">
+                        <i class="fa fa-info header-icon"></i>
+                    </a>
+                </div>
+            </div><!--movie-header-->
+            <div class="movie-content">
+                <div class="movie-content-header">
+                    <a href="#">
+                        <h3 class="movie-title">The Dark Tower</h3>
+                    </a>
+                    <div class="imax-logo"></div>
+                </div>
+                <div class="movie-info">
+                    <div class="info-section">
+                        <label>Date & Time</label>
+                        <span>Wed 16 Aug - 07:00PM</span>
+                    </div><!--date,time-->
+                    <div class="info-section">
+                        <label>Screen</label>
+                        <span>06</span>
+                    </div><!--screen-->
+                    <div class="info-section">
+                        <label>Row</label>
+                        <span>C</span>
+                    </div><!--row-->
+                    <div class="info-section">
+                        <label>Seat</label>
+                        <span>18</span>
+                    </div><!--seat-->
+                </div>
+            </div><!--movie-content-->
+        </div><!--movie-card-->
+
+
+        <!-- Template movie card
+        <div class="movie-card">
+            <div class="movie-header"
+                 style="background: url(3-Walmart-Superman-a.jpg); background-size: cover;">
+                <div class="header-icon-container">
+                    <a href="movie.php">
+                        <i class="fa fa-info header-icon"></i>
+                    </a>
+                </div>
             </div>
-            <div class="col-md-3">
-                <h2>Heading</h2>
-                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
-                    mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna
-                    mollis euismod. Donec sed odio dui. </p>
-                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-            </div>
-            <div class="col-md-3">
-                <h2>Heading</h2>
-                <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula
-                    porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-                    ut fermentum massa justo sit amet risus.</p>
-                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-            </div>
-            <div class="col-md-3">
-                <h2>Heading</h2>
-                <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula
-                    porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-                    ut fermentum massa justo sit amet risus.</p>
-                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+
+            <div class="movie-content">
+                <div class="movie-content-header">
+                    <a href="#">
+                        <h3 class="movie-title">Man of Steel</h3>
+                    </a>
+                    <div class="imax-logo"></div>
+                </div>
+                <div class="movie-info">
+                    <div class="info-section">
+                        <label>Date & Time</label>
+                        <span>Sun 8 Sept - 10:00PM</span>
+                    </div>
+                    <div class="info-section">
+                        <label>Screen</label>
+                        <span>03</span>
+                    </div>
+                    <div class="info-section">
+                        <label>Row</label>
+                        <span>F</span>
+                    </div>
+                    <div class="info-section">
+                        <label>Seat</label>
+                        <span>21,22</span>
+                    </div>
+                </div>
             </div>
         </div>
+        -->
 
-        <hr>
-
-        <div class="row" style="margin-top: 40px;">
-            <div class="col-md-3">
-                <h2>Heading</h2>
-                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
-                    mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna
-                    mollis euismod. Donec sed odio dui. </p>
-                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-            </div>
-            <div class="col-md-3">
-                <h2>Heading</h2>
-                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
-                    mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna
-                    mollis euismod. Donec sed odio dui. </p>
-                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-            </div>
-            <div class="col-md-3">
-                <h2>Heading</h2>
-                <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula
-                    porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-                    ut fermentum massa justo sit amet risus.</p>
-                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-            </div>
-            <div class="col-md-3">
-                <h2>Heading</h2>
-                <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula
-                    porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-                    ut fermentum massa justo sit amet risus.</p>
-                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-            </div>
-        </div>
-
-        <hr>
-
-        <div class="row" style="margin-top: 40px; margin-bottom: 20px;">
-            <div class="col-md-3">
-                <h2>Heading</h2>
-                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
-                    mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna
-                    mollis euismod. Donec sed odio dui. </p>
-                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-            </div>
-            <div class="col-md-3">
-                <h2>Heading</h2>
-                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
-                    mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna
-                    mollis euismod. Donec sed odio dui. </p>
-                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-            </div>
-            <div class="col-md-3">
-                <h2>Heading</h2>
-                <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula
-                    porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-                    ut fermentum massa justo sit amet risus.</p>
-                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-            </div>
-            <div class="col-md-3">
-                <h2>Heading</h2>
-                <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula
-                    porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-                    ut fermentum massa justo sit amet risus.</p>
-                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-            </div>
-        </div>
-
-        <hr>
-
-    </div> <!-- /container -->
-
+    </div>
 </main>
 
 <footer class="footer">
-    <div class="container">
-        <span class="text-muted">Place sticky footer content here.</span>
+    <div class="sticky-footer text-center">
+        <span class="text-muted">See you on my Github! <a href="#"><i class="fab fa-github"></i> Raniita</a></span>
     </div>
 </footer>
 
