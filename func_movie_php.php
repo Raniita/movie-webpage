@@ -33,7 +33,7 @@
                         <h3 class=\"movie-title\">" . $movieName . "</h3>
                     </a>
                     <div class=\"info-section\">
-                        ".pmGenerateStarRating($id)."
+                        ".pmGenerateStarRating($movieRate)."
                         <span>".smGetCountRate($id)."</span>
                     </div>
                 </div><!--movie-content-header-->
