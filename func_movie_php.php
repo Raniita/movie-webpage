@@ -67,19 +67,20 @@
 
     function pmBayesianRating($id){
         //Comprobamos si ya tenemos valores en la session.
-        if(isset($_SESSION['numberMovies']) AND isset($_SESSION['avgAllMovies'])){
+        /*if(isset($_SESSION['numberMovie']) AND isset($_SESSION['avgAllMovie'])){
             //Recuperamos los valores;
             $numberMovies = $_SESSION['numberMovies'];
             $avgAllMovies = $_SESSION['avgAllMovies'];
         } else {
-            $numberMovies = smGetNumberMovies();
-            $avgAllMovies = smGetAvgRateAllMovies();
-
             //Guardamos en la session
-            $_SESSION['numberMovies'] = $numberMovies;
-            $_SESSION['avgAllMovies'] = $avgAllMovies;
-        }
+            $_SESSION['numberMovie'] = smGetNumberMovies();
+            $_SESSION['avgAllMovie'] = smGetAvgRateAllMovies();
+            $numberMovies = $_SESSION['numberMovie'];
+            $avgAllMovies = $_SESSION['avgAllMovie'];
+        }*/
 
+        $numberMovies = smGetNumberMovies();
+        $avgAllMovies = smGetAvgRateAllMovies();
         $numberRateID = smGetCountRate($id);
         $avgRateID = smGetAvgRateMovie($id);
 
