@@ -80,31 +80,31 @@
                         <span class=\"fa fa-star\"></span>
                         <span class=\"fa fa-star\"></span>
                         <span class=\"fa fa-star\"></span>";
-        } elseif ($rating> 0 OR $rating <=1){
+        } elseif ($rating> 0 AND $rating <=1){
             $return = "<span class=\"fa fa-star\"></span>
                         <span class=\"fa fa-star\"></span>
                         <span class=\"fa fa-star\"></span>
                         <span class=\"fa fa-star\"></span>
                         <span class=\"fa fa-star\"></span>";
-        } elseif ($rating>1 OR $rating<=2){
+        } elseif ($rating>1 AND $rating<=2){
             $return = "<span class=\"fa fa-star checked\"></span>
                         <span class=\"fa fa-star\"></span>
                         <span class=\"fa fa-star\"></span>
                         <span class=\"fa fa-star\"></span>
                         <span class=\"fa fa-star\"></span>";
-        } elseif ($rating>2 OR $rating<=3){
+        } elseif ($rating>2 AND $rating<=3){
             $return = "<span class=\"fa fa-star checked\"></span>
                         <span class=\"fa fa-star checked\"></span>
                         <span class=\"fa fa-star\"></span>
                         <span class=\"fa fa-star\"></span>
                         <span class=\"fa fa-star\"></span>";
-        } elseif ($rating>3 OR $rating<=4){
+        } elseif ($rating>3 AND $rating<=4){
             $return = "<span class=\"fa fa-star checked\"></span>
                         <span class=\"fa fa-star checked\"></span>
                         <span class=\"fa fa-star checked\"></span>
                         <span class=\"fa fa-star\"></span>
                         <span class=\"fa fa-star\"></span>";
-        } elseif ($rating>4 OR $rating<5){
+        } elseif ($rating>4 AND $rating<5){
             $return = "<span class=\"fa fa-star checked\"></span>
                         <span class=\"fa fa-star checked\"></span>
                         <span class=\"fa fa-star checked\"></span>
