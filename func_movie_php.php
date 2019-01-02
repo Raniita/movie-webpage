@@ -1,6 +1,10 @@
 <?php
 
     function pmGenerateMovieCard($id) {
+        $movieName = smGetMovieName($id);
+        $movieBackground = "movie-images/".smGetMovieBackground($id);
+        $movieDescription = smGetMovieDescription($id);
+        $movieDate = smGetMovieDate($id);
 
         //GetMovieName
         //GetMovieBackground
@@ -12,7 +16,7 @@
 
         $return = "<div class=\"movie-card\">
             <div class=\"movie-header\"
-                 style=\"background: url(http://henrycavill.org/images/Films/2013-Man-of-Steel/posters/3-Walmart-Superman-a.jpg);
+                 style=\"background: url(".$movieBackground.");
                         background-size: cover;\">
                 <div class=\"header-icon-container\">
                     <a href=\"#\">
@@ -24,7 +28,7 @@
             <div class=\"movie-content\">
                 <div class=\"movie-content-header\">
                     <a href=\"#\">
-                        <h3 class=\"movie-title\">Man of Steel</h3>
+                        <h3 class=\"movie-title\">".$movieName."</h3>
                     </a>
                     <div class=\"info-section\">
                         <span class=\"fa fa-star checked\"></span>
@@ -39,12 +43,12 @@
                 <div class=\"movie-info\">
                     <div class=\"info-section\">
                         <label>Description</label>
-                        <span class=\"text-justify\" style=\"font-size: 60%;\">A cowboy doll is profoundly threatened and jealous when a new spaceman figure supplants him as top toy in a boy's room.</span>
+                        <span class=\"text-justify\" style=\"font-size: 60%;\">".$movieDescription."</span>
                     </div>
 
                     <div class=\"info-section\">
                         <label>Date</label>
-                        <span>1995-01-01</span>
+                        <span>".$movieDate."</span>
                     </div>
 
                     <div class=\"info-section\">

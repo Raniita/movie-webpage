@@ -122,7 +122,7 @@
                                 </div>
                                 <div class=\"col-lg-8\">
                                     <p class=\"text-left\"><strong>".$name."</strong></p>
-                                    <p class=\"text-left small\">correoElectronico@email.com</p>
+                                    <!--<p class=\"text-left small\">correoElectronico@email.com</p>-->
                                     <p class=\"text-left\">
                                         <a class=\"btn btn-primary btn-block btn-sm\" href=\"settings.php\">User Settings</a>
                                     </p>

@@ -111,6 +111,10 @@
 
     <div class="row" style="margin-right: 0px;margin-left: 0px;">
 
+        <?php
+            echo pmGenerateMovieCard(1);
+        ?>
+
         <div class="movie-card">
             <div class="movie-header"
                  style="background: url(http://henrycavill.org/images/Films/2013-Man-of-Steel/posters/3-Walmart-Superman-a.jpg);
