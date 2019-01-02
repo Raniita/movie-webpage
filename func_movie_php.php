@@ -85,6 +85,6 @@
 
         $bayesian = ($numberMovies*$avgAllMovies + $numberRateID*$avgRateID)/($numberMovies + $numberRateID);
 
-        return $bayesian;
+        return round($bayesian,2);
     }
 ?>
