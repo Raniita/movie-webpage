@@ -75,7 +75,7 @@
         $result = $connect->query($query);
 
         if($result->num_rows==0){
-            $return = 'KO';
+            $return['description'] = ' ';
         } else {
             while($row = $result->fetch_assoc()){
                 $return = $row;
