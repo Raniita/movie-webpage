@@ -21,6 +21,7 @@
 
     //Procesamos la query de movie
     if(isset($_GET['movie'])){
+        echo "ha llegado el get";
         $movieEncoded = pgSecureCheck($_GET['movie']);
         $movieDecoded = pgEncodeDecode($movieEncoded, 0);
         $idMovie = substr($movieDecoded,0,5);
@@ -40,6 +41,7 @@
 
     <!-- my css -->
     <link rel="stylesheet" href="css/main.css">
+    <link href="css/movie-card.css" rel="stylesheet">
 
     <!-- Boostrap 4 -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
