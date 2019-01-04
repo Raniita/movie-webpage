@@ -7,6 +7,9 @@
         $movieDate = smGetMovieDate($id);
         $movieRate = pmBayesianRating($id);
 
+        //creamos el link
+        $movieLink = 'movie.php?movie='.pgEncodeDecode($id.'movie',1);
+
         //Hack img incoming
         if (strlen($movieBackground) == 8) {
             //No tiene caratula
@@ -29,7 +32,7 @@
 
             <div class=\"movie-content\">
                 <div class=\"movie-content-header\">
-                    <a href=\"#\">
+                    <a href=\"".$movieLink."\">
                         <h3 class=\"movie-title\">" . $movieName . "</h3>
                     </a>
                     <div class=\"info-section\">

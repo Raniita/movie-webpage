@@ -100,7 +100,7 @@
         }
     }
 
-    function pgShowUserBar($id,$name) {
+    function pgShowUserBar($id, $name) {
         //TODO
         //Image user
         $return = '';
@@ -108,7 +108,7 @@
                     <li class=\"dropdown\">
                         <a class=\"dropdown-toggle text-dark\" data-toggle=\"dropdown\" href=\"#\">
                             <span class=\"fas fa-user\"></span> 
-                            <b>".$name."</b>
+                            <b>" . $name . "</b>
                         </a>
                    <ul class=\"dropdown-menu\">
                     <li>
@@ -121,7 +121,7 @@
                                     </p>
                                 </div>
                                 <div class=\"col-lg-8\">
-                                    <p class=\"text-left\"><strong>".$name."</strong></p>
+                                    <p class=\"text-left\"><strong>" . $name . "</strong></p>
                                     <!--<p class=\"text-left small\">correoElectronico@email.com</p>-->
                                     <p class=\"text-left\">
                                         <a class=\"btn btn-primary btn-block btn-sm\" href=\"settings.php\">User Settings</a>
@@ -153,6 +153,60 @@
         $return = '';
         $return = "<button type=\"button\" class=\"btn btn-outline-info\" onclick=\"location.href = 'login.php';\" id=\"signInButton\">Sign in</button>
                  <button type=\"button\" class=\"btn btn-outline-secondary\" onclick=\"location.href = 'register.php';\" id=\"registerButton\">Join us</button>";
+
+        return $return;
+    }
+
+    function pgShowNavbar($logged, $id, $name) {
+        $return = '';
+        $return = "<nav class=\"navbar navbar-expand-md navbar-light fixed-top bg-white \">
+    <a class=\"navbar-brand navbar-tuxflix\" href=\"dashboard.php\"><img alt=\"tuxflix\" class=\"d-inline-block align-top\"
+                                                                     height=\"45\" src=\"img/tuxflix_logo+text.svg\"
+                                                                     width=\"120\"></a>
+
+    <button aria-controls=\"navbarsLinks\" aria-expanded=\"false\" aria-label=\"Toggle navigation\" class=\"navbar-toggler\"
+            data-target=\"#navbarsLinks\" data-toggle=\"collapse\" type=\"button\">
+        <span class=\"navbar-toggler-icon\"></span>
+    </button>
+
+    <div class=\"left-navbar\">";
+
+        if ($logged == true) {
+            $return = $return.pgShowUserBar($id, $name);
+        } else {
+            $return = $return.pgShowButtonsNavbar();
+        }
+
+        $return = $return ."
+        </div >
+
+    <!--NavBar Links-->
+    <div class=\"collapse navbar-collapse\" id=\"navbarsLinks\">
+        <ul class=\"navbar-nav ml-auto navbar-links\">
+            <li class=\"nav-item active\">
+                <a class=\"nav-link\" href=\"#\"><b>Home</b> <span class=\"sr-only\">(current)</span></a>
+            </li>
+
+            <li class=\"nav-item\">
+                <a class=\"nav-link\" href=\"#\">Link</a>
+            </li>
+
+            <li class=\"nav-item\">
+                <a class=\"nav-link\" href=\"#\">Link 2</a>
+            </li>
+
+            <li class=\"nav-item\">
+                <a class=\"nav-link\" href=\"#\">Link 3</a>
+            </li>
+        </ul>
+
+        <form class=\"form-inline md-form form-sm\">
+            <input aria-label=\"Search\" class=\"form-control form-control-sm mr-3 w-75\" placeholder=\"Search\" type=\"text\">
+            <i aria-hidden=\"true\" class=\"fas fa-search\"></i>
+        </form>
+
+    </div>
+</nav>";
 
         return $return;
     }

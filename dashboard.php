@@ -19,7 +19,6 @@
         }
     }
 
-
 ?>
 <!DOCTYPE html>
 <html lang="">
@@ -49,53 +48,9 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-md navbar-light fixed-top bg-white ">
-    <a class="navbar-brand navbar-tuxflix" href="dashboard.php"><img alt="tuxflix" class="d-inline-block align-top"
-                                                                     height="45" src="img/tuxflix_logo+text.svg"
-                                                                     width="120"></a>
-
-    <button aria-controls="navbarsLinks" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
-            data-target="#navbarsLinks" data-toggle="collapse" type="button">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="left-navbar">
-        <?php
-            if ($logged == true) {
-                echo pgShowUserBar($id, $name);
-            } else {
-                echo pgShowButtonsNavbar();
-            }
-        ?>
-    </div>
-
-    <!-- NavBar Links -->
-    <div class="collapse navbar-collapse" id="navbarsLinks">
-        <ul class="navbar-nav ml-auto navbar-links">
-            <li class="nav-item active">
-                <a class="nav-link" href="#"><b>Home</b> <span class="sr-only">(current)</span></a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link 2</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link 3</a>
-            </li>
-        </ul>
-
-        <form class="form-inline md-form form-sm">
-            <input aria-label="Search" class="form-control form-control-sm mr-3 w-75" placeholder="Search" type="text">
-            <i aria-hidden="true" class="fas fa-search"></i>
-        </form>
-
-    </div>
-</nav>
+<?php
+    echo pgShowNavbar($logged, $id, $name);
+?>
 
 <main role="main">
     <!-- Main jumbotron for a primary marketing message or call to action -->
