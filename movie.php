@@ -20,11 +20,11 @@
     }
 
     //Procesamos la query de movie
-    if(isset($_GET['movie'])){
-        echo "ha llegado el get";
+    if (isset($_GET['movie'])) {
+        echo "ha llegado el get    ";
         $movieEncoded = pgSecureCheck($_GET['movie']);
         $movieDecoded = pgEncodeDecode($movieEncoded, 0);
-        $idMovie = substr($movieDecoded,0,5);
+        $idMovie = substr($movieDecoded, 0, -5);
         echo $idMovie;
     }
 ?>
@@ -40,7 +40,7 @@
     <link rel="icon" type="svg+xml" href="img/tuxflix_logo.svg">
 
     <!-- my css -->
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/dashboard.css">
     <link href="css/movie-card.css" rel="stylesheet">
 
     <!-- Boostrap 4 -->
