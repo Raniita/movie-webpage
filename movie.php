@@ -12,20 +12,17 @@
         $state = pgCheckSession();
         if ($state == 'OK!') {
             $logged = true;
-            $id = $_SESSION['id'];
+            $idUser = $_SESSION['id'];
             $name = $_SESSION['name'];
         } else {
             $logged = false;
         }
     }
 
-    //Procesamos la query de movie
     if (isset($_GET['movie'])) {
-        echo "ha llegado el get    ";
         $movieEncoded = pgSecureCheck($_GET['movie']);
         $movieDecoded = pgEncodeDecode($movieEncoded, 0);
         $idMovie = substr($movieDecoded, 0, -5);
-        echo $idMovie;
     }
 ?>
 <!DOCTYPE html>
@@ -57,8 +54,18 @@
 <body>
 
 <?php
-    echo pgShowNavbar($logged, $id, $name);
+    echo pgShowNavbar($logged, $idUser, $name);
 ?>
+
+<main role="main">
+    <div class="row">
+        <p>
+            <?php
+                echo "movieId".$idMovie;
+            ?>
+        </p>
+    </div>
+</main>
 
 
 <!-- SCRIPTS -->
