@@ -24,7 +24,7 @@
                  style=\"background: url(" . $moviePoster . ");
                         background-size: cover;\">
                 <div class=\"header-icon-container\">
-                    <a href=\"#\">
+                    <a href=\"".$movieLink."\">
                         <i class=\"fa fa-info header-icon\"></i>
                     </a>
                 </div>

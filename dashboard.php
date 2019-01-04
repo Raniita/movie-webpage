@@ -12,8 +12,8 @@
         $state = pgCheckSession();
         if ($state == 'OK!') {
             $logged = true;
-            $id = $_SESSION['id'];
-            $name = $_SESSION['name'];
+            $idUser = $_SESSION['id'];
+            $nameUser = $_SESSION['name'];
         } else {
             $logged = false;
         }
@@ -49,7 +49,7 @@
 <body>
 
 <?php
-    echo pgShowNavbar($logged, $id, $name);
+    echo pgShowNavbar($logged, $idUser, $nameUser);
 ?>
 
 <main role="main">

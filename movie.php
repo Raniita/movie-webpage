@@ -13,15 +13,15 @@
         if ($state == 'OK!') {
             $logged = true;
             $idUser = $_SESSION['id'];
-            $name = $_SESSION['name'];
+            $nameUser = $_SESSION['name'];
         } else {
             $logged = false;
         }
     }
 
     if (isset($_GET['movie'])) {
-        $movieEncoded = pgSecureCheck($_GET['movie']);
-        $movieDecoded = pgEncodeDecode($movieEncoded, 0);
+        $movieDecoded = pgEncodeDecode($_GET['movie'],0);
+        $movieSecure = pgSecureCheck($movieDecoded);
         $idMovie = substr($movieDecoded, 0, -5);
     }
 ?>
@@ -30,8 +30,8 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
-    <title>$Movie - Tuxflix</title>
-    <meta name="description" content="$Movie - Tuxflix">
+    <title><?php echo smGetMovieName($idMovie);?> - Tuxflix</title>
+    <meta name="description" content="<?php echo smGetMovieName($idMovie);?> - Tuxflix">
     <meta name="author" content="Ranii">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="svg+xml" href="img/tuxflix_logo.svg">
@@ -54,7 +54,7 @@
 <body>
 
 <?php
-    echo pgShowNavbar($logged, $idUser, $name);
+    echo pgShowNavbar($logged, $idUser, $nameUser);
 ?>
 
 <main role="main">
