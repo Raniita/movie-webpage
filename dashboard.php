@@ -181,7 +181,7 @@
 
 <footer class="footer">
     <div class="sticky-footer text-center">
-        <span class="text-muted">See you on my Github! <a href="#"><i class="fab fa-github"></i> Raniita</a></span>
+        <span class="text-muted">See you on my Github! <a href="#"> <i class="fab fa-github"></i> Raniita</a></span>
     </div>
 </footer>
 
