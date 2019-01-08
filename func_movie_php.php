@@ -6,6 +6,7 @@
         $movieDescription = smGetMovieDescription($id);
         $movieDate = smGetMovieDate($id);
         $movieRate = pmBayesianRating($id);
+        $movieAvgRate = smGetAvgRateMovie($id);
 
         //creamos el link
         $movieLink = 'movie.php?movie='.pgEncodeDecode($id.'movie',1);
@@ -52,6 +53,11 @@
                         <span>" . $movieDate . "</span>
                     </div>
 
+                    <div class=\"info-section\">
+                        <label>Avg Rating</label>
+                        <span style=\"font-size: 70%;\">".$movieAvgRate."</span>
+                    </div>
+                    
                     <div class=\"info-section\">
                         <label>Rating</label>
                         <span style=\"font-size: 70%;\">".$movieRate."</span>
