@@ -87,7 +87,7 @@
 
     function smGetMovieListRating(){
         $connect = sgConnectDB();
-        $query = "SELECT id FROM (SELECT id_movie as id, avg(score) as avg_rate FROM user_score WHERE id_movie IN(SELECT id FROM movie)GROUP BY id_movie) AS avgTable1 ORDER BY avg_rate DESC";
+        $query = "SELECT id,avg_rate FROM (SELECT id_movie as id, avg(score) as avg_rate FROM user_score WHERE id_movie IN(SELECT id FROM movie)GROUP BY id_movie) AS avgTable1 ORDER BY avg_rate DESC";
         $result = $connect->query($query);
 
         if($result->num_rows==0){
