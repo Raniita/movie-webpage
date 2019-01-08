@@ -100,7 +100,7 @@ echo pgShowNavbar($logged, $idUser, $nameUser);
     </div><!--row-->
 
     <?php
-    $url = $_SERVER['REQUEST_URI'];
+    $url = 'movie.ranii.pro?pag=';
 
     if ($pag == $numPag) {
         $nextLink = $url;
