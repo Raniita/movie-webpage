@@ -36,8 +36,7 @@
     }
 
     if(isset($_GET['order'])){
-        $orderUnsecure = pgEncodeDecode($_GET['order'],0);
-        $orderSecure = pgSecureCheck($orderUnsecure);
+        $orderSecure = pgSecureCheck($_GET['order']);
         $_SESSION['order'] = $orderSecure;
 
     }
