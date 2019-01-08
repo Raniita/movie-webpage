@@ -1,46 +1,54 @@
 <?php
-session_start();
-include('func_gen_php.php');
-include('func_gen_sql.php');
-include('func_movie_php.php');
-include('func_movie_sql.php');
+    session_start();
+    include('func_gen_php.php');
+    include('func_gen_sql.php');
+    include('func_movie_php.php');
+    include('func_movie_sql.php');
 
-$state = '';
-if (isset($_GET['logout'])) {
-    header('Location:login.php?logout');
-} else {
-    $state = pgCheckSession();
-    if ($state == 'OK!') {
-        $logged = true;
-        $idUser = $_SESSION['id'];
-        $nameUser = $_SESSION['name'];
+    $state = '';
+    if (isset($_GET['logout'])) {
+        header('Location:login.php?logout');
     } else {
-        $logged = false;
+        $state = pgCheckSession();
+        if ($state == 'OK!') {
+            $logged = true;
+            $idUser = $_SESSION['id'];
+            $nameUser = $_SESSION['name'];
+        } else {
+            $logged = false;
+        }
     }
-}
 
-$numMovies = smGetNumberMovies();
-$pagRows = 4;
-$moviesPerRow = 4;
-$numPag = ceil($numMovies / ($pagRows * $moviesPerRow));
+    $numMovies = smGetNumberMovies();
+    $pagRows = 4;
+    $moviesPerRow = 4;
+    $numPag = ceil($numMovies / ($pagRows * $moviesPerRow));
 
-if (isset($_GET['pag'])) {
-    $pagSecure = pgSecureCheck($_GET['pag']);
-    if ($pagSecure <= 0 OR $pagSecure > $numPag) {
+    if (isset($_GET['pag'])) {
+        $pagSecure = pgSecureCheck($_GET['pag']);
+        if ($pagSecure <= 0 OR $pagSecure > $numPag) {
+            $pag = 1;
+        } else {
+            $pag = $pagSecure;
+        }
+    } else {
         $pag = 1;
-    } else {
-        $pag = $pagSecure;
     }
-} else {
-    $pag = 1;
-}
 
-if(isset($_SESSION['order'])){
-    $order = $_SESSION['order'];
-} else {
-    $_SESSION['order'] = 'default';
-    $order = 'default';
-}
+    if(isset($_GET['order'])){
+        $orderUnsecure = pgEncodeDecode($_GET['order'],0);
+        $orderSecure = pgSecureCheck($orderUnsecure);
+        $_SESSION['order'] = $orderSecure;
+
+    }
+
+    if (isset($_SESSION['order'])) {
+        $order = $_SESSION['order'];
+    } else {
+        $_SESSION['order'] = 'default';
+        $order = 'default';
+    }
+
 
 ?>
 <!DOCTYPE html>
@@ -72,7 +80,7 @@ if(isset($_SESSION['order'])){
 <body>
 
 <?php
-echo pgShowNavbar($logged, $idUser, $nameUser);
+    echo pgShowNavbar($logged, $idUser, $nameUser);
 ?>
 
 <main role="main">
@@ -87,52 +95,63 @@ echo pgShowNavbar($logged, $idUser, $nameUser);
         </div>
     </div>
 
+    <div class="row" style="margin-right: 0px;margin-left: 30px;">
+        <a class="btn btn-secondary" href="?order=name" role="button"><i class="fas fa-sort"></i> Sort by Name</a>
+        <a class="btn btn-secondary" href="?order=rate" role="button" style="margin-left: 10px;"><i class="fas fa-sort-amount-down"></i> Sort by Ranking</a>
+    </div>
+
     <div class="row" style="margin-right: 0px;margin-left: 0px;">
 
         <?php
+            if ($order == 'rate') {
+                $movieList = smGetMovieListRating();
+            } elseif ($order == 'name') {
+                $movieList = smGetMovieListName();
+            } else {
+                $movieList = smGetMovieListDefault();
+            }
 
-        $movieList = smGetMovieListDefault();
-        if ($pag == 1) {
-            $init = 0;
-        } else {
-            $init = ($pagRows * $moviesPerRow - 1) * $pag;
-        }
-        $last = $init + ($pagRows * $moviesPerRow - 1);
-        $sliceMovieList = array_slice($movieList, $init, $last);
+            if ($pag == 1) {
+                $init = 0;
+            } else {
+                $init = ($pagRows * $moviesPerRow - 1) * $pag;
+            }
+            $last = $init + ($pagRows * $moviesPerRow - 1);
+            $sliceMovieList = array_slice($movieList, $init, $last);
 
-        foreach ($sliceMovieList as $idMovieList) {
-            echo pmGenerateMovieCard($idMovieList);
-        }
+            foreach ($sliceMovieList as $idMovieList) {
+                echo pmGenerateMovieCard($idMovieList);
+            }
         ?>
 
     </div><!--row-->
 
     <?php
-    $url = '?pag=';
+        $url = '?pag=';
 
-    if ($pag == $numPag) {
-        $nextLink = $url;
-    } else {
-        $nextLink = $url . ($pag + 1);
-    }
+        if ($pag == $numPag) {
+            $nextLink = $url;
+        } else {
+            $nextLink = $url . ($pag + 1);
+        }
 
-    if ($pag == 1) {
-        $prevLink = $url;
-    } else {
-        $prevLink = $url . ($pag - 1);
-    }
+        if ($pag == 1) {
+            $prevLink = $url;
+        } else {
+            $prevLink = $url . ($pag - 1);
+        }
 
-    $numLink1 = $pag + 1;
-    $link1 = $url . $numLink1;
+        $numLink1 = $pag + 1;
+        $link1 = $url . $numLink1;
 
-    $numLink2 = $pag + 2;
-    $link2 = $url . $numLink2;
+        $numLink2 = $pag + 2;
+        $link2 = $url . $numLink2;
 
-    $numLink3 = $numPag - 2;
-    $link3 = $url . $numLink3;
+        $numLink3 = $numPag - 2;
+        $link3 = $url . $numLink3;
 
-    $numLink4 = $numPag - 1;
-    $link4 = $url . $numLink4;
+        $numLink4 = $numPag - 1;
+        $link4 = $url . $numLink4;
     ?>
     <div class="row">
         <div class="pagination-box" style="text-align: center; margin: auto;">

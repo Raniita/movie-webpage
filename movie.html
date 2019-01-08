@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta charset="utf-8">
+    <title>Movie - Tuxflix</title>
+    <meta content="dashboard-tuxflix" name="description">
+    <meta content="Ranii" name="author">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="img/tuxflix_logo.svg" rel="icon" type="svg+xml">
+
+    <!-- my css -->
+    <link href="css/movie.css" rel="stylesheet">
+    <link href="css/movie-card.css" rel="stylesheet">
+
+    <!-- Boostrap 4 -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Fontawesome -->
+    <link href="css/all.min.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md navbar-light fixed-top bg-white ">
+    <a class="navbar-brand navbar-tuxflix" href="dashboard.php"><img alt="tuxflix" class="d-inline-block align-top"
+                                                                     height="45" src="img/tuxflix_logo+text.svg"
+                                                                     width="120"></a>
+
+    <button aria-controls="navbarsLinks" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
+            data-target="#navbarsLinks" data-toggle="collapse" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="left-navbar">
+
+        <!-- Buttons
+        <button type="button" class="btn btn-outline-info" onclick="location.href = 'login.php';" id="signInButton">Sign in</button>
+        <button type="button" class="btn btn-outline-secondary" onclick="location.href = 'register.php';" id="registerButton">Join us</button>
+        Buttons -->
+
+        <!-- User Panel
+        <ul class="navbar-nav mr-auto">
+            <li class="dropdown">
+                <a class="dropdown-toggle text-dark" data-toggle="dropdown" href="#">
+                    <span class="fas fa-user"></span> 
+                    <b>Username</b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <div class="navbar-login">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <p class="text-center">
+                                        <span class="fas fa-user icon-size"></span>
+                                    </p>
+                                </div>
+                                <div class="col-lg-8">
+                                    <p class="text-left"><strong>Nombre Apellido</strong></p>
+                                    <p class="text-left small">correoElectronico@email.com</p>
+                                    <p class="text-left">
+                                        <a class="btn btn-primary btn-block btn-sm" href="#">Actualizar Datos</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <div class="navbar-login navbar-login-session">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <p>
+                                        <a class="btn btn-danger btn-block" href="#">Cerrar Sesion</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        User Panel -->
+
+    </div>
+
+    <!-- NavBar Links -->
+    <div class="collapse navbar-collapse" id="navbarsLinks">
+        <ul class="navbar-nav ml-auto navbar-links">
+            <li class="nav-item active">
+                <a class="nav-link" href="#"><b>Home</b> <span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link 2</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link 3</a>
+            </li>
+        </ul>
+
+        <form class="form-inline md-form form-sm">
+            <input aria-label="Search" class="form-control form-control-sm mr-3 w-75" placeholder="Search" type="text">
+            <i aria-hidden="true" class="fas fa-search"></i>
+        </form>
+
+    </div>
+</nav>
+
+<main role="main">
+    <div class="container">
+
+
+
+
+
+        <!-- Test Avg rating -->
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="rating-block">
+                    <h4>Average user rating</h4>
+                    <h2 class="bold padding-bottom-7">4.3 <small>/ 5</small></h2>
+                    <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
+                        <span class="fas fa-star" aria-hidden="true"></span>
+                    </button>
+                    <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
+                        <span class="fas fa-star" aria-hidden="true"></span>
+                    </button>
+                    <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
+                        <span class="fas fa-star" aria-hidden="true"></span>
+                    </button>
+                    <button type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
+                        <span class="fas fa-star" aria-hidden="true"></span>
+                    </button>
+                    <button type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
+                        <span class="fas fa-star" aria-hidden="true"></span>
+                    </button>
+
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                <h4>Rating breakdown</h4>
+
+                <div class="float-left">
+                    <div class="float-left" style="width:35px; line-height:1;">
+                        <div style="height:9px; margin:5px 0;">5 <span class="fas fa-star"></span></div>
+                    </div>
+                    <div class="float-left" style="width:180px;">
+                        <div class="progress" style="height:9px; margin:8px 0;">
+                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="5" style="width: 1000%">
+                                <span class="sr-only">80% Complete (danger)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="float-right" style="margin-left:10px;">1</div>
+                </div>
+
+                <div class="float-left">
+                    <div class="float-left" style="width:35px; line-height:1;">
+                        <div style="height:9px; margin:5px 0;">4 <span class="fas fa-star"></span></div>
+                    </div>
+                    <div class="float-left" style="width:180px;">
+                        <div class="progress" style="height:9px; margin:8px 0;">
+                            <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="4" aria-valuemin="0" aria-valuemax="5" style="width: 80%">
+                                <span class="sr-only">80% Complete (danger)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="float-right" style="margin-left:10px;">1</div>
+                </div>
+
+                <div class="float-left">
+                    <div class="float-left" style="width:35px; line-height:1;">
+                        <div style="height:9px; margin:5px 0;">3 <span class="fas fa-star"></span></div>
+                    </div>
+                    <div class="float-left" style="width:180px;">
+                        <div class="progress" style="height:9px; margin:8px 0;">
+                            <div class="progress-bar bg-info" role="progressbar" aria-valuenow="3" aria-valuemin="0" aria-valuemax="5" style="width: 60%">
+                                <span class="sr-only">80% Complete (danger)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="float-right" style="margin-left:10px;">0</div>
+                </div>
+
+                <div class="float-left">
+                    <div class="float-left" style="width:35px; line-height:1;">
+                        <div style="height:9px; margin:5px 0;">2 <span class="fas fa-star"></span></div>
+                    </div>
+                    <div class="float-left" style="width:180px;">
+                        <div class="progress" style="height:9px; margin:8px 0;">
+                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="5" style="width: 40%">
+                                <span class="sr-only">80% Complete (danger)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="float-right" style="margin-left:10px;">0</div>
+                </div>
+
+                <div class="float-left">
+                    <div class="float-left" style="width:35px; line-height:1;">
+                        <div style="height:9px; margin:5px 0;">1 <span class="fas fa-star"></span></div>
+                    </div>
+                    <div class="float-left" style="width:180px;">
+                        <div class="progress" style="height:9px; margin:8px 0;">
+                            <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="5" style="width: 20%">
+                                <span class="sr-only">80% Complete (danger)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="float-right" style="margin-left:10px;">0</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-7">
+                <hr/>
+                <div class="review-block">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <img src="http://dummyimage.com/60x60/666/ffffff&text=No+Image" class="img-rounded">
+                            <div class="review-block-name"><a href="#">nktailor</a></div>
+                            <div class="review-block-date">January 29, 2016<br/>1 day ago</div>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="review-block-rate">
+                                <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+                                    <span class="fas fa-star" aria-hidden="true"></span>
+                                </button>
+                                <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+                                    <span class="fas fa-star" aria-hidden="true"></span>
+                                </button>
+                                <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+                                    <span class="fas fa-star" aria-hidden="true"></span>
+                                </button>
+                                <button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
+                                    <span class="fas fa-star" aria-hidden="true"></span>
+                                </button>
+                                <button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
+                                    <span class="fas fa-star" aria-hidden="true"></span>
+                                </button>
+                            </div>
+                            <div class="review-block-title">this was nice in buy</div>
+                            <div class="review-block-description">this was nice in buy. this was nice in buy. this was nice in buy. this was nice in buy this was nice in buy this was nice in buy this was nice in buy this was nice in buy</div>
+                        </div>
+                    </div>
+
+                    <hr/>
+
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <img src="http://dummyimage.com/60x60/666/ffffff&text=No+Image" class="img-rounded">
+                            <div class="review-block-name"><a href="#">nktailor</a></div>
+                            <div class="review-block-date">January 29, 2016<br/>1 day ago</div>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="review-block-rate">
+                                <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+                                    <span class="fas fa-star" aria-hidden="true"></span>
+                                </button>
+                                <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+                                    <span class="fas fa-star" aria-hidden="true"></span>
+                                </button>
+                                <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+                                    <span class="fas fa-star" aria-hidden="true"></span>
+                                </button>
+                                <button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
+                                    <span class="fas fa-star" aria-hidden="true"></span>
+                                </button>
+                                <button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
+                                    <span class="fas fa-star" aria-hidden="true"></span>
+                                </button>
+                            </div>
+                            <div class="review-block-title">this was nice in buy</div>
+                            <div class="review-block-description">this was nice in buy. this was nice in buy. this was nice in buy. this was nice in buy this was nice in buy this was nice in buy this was nice in buy this was nice in buy</div>
+                        </div>
+                    </div>
+
+                    <hr/>
+
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <img src="http://dummyimage.com/60x60/666/ffffff&text=No+Image" class="img-rounded">
+                            <div class="review-block-name"><a href="#">nktailor</a></div>
+                            <div class="review-block-date">January 29, 2016<br/>1 day ago</div>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="review-block-rate">
+                                <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+                                    <span class="fas fa-star" aria-hidden="true"></span>
+                                </button>
+                                <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+                                    <span class="fas fa-star" aria-hidden="true"></span>
+                                </button>
+                                <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+                                    <span class="fas fa-star" aria-hidden="true"></span>
+                                </button>
+                                <button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
+                                    <span class="fas fa-star" aria-hidden="true"></span>
+                                </button>
+                                <button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
+                                    <span class="fas fa-star" aria-hidden="true"></span>
+                                </button>
+                            </div>
+                            <div class="review-block-title">this was nice in buy</div>
+                            <div class="review-block-description">this was nice in buy. this was nice in buy. this was nice in buy. this was nice in buy this was nice in buy this was nice in buy this was nice in buy this was nice in buy</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="sticky-footer text-center">
+        <span class="text-muted">See you on my Github! <a href="#"><i class="fab fa-github"></i> Raniita</a></span>
+    </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="js/jquery-3.3.1.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/jquery-3.3.1.min.js"><\/script>')</script>
+<script src="js/bootstrap.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
