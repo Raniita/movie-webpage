@@ -1,34 +1,39 @@
 <?php
-    session_start();
-    include('func_gen_php.php');
-    include('func_gen_sql.php');
-    include('func_movie_php.php');
-    include('func_movie_sql.php');
+session_start();
+include('func_gen_php.php');
+include('func_gen_sql.php');
+include('func_movie_php.php');
+include('func_movie_sql.php');
 
-    $state = '';
-    if (isset($_GET['logout'])) {
-        header('Location:login.php?logout');
+$state = '';
+if (isset($_GET['logout'])) {
+    header('Location:login.php?logout');
+} else {
+    $state = pgCheckSession();
+    if ($state == 'OK!') {
+        $logged = true;
+        $idUser = $_SESSION['id'];
+        $nameUser = $_SESSION['name'];
     } else {
-        $state = pgCheckSession();
-        if ($state == 'OK!') {
-            $logged = true;
-            $idUser = $_SESSION['id'];
-            $nameUser = $_SESSION['name'];
-        } else {
-            $logged = false;
-        }
+        $logged = false;
     }
+}
 
-    $numMovies = smGetNumberMovies();
-    $pagRows = 4;
-    $moviesPerRow = 4;
-    $numPag = ceil(($pagRows * $moviesPerRow) / $numMovies);
+$numMovies = smGetNumberMovies();
+$pagRows = 4;
+$moviesPerRow = 4;
+$numPag = ceil(($pagRows * $moviesPerRow) / $numMovies);
 
-    if (isset($_GET['pag'])) {
-        $pag = pgSecureCheck($_GET['pag']);
-    } else {
+if (isset($_GET['pag'])) {
+    $pagSecure = pgSecureCheck($_GET['pag']);
+    if($pagSecure<=0 OR $pagSecure > $numPag){
         $pag = 1;
+    } else {
+        $pag = $pagSecure;
     }
+} else {
+    $pag = 1;
+}
 
 ?>
 <!DOCTYPE html>
@@ -79,39 +84,64 @@ echo pgShowNavbar($logged, $idUser, $nameUser);
 
         <?php
         $movieList = smGetMovieListDefault();
-        if ($pag == 1){
+        if ($pag == 1) {
             $init = 0;
         } else {
-            $init = ($pagRows*$moviesPerRow-1)*$pag;
+            $init = ($pagRows * $moviesPerRow - 1) * $pag;
         }
-        $last = $init + ($pagRows*$moviesPerRow-1);
+        $last = $init + ($pagRows * $moviesPerRow - 1);
         $sliceMovieList = array_slice($movieList, $init, $last);
 
-        foreach ($sliceMovieList as $idMovieList){
+        foreach ($sliceMovieList as $idMovieList) {
             echo pmGenerateMovieCard($idMovieList);
         }
         ?>
 
     </div><!--row-->
 
+    <?php
+    $url = $_SERVER['REQUEST_URI'];
+
+    if ($pag == $numPag) {
+        $nextLink = $url;
+    } else {
+        $nextLink = $url . ($pag + 1);
+    }
+
+    if ($pag == 1) {
+        $prevLink = $url;
+    } else {
+        $prevLink = $url . ($pag - 1);
+    }
+
+    $numLink1 = $pag+1;
+    $link1 = $url.$numLink1;
+
+    $numLink2 = $pag+2;
+    $link2 = $url.$numLink2;
+
+    $numLink3 = $numPag-2;
+    $link3 = $url.$numLink3;
+
+    $numLink4 = $numPag-1;
+    $link4 = $url.$numLink4;
+    ?>
     <div class="row">
         <div class="pagination-box" style="text-align: center; margin: auto;">
             <ul class="pagination">
                 <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
+                    <a class="page-link" href="<?php echo $prevLink ?>" aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span>
                         <span class="sr-only">Previous</span>
                     </a>
                 </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="<?php echo $link1 ?>"><?php echo $numLink1 ?></a></li>
+                <li class="page-item"><a class="page-link" href="<?php echo $link2 ?>"><?php echo $numLink2 ?></a></li>
                 <li class="page-item"><a class="page-link" href="#">...</a></li>
-                <li class="page-item"><a class="page-link" href="#">8</a></li>
-                <li class="page-item"><a class="page-link" href="#">9</a></li>
-                <li class="page-item"><a class="page-link" href="#">10</a></li>
+                <li class="page-item"><a class="page-link" href="<?php echo $link3 ?>"><?php echo $numLink3 ?></a></li>
+                <li class="page-item"><a class="page-link" href="#"><?php echo $link4 ?></a><?php echo $numLink4 ?></li>
                 <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
+                    <a class="page-link" href="<?php echo $nextLink ?>" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
                         <span class="sr-only">Next</span>
                     </a>
