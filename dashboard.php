@@ -95,7 +95,7 @@ echo pgShowNavbar($logged, $idUser, $nameUser);
     </div><!--row-->
 
     <div class="row">
-        <div class="pagination-box" id="pagination-box">
+        <div class="pagination-box" style="text-align: center; margin=auto;">
             <ul class="pagination">
                 <li class="page-item">
                     <a class="page-link" href="#" aria-label="Previous">
