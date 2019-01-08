@@ -83,6 +83,8 @@ echo pgShowNavbar($logged, $idUser, $nameUser);
     <div class="row" style="margin-right: 0px;margin-left: 0px;">
 
         <?php
+        echo $numPag;
+
         $movieList = smGetMovieListDefault();
         if ($pag == 1) {
             $init = 0;
@@ -100,7 +102,7 @@ echo pgShowNavbar($logged, $idUser, $nameUser);
     </div><!--row-->
 
     <?php
-    $url = 'movie.ranii.pro?pag=';
+    $url = 'dashboard.php?pag=';
 
     if ($pag == $numPag) {
         $nextLink = $url;
@@ -139,7 +141,7 @@ echo pgShowNavbar($logged, $idUser, $nameUser);
                 <li class="page-item"><a class="page-link" href="<?php echo $link2 ?>"><?php echo $numLink2 ?></a></li>
                 <li class="page-item"><a class="page-link" href="#">...</a></li>
                 <li class="page-item"><a class="page-link" href="<?php echo $link3 ?>"><?php echo $numLink3 ?></a></li>
-                <li class="page-item"><a class="page-link" href="#"><?php echo $link4 ?></a><?php echo $numLink4 ?></li>
+                <li class="page-item"><a class="page-link" href="<?php echo $link4 ?>"><?php echo $numLink4 ?></a></li>
                 <li class="page-item">
                     <a class="page-link" href="<?php echo $nextLink ?>" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
