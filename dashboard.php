@@ -35,6 +35,13 @@ if (isset($_GET['pag'])) {
     $pag = 1;
 }
 
+if(isset($_SESSION['order'])){
+    $order = $_SESSION['order'];
+} else {
+    $_SESSION['order'] = 'default';
+    $order = 'default';
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="">
