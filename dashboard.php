@@ -20,8 +20,8 @@
     }
 
     $numMovies = smGetNumberMovies();
-    $pagRows = 5;
-    $moviesPerRow = 5;
+    $pagRows = 4;
+    $moviesPerRow = 4;
     $numPag = ceil(($pagRows * $moviesPerRow) / $numMovies);
 
     if (isset($_GET['pag'])) {
@@ -79,8 +79,12 @@ echo pgShowNavbar($logged, $idUser, $nameUser);
 
         <?php
         $movieList = smGetMovieListDefault();
-        $init = $pag * 1;
-        $last = $init + 25;
+        if ($pag == 1){
+            $init = 0;
+        } else {
+            $init = ($pagRows*$moviesPerRow-1)*$pag;
+        }
+        $last = $init + ($pagRows*$moviesPerRow-1);
         $sliceMovieList = array_slice($movieList, $init, $last);
 
         foreach ($sliceMovieList as $idMovieList){
