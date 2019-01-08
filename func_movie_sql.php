@@ -77,7 +77,7 @@
         } else {
             $return = array();
             while($row = $result->fetch_assoc()){
-                $return[] = $row;
+                $return[] = $row['id'];
             }
         }
 
