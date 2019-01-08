@@ -3,12 +3,7 @@
     include("func_gen_php.php");
     include("func_gen_sql.php");
 
-    echo $_POST['name'];
-    echo $_POST['age'];
-    echo $_POST['password'];
-    echo $_POST['confirm_password'];
-    echo $_POST['gender'];
-    echo $_POST['occupation'];
+    print_r(smGetMovieListDefault());
 ?>
 
 <!DOCTYPE html>

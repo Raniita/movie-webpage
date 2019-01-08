@@ -93,3 +93,8 @@ h1, h2, h3, h4, h5, p {
     -ms-flex-pack: center;
     justify-content: center;
 }
+
+.pagination-box {
+    text-align: center;
+    margin: auto;
+}

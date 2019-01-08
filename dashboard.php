@@ -19,6 +19,17 @@
         }
     }
 
+    $numMovies = smGetNumberMovies();
+    $pagRows = 5;
+    $moviesPerRow = 5;
+    $numPag = ceil(($pagRows * $moviesPerRow) / $numMovies);
+
+    if (isset($_GET['pag'])) {
+        $pag = pgSecureCheck($_GET['pag']);
+    } else {
+        $pag = 1;
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="">
@@ -49,7 +60,7 @@
 <body>
 
 <?php
-    echo pgShowNavbar($logged, $idUser, $nameUser);
+echo pgShowNavbar($logged, $idUser, $nameUser);
 ?>
 
 <main role="main">
@@ -67,12 +78,39 @@
     <div class="row" style="margin-right: 0px;margin-left: 0px;">
 
         <?php
-            for ($x = 1; $x <= 20; $x++) {
-                echo pmGenerateMovieCard($x);
-            }
+        for ($x = 1; $x <= 20; $x++) {
+            echo pmGenerateMovieCard($x);
+        }
         ?>
 
     </div><!--row-->
+
+    <div class="row">
+        <div class="pagination-box" id="pagination-box">
+            <ul class="pagination">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">...</a></li>
+                <li class="page-item"><a class="page-link" href="#">8</a></li>
+                <li class="page-item"><a class="page-link" href="#">9</a></li>
+                <li class="page-item"><a class="page-link" href="#">10</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div><!-- pagination box -->
+
 </main>
 
 <footer class="footer">
