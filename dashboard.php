@@ -22,11 +22,11 @@ if (isset($_GET['logout'])) {
 $numMovies = smGetNumberMovies();
 $pagRows = 4;
 $moviesPerRow = 4;
-$numPag = ceil(($pagRows * $moviesPerRow) / $numMovies);
+$numPag = ceil($numMovies / ($pagRows * $moviesPerRow));
 
 if (isset($_GET['pag'])) {
     $pagSecure = pgSecureCheck($_GET['pag']);
-    if($pagSecure<=0 OR $pagSecure > $numPag){
+    if ($pagSecure <= 0 OR $pagSecure > $numPag) {
         $pag = 1;
     } else {
         $pag = $pagSecure;
@@ -83,8 +83,6 @@ echo pgShowNavbar($logged, $idUser, $nameUser);
     <div class="row" style="margin-right: 0px;margin-left: 0px;">
 
         <?php
-        echo $numMovies.'   ';
-        echo $numPag;
 
         $movieList = smGetMovieListDefault();
         if ($pag == 1) {
@@ -103,7 +101,7 @@ echo pgShowNavbar($logged, $idUser, $nameUser);
     </div><!--row-->
 
     <?php
-    $url = 'dashboard.php?pag=';
+    $url = '?pag=';
 
     if ($pag == $numPag) {
         $nextLink = $url;
@@ -117,17 +115,17 @@ echo pgShowNavbar($logged, $idUser, $nameUser);
         $prevLink = $url . ($pag - 1);
     }
 
-    $numLink1 = $pag+1;
-    $link1 = $url.$numLink1;
+    $numLink1 = $pag + 1;
+    $link1 = $url . $numLink1;
 
-    $numLink2 = $pag+2;
-    $link2 = $url.$numLink2;
+    $numLink2 = $pag + 2;
+    $link2 = $url . $numLink2;
 
-    $numLink3 = $numPag-2;
-    $link3 = $url.$numLink3;
+    $numLink3 = $numPag - 2;
+    $link3 = $url . $numLink3;
 
-    $numLink4 = $numPag-1;
-    $link4 = $url.$numLink4;
+    $numLink4 = $numPag - 1;
+    $link4 = $url . $numLink4;
     ?>
     <div class="row">
         <div class="pagination-box" style="text-align: center; margin: auto;">
