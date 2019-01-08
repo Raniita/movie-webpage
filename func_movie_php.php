@@ -33,7 +33,7 @@
             <div class=\"movie-content\">
                 <div class=\"movie-content-header\">
                     <a href=\"".$movieLink."\">
-                        <h3 class=\"movie-title\">" . pmSubStrYear($movieName) . "</h3>
+                        <h3 class=\"movie-title\">" . $movieName . "</h3>
                     </a>
                     <div class=\"info-section\">
                         ".pmGenerateStarRating($movieRate)."
