@@ -113,10 +113,10 @@
             if ($pag == 1) {
                 $init = 0;
             } else {
-                $init = ($pagRows * $moviesPerRow - 1) * $pag;
+                $init = (($pagRows * $moviesPerRow) - 1) * ($pag-1);
             }
-            $last = $init + ($pagRows * $moviesPerRow - 1);
-            $sliceMovieList = array_slice($movieList, $init, $last);
+            $offset = ($pagRows * $moviesPerRow);
+            $sliceMovieList = array_slice($movieList, $init, $offset);
 
             foreach ($sliceMovieList as $idMovieList) {
                 echo pmGenerateMovieCard($idMovieList);
