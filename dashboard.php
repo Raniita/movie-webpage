@@ -78,8 +78,8 @@ echo pgShowNavbar($logged, $idUser, $nameUser);
     <div class="row" style="margin-right: 0px;margin-left: 0px;">
 
         <?php
-        for ($x = 1; $x <= 20; $x++) {
-            echo pmGenerateMovieCard($x);
+        foreach (smGetMovieListDefault() as $idMovieList){
+            echo pmGenerateMovieCard($idMovieList);
         }
         ?>
 
