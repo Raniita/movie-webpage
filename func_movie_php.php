@@ -33,7 +33,7 @@
             <div class=\"movie-content\">
                 <div class=\"movie-content-header\">
                     <a href=\"".$movieLink."\">
-                        <h3 class=\"movie-title\">" . $movieName . "</h3>
+                        <h3 class=\"movie-title\">" . pmSubStrYear($movieName) . "</h3>
                     </a>
                     <div class=\"info-section\">
                         ".pmGenerateStarRating($movieRate)."
@@ -127,9 +127,8 @@
         return $return;
     }
 
-    function pmSubStrYear($id){
-        $movieName = smGetMovieName($id);
-        $newMovieName = substr($movieName,0,-6);
+    function pmSubStrYear($title){
+        $newMovieName = substr($title,0,-6);
         return $newMovieName;
     }
 ?>
