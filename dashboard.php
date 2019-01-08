@@ -161,6 +161,7 @@
                         <span class="sr-only">Previous</span>
                     </a>
                 </li>
+                <li class="page-item"><a class="page-link" href="#"><?php echo $url.$pag ?></a></li>
                 <li class="page-item"><a class="page-link" href="<?php echo $link1 ?>"><?php echo $numLink1 ?></a></li>
                 <li class="page-item"><a class="page-link" href="<?php echo $link2 ?>"><?php echo $numLink2 ?></a></li>
                 <li class="page-item"><a class="page-link" href="#">...</a></li>
