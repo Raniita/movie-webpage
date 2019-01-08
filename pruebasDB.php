@@ -2,6 +2,8 @@
     session_start();
     include("func_gen_php.php");
     include("func_gen_sql.php");
+    include("func_movie_php.php");
+    include("func_movie_sql.php");
 
     print_r(smGetMovieListDefault());
 ?>
