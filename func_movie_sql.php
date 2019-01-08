@@ -75,6 +75,7 @@
         if($result->num_rows==0){
             $return = 'KO';
         } else {
+            $return = array();
             while($row = $result->fetch_assoc()){
                 $return[] = $row;
             }
