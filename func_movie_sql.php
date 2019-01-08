@@ -72,7 +72,7 @@
         $query = "SELECT id FROM movie ORDER BY id";
         $result = $connect->query($query);
 
-        if($result->num_rows){
+        if($result->num_rows==0){
             $return = 'KO';
         } else {
             while($row = $result->fetch_assoc()){
