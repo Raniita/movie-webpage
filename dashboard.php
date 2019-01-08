@@ -83,6 +83,7 @@ echo pgShowNavbar($logged, $idUser, $nameUser);
     <div class="row" style="margin-right: 0px;margin-left: 0px;">
 
         <?php
+        echo $numMovies.'   ';
         echo $numPag;
 
         $movieList = smGetMovieListDefault();
