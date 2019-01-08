@@ -55,12 +55,12 @@
 
                     <div class=\"info-section\">
                         <label>Rating</label>
-                        <span style=\"font-size: 60%;\">".$movieRate."</span>
+                        <span style=\"font-size: 70%;\">".$movieRate."</span>
                     </div>
 
                     <div class=\"info-section\">
-                        <label>AvgRating</label>
-                        <span style=\"font-size: 60%;\">".round($movieAvgRate,2)."</span>
+                        <label>Avg</label>
+                        <span style=\"font-size: 70%;\">".round($movieAvgRate,2)."</span>
                     </div>
                     
                 </div><!-- movie-info-->
