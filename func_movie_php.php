@@ -256,7 +256,7 @@
         $return = "<div class=\"row\">
                         <div class=\"col-sm-3\">
                             <img src=\"" . $userImg . "\" alt=\"\" class=\"img-rounded\" width=\"60\" height=\"60\">
-                            <div class=\"review-block-name\">" . $user . "</div>
+                            <div class=\"review-block-name\">" . sgNameUser($user) . "</div>
                         </div>
                         <div class=\"col-sm-9\">
                             <div class=\"review-block-title\">" . $short . "</div>

@@ -62,9 +62,9 @@
         return $return;
     }
 
-    function sgInfoUser($uuid){
+    function sgNameUser($id){
         $connect = sgConnectDB();
-        $query = "SELECT name FROM users WHERE id='$uuid'";
+        $query = "SELECT name FROM users WHERE id='$id'";
         $result = $connect->query($query);
         if($result->num_rows==0){
             $return = "KO";
