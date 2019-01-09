@@ -75,7 +75,7 @@
 
                 <div class="info-movie">
                     <label>Description</label><br>
-                    <span class="text-justify" style="display: inline-block"><?php smGetMovieDescription($idMovie)?></span>
+                    <span class="text-justify" style="display: inline-block"><?php echo smGetMovieDescription($idMovie)?></span>
                 </div>
 
                 <div class="info-movie">
@@ -113,12 +113,12 @@
             <div class="col-sm-3">
                 <div class="rating-block">
                     <h4>Average user rating</h4>
-                    <h2 class="bold padding-bottom-7"><?php echo round(smGetCountRate($idMovie),2)?>
+                    <h2 class="bold padding-bottom-7"><?php echo round(smGetAvgRateMovie($idMovie),2)?>
                         <small>/ 5</small>
                     </h2>
 
                     <?php
-                        echo pmGenerateMovieStarRating(smGetCountRate($idMovie));
+                        echo pmGenerateMovieStarRating(smGetAvgRateMovie($idMovie));
                     ?>
 
                 </div>
