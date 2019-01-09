@@ -172,12 +172,12 @@
     <div class=\"left-navbar\">";
 
         if ($logged == true) {
-            $return = $return.pgShowUserBar($id, $name);
+            $return = $return . pgShowUserBar($id, $name);
         } else {
-            $return = $return.pgShowButtonsNavbar();
+            $return = $return . pgShowButtonsNavbar();
         }
 
-        $return = $return ."
+        $return = $return . "
         </div >
 
     <!--NavBar Links-->
@@ -211,7 +211,7 @@
         return $return;
     }
 
-    function pgShowFooter(){
+    function pgShowFooter() {
         $return = '';
         $return = "<footer class=\"footer\">
                         <div class=\"sticky-footer text-center\">
@@ -220,6 +220,21 @@
                    </footer>";
 
         return $return;
+    }
+
+    function pgGetUserImg($id) {
+        $pic = sgUserImg($id);
+
+        if ($pic == '') {
+            //No existe la img
+            $picture = 'user-images/default-user.jpg';
+        } elseif (file_exists("user-images/" . $pic)) {
+            $picture = 'user-images/' . $pic;
+        } else {
+            $picture = 'user-images/default.png';
+        }
+
+        return $picture;
     }
 
 ?>

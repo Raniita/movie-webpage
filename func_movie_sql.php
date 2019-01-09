@@ -298,4 +298,22 @@
         mysqli_close($connect);
         return $return['count(id_user)'];
     }
+
+    function smGetMovieComments($id){
+        $connect = sgConnectDB();
+        $query = "SELECT user_id,short,comment FROM moviecomments WHERE movie_id='$id' ";
+        $result = $connect->query($query);
+
+        if($result->num_rows==0){
+            $return = 'KO';
+        } else {
+            $return = array();
+            while($row = $result->fetch_array()){
+                $return[] = $row;
+            }
+        }
+
+        mysqli_close($connect);
+        return $return;
+    }
 ?>

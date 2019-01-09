@@ -143,11 +143,11 @@
                 <h4>Rating breakdown</h4>
                 <?php
                     $totalVotes = smCountAllMovieStars($idMovie);
-                    $bar5star = (smCountMovieStars($idMovie,5)/$totalVotes)*100;
-                    $bar4star = (smCountMovieStars($idMovie,4)/$totalVotes)*100;
-                    $bar3star = (smCountMovieStars($idMovie,3)/$totalVotes)*100;
-                    $bar2star = (smCountMovieStars($idMovie,2)/$totalVotes)*100;
-                    $bar1star = (smCountMovieStars($idMovie,1)/$totalVotes)*100;
+                    $bar5star = (smCountMovieStars($idMovie, 5) / $totalVotes) * 100;
+                    $bar4star = (smCountMovieStars($idMovie, 4) / $totalVotes) * 100;
+                    $bar3star = (smCountMovieStars($idMovie, 3) / $totalVotes) * 100;
+                    $bar2star = (smCountMovieStars($idMovie, 2) / $totalVotes) * 100;
+                    $bar1star = (smCountMovieStars($idMovie, 1) / $totalVotes) * 100;
                 ?>
 
                 <div class="float-left">
@@ -157,12 +157,13 @@
                     <div class="float-left" style="width:180px;">
                         <div class="progress" style="height:9px; margin:8px 0;">
                             <div class="progress-bar bg-success" role="progressbar" aria-valuenow="5" aria-valuemin="0"
-                                 aria-valuemax="5" style="width: <?php echo $bar5star."%;" ?>">
+                                 aria-valuemax="5" style="width: <?php echo $bar5star . "%;" ?>">
                                 <span class="sr-only"><?php echo $bar5star ?> Complete (danger)</span>
                             </div>
                         </div>
                     </div>
-                    <div class="float-right" style="margin-left:10px; font-size: 70%;"><?php echo smCountMovieStars($idMovie,5)?></div>
+                    <div class="float-right"
+                         style="margin-left:10px; font-size: 70%;"><?php echo smCountMovieStars($idMovie, 5) ?></div>
                 </div>
 
                 <div class="float-left">
@@ -172,12 +173,13 @@
                     <div class="float-left" style="width:180px;">
                         <div class="progress" style="height:9px; margin:8px 0;">
                             <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="4" aria-valuemin="0"
-                                 aria-valuemax="5" style="width: <?php echo $bar4star."%;" ?>">
+                                 aria-valuemax="5" style="width: <?php echo $bar4star . "%;" ?>">
                                 <span class="sr-only"><?php echo $bar4star ?> Complete (danger)</span>
                             </div>
                         </div>
                     </div>
-                    <div class="float-right" style="margin-left:10px; font-size: 70%;"><?php echo smCountMovieStars($idMovie,4)?></div>
+                    <div class="float-right"
+                         style="margin-left:10px; font-size: 70%;"><?php echo smCountMovieStars($idMovie, 4) ?></div>
                 </div>
 
                 <div class="float-left">
@@ -187,12 +189,13 @@
                     <div class="float-left" style="width:180px;">
                         <div class="progress" style="height:9px; margin:8px 0;">
                             <div class="progress-bar bg-info" role="progressbar" aria-valuenow="3" aria-valuemin="0"
-                                 aria-valuemax="5" style="width: <?php echo $bar3star."%;" ?>">
+                                 aria-valuemax="5" style="width: <?php echo $bar3star . "%;" ?>">
                                 <span class="sr-only"><?php echo $bar3star ?> Complete (danger)</span>
                             </div>
                         </div>
                     </div>
-                    <div class="float-right" style="margin-left:10px; font-size: 70%;"><?php echo smCountMovieStars($idMovie,3)?></div>
+                    <div class="float-right"
+                         style="margin-left:10px; font-size: 70%;"><?php echo smCountMovieStars($idMovie, 3) ?></div>
                 </div>
 
                 <div class="float-left">
@@ -202,12 +205,13 @@
                     <div class="float-left" style="width:180px;">
                         <div class="progress" style="height:9px; margin:8px 0;">
                             <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="2" aria-valuemin="0"
-                                 aria-valuemax="5" style="width: <?php echo $bar2star."%;" ?>">
+                                 aria-valuemax="5" style="width: <?php echo $bar2star . "%;" ?>">
                                 <span class="sr-only"><?php echo $bar2star ?> Complete (danger)</span>
                             </div>
                         </div>
                     </div>
-                    <div class="float-right" style="margin-left:10px; font-size: 70%;"><?php echo smCountMovieStars($idMovie,2)?></div>
+                    <div class="float-right"
+                         style="margin-left:10px; font-size: 70%;"><?php echo smCountMovieStars($idMovie, 2) ?></div>
                 </div>
 
                 <div class="float-left">
@@ -217,12 +221,13 @@
                     <div class="float-left" style="width:180px;">
                         <div class="progress" style="height:9px; margin:8px 0;">
                             <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="1" aria-valuemin="0"
-                                 aria-valuemax="5" style="width: <?php echo $bar1star."%;" ?>">
+                                 aria-valuemax="5" style="width: <?php echo $bar1star . "%;" ?>">
                                 <span class="sr-only"><?php echo $bar1star ?> Complete (danger)</span>
                             </div>
                         </div>
                     </div>
-                    <div class="float-right" style="margin-left:10px; font-size: 70%;"><?php echo smCountMovieStars($idMovie,1)?></div>
+                    <div class="float-right"
+                         style="margin-left:10px; font-size: 70%;"><?php echo smCountMovieStars($idMovie, 1) ?></div>
                 </div>
             </div>
         </div>
@@ -231,140 +236,54 @@
             <div class="col-sm-7">
                 <hr/>
                 <div class="review-block">
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <img src="http://dummyimage.com/60x60/666/ffffff&text=No+Image" class="img-rounded">
-                            <div class="review-block-name"><a href="#">nktailor</a></div>
-                            <div class="review-block-date">January 29, 2016<br/>1 day ago</div>
-                        </div>
-                        <div class="col-sm-9">
-                            <div class="review-block-rate">
-                                <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
-                                    <span class="fas fa-star" aria-hidden="true"></span>
-                                </button>
-                                <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
-                                    <span class="fas fa-star" aria-hidden="true"></span>
-                                </button>
-                                <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
-                                    <span class="fas fa-star" aria-hidden="true"></span>
-                                </button>
-                                <button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
-                                    <span class="fas fa-star" aria-hidden="true"></span>
-                                </button>
-                                <button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
-                                    <span class="fas fa-star" aria-hidden="true"></span>
-                                </button>
-                            </div>
-                            <div class="review-block-title">this was nice in buy</div>
-                            <div class="review-block-description">this was nice in buy. this was nice in buy. this was
-                                nice in buy. this was nice in buy this was nice in buy this was nice in buy this was
-                                nice in buy this was nice in buy
-                            </div>
-                        </div>
-                    </div>
+                    <?php
+                        $comments = smGetMovieComments($idMovie);
 
-                    <hr/>
-
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <img src="http://dummyimage.com/60x60/666/ffffff&text=No+Image" class="img-rounded">
-                            <div class="review-block-name"><a href="#">nktailor</a></div>
-                            <div class="review-block-date">January 29, 2016<br/>1 day ago</div>
-                        </div>
-                        <div class="col-sm-9">
-                            <div class="review-block-rate">
-                                <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
-                                    <span class="fas fa-star" aria-hidden="true"></span>
-                                </button>
-                                <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
-                                    <span class="fas fa-star" aria-hidden="true"></span>
-                                </button>
-                                <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
-                                    <span class="fas fa-star" aria-hidden="true"></span>
-                                </button>
-                                <button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
-                                    <span class="fas fa-star" aria-hidden="true"></span>
-                                </button>
-                                <button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
-                                    <span class="fas fa-star" aria-hidden="true"></span>
-                                </button>
-                            </div>
-                            <div class="review-block-title">this was nice in buy</div>
-                            <div class="review-block-description">this was nice in buy. this was nice in buy. this was
-                                nice in buy. this was nice in buy this was nice in buy this was nice in buy this was
-                                nice in buy this was nice in buy
-                            </div>
-                        </div>
-                    </div>
-
-                    <hr/>
-
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <img src="http://dummyimage.com/60x60/666/ffffff&text=No+Image" class="img-rounded">
-                            <div class="review-block-name"><a href="#">nktailor</a></div>
-                            <div class="review-block-date">January 29, 2016<br/>1 day ago</div>
-                        </div>
-                        <div class="col-sm-9">
-                            <div class="review-block-rate">
-                                <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
-                                    <span class="fas fa-star" aria-hidden="true"></span>
-                                </button>
-                                <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
-                                    <span class="fas fa-star" aria-hidden="true"></span>
-                                </button>
-                                <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
-                                    <span class="fas fa-star" aria-hidden="true"></span>
-                                </button>
-                                <button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
-                                    <span class="fas fa-star" aria-hidden="true"></span>
-                                </button>
-                                <button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
-                                    <span class="fas fa-star" aria-hidden="true"></span>
-                                </button>
-                            </div>
-                            <div class="review-block-title">this was nice in buy</div>
-                            <div class="review-block-description">this was nice in buy. this was nice in buy. this was
-                                nice in buy. this was nice in buy this was nice in buy this was nice in buy this was
-                                nice in buy this was nice in buy
-                            </div>
-                        </div>
-                    </div>
+                        foreach($comments as $movieComment){
+                            echo pmGenerateComment($movieComment['user_id'],$movieComment['short'],$movieComment['comment']);
+                        }
+                    ?>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="container" style="margin-top: auto;">
-        <hr>
-    </div>
+    <?php
+        if ($logged) {
+            echo "<div class=\"container\" style=\"margin-top: auto;\">
+                    <hr>
+                  </div>
 
-    <div class="container" style="margin-top: auto;margin-bottom: 10px;">
-        <h4 style="margin-bottom: 10px;">Review this title</h4>
-        <form>
-            <div class="form-group">
-                <label for="exampleFormControlSelect1"><i class="fas fa-star"></i> Give stars</label>
-                <select class="form-control" id="exampleFormControlSelect1">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="exampleFormControlTextarea1"><i class="fas fa-pen"></i> Short comment</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="exampleFormControlTextarea2"><i class="fas fa-edit"></i> Write full review</label>
-                <textarea class="form-control" id="exampleFormControlTextarea2" rows="3"></textarea>
-            </div>
-            <div class="text-center">
-                <button class="btn btn-secondary" type="submit">Submit</button>
-            </div>
-        </form>
-    </div>
+                <div class=\"container\" style=\"margin-top: auto;margin-bottom: 10px;\">
+                    <h4 style=\"margin-bottom: 10px;\">Review this title</h4>
+                    <form action=\"movie.php?movie" . $_GET['movie'] . "\" method=\"post\">
+                        <div class=\"form-group\">
+                        <label for=\"exampleFormControlSelect1\"><i class=\"fas fa-star\"></i> Give stars</label>
+                        <select class=\"form-control\" id=\"stars\">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                        </div>
+                    <div class=\"form-group\">
+                        <label for=\"shortComment\"><i class=\"fas fa-pen\"></i> Short comment</label>
+                        <textarea class=\"form-control\" id=\"shortComment\" rows=\"1\"></textarea>
+                    </div>
+                    <div class=\"form-group\">
+                        <label for=\"fullReview\"><i class=\"fas fa-edit\"></i> Write full review</label>
+                        <textarea class=\"form-control\" id=\"fullReview\" rows=\"3\"></textarea>
+                    </div>
+                    <div class=\"text-center\">
+                        <button class=\"btn btn-secondary\" type=\"submit\">Submit</button>
+                    </div>
+                    </form>
+                </div>";
+        }
+
+    ?>
+
 </main>
 
 <?php
