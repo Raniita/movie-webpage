@@ -76,7 +76,7 @@
         }
 
         mysqli_close($connect);
-        return $return;
+        return $return['name'];
     }
 
     function sgUserImg($id){
