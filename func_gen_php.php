@@ -54,7 +54,7 @@
              * Usuario Logeado
              */
 
-            $name = sgNameUser($uuid['id']);
+            $name = sgInfoUser($uuid['id']);
 
             $_SESSION['id'] = $uuid['id'];
             $_SESSION['name'] = $name['name'];
