@@ -279,7 +279,7 @@
         }
 
         mysqli_close($connect);
-        return $return;
+        return $return['count(id_user)'];
     }
 
     function smCountMovieStars($id, $star){
@@ -296,6 +296,6 @@
         }
 
         mysqli_close($connect);
-        return $return;
+        return $return['count(id_user)'];
     }
 ?>
