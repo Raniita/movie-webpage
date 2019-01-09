@@ -264,4 +264,38 @@
         mysqli_close($connect);
         return $return;
     }
+
+    function smCountAllMovieStars($id){
+        $connect = sgConnectDB();
+        $query = "SELECT count(id_user) FROM user_score WHERE id_movie='$id'";
+        $result = $connect->query($query);
+
+        if($result->num_rows==0){
+            $return = 'KO';
+        } else {
+            while($row = $result->fetch_assoc()){
+                $return = $row;
+            }
+        }
+
+        mysqli_close($connect);
+        return $return;
+    }
+
+    function smCountMovieStars($id, $star){
+        $connect = sgConnectDB();
+        $query = "SELECT count(id_user) FROM user_score WHERE id_movie='$id' AND score='$star' ";
+        $result = $connect->query($query);
+
+        if($result->num_rows==0){
+            $return = 'KO';
+        } else {
+            while($row = $result->fetch_assoc()){
+                $return = $row;
+            }
+        }
+
+        mysqli_close($connect);
+        return $return;
+    }
 ?>

@@ -1,33 +1,35 @@
 <?php
-session_start();
-include('func_gen_php.php');
-include('func_gen_sql.php');
-include('func_movie_php.php');
-include('func_movie_sql.php');
+    session_start();
+    include('func_gen_php.php');
+    include('func_gen_sql.php');
+    include('func_movie_php.php');
+    include('func_movie_sql.php');
 
-$state = '';
-if (isset($_GET['logout'])) {
-    header('Location:login.php?logout');
-} else {
-    $state = pgCheckSession();
-    if ($state == 'OK!') {
-        $logged = true;
-        $idUser = $_SESSION['id'];
-        $nameUser = $_SESSION['name'];
+    $state = '';
+    if (isset($_GET['logout'])) {
+        header('Location:login.php?logout');
     } else {
-        $logged = false;
+        $state = pgCheckSession();
+        if ($state == 'OK!') {
+            $logged = true;
+            $idUser = $_SESSION['id'];
+            $nameUser = $_SESSION['name'];
+        } else {
+            $logged = false;
+        }
     }
-}
 
-if (isset($_GET['movie'])) {
-    $movieDecoded = pgEncodeDecode($_GET['movie'], 0);
-    $movieSecure = pgSecureCheck($movieDecoded);
-    $idMovie = substr($movieDecoded, 0, -5);
-}
+    if (isset($_GET['movie'])) {
+        $movieDecoded = pgEncodeDecode($_GET['movie'], 0);
+        $movieSecure = pgSecureCheck($movieDecoded);
+        $idMovie = substr($movieDecoded, 0, -5);
+    } else {
+        $error_movie = true;
+    }
 
-if (isset($_POST['comment'])) {
+    if (isset($_POST['comment'])) {
 
-}
+    }
 
 ?>
 <!DOCTYPE html>
@@ -35,7 +37,7 @@ if (isset($_POST['comment'])) {
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
-    <title><?php echo smGetMovieName($idMovie); ?> - Tuxflix</title>
+    <title><?php echo pmSubStrYear(smGetMovieName($idMovie)); ?> - Tuxflix</title>
     <meta name="description" content="<?php echo smGetMovieName($idMovie); ?> - Tuxflix">
     <meta name="author" content="Ranii">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -59,7 +61,7 @@ if (isset($_POST['comment'])) {
 <body>
 
 <?php
-echo pgShowNavbar($logged, $idUser, $nameUser);
+    echo pgShowNavbar($logged, $idUser, $nameUser);
 ?>
 
 <main role="main">
@@ -67,15 +69,15 @@ echo pgShowNavbar($logged, $idUser, $nameUser);
         <div class="row">
             <div class="col-3">
                 <?php
-                $movieName = pmSubStrYear(smGetMovieName($idMovie));
-                $movieBackground = smGetMovieBackground($idMovie);
-                if (strlen($movieBackground) == 8) {
-                    //No tiene caratula
-                    $moviePoster = 'movie-images/default_movie.jpg';
-                } else {
-                    //Si tiene caratula
-                    $moviePoster = 'movie-images/' . $movieBackground;
-                }
+                    $movieName = pmSubStrYear(smGetMovieName($idMovie));
+                    $movieBackground = smGetMovieBackground($idMovie);
+                    if (strlen($movieBackground) == 8) {
+                        //No tiene caratula
+                        $moviePoster = 'movie-images/default_movie.jpg';
+                    } else {
+                        //Si tiene caratula
+                        $moviePoster = 'movie-images/' . $movieBackground;
+                    }
                 ?>
                 <img src="<?php echo $moviePoster ?>"
                      class="img-thumbnail" alt="<?php echo $movieName ?>">
@@ -105,10 +107,10 @@ echo pgShowNavbar($logged, $idUser, $nameUser);
                     <label>Genre</label><br>
                     <span class="tag-links">
                         <?php
-                        $movieGenre = smGetMovieGenre($idMovie);
-                        foreach ($movieGenre as $genre) {
-                            echo "<a href='#' rel='tag'>" . $genre . "</a>";
-                        }
+                            $movieGenre = smGetMovieGenre($idMovie);
+                            foreach ($movieGenre as $genre) {
+                                echo "<a href='#' rel='tag'>" . $genre . "</a>";
+                            }
                         ?>
                     </span>
                 </div>
@@ -131,7 +133,7 @@ echo pgShowNavbar($logged, $idUser, $nameUser);
                     </h2>
 
                     <?php
-                    echo pmGenerateMovieStarRating(smGetAvgRateMovie($idMovie));
+                        echo pmGenerateMovieStarRating(smGetAvgRateMovie($idMovie));
                     ?>
 
                 </div>
@@ -139,6 +141,14 @@ echo pgShowNavbar($logged, $idUser, $nameUser);
 
             <div class="col-sm-3">
                 <h4>Rating breakdown</h4>
+                <?php
+                    $totalVotes = smCountAllMovieStars($idMovie);
+                    $bar5star = (smCountMovieStars($idMovie,5)/$totalVotes)*100;
+                    $bar4star = (smCountMovieStars($idMovie,4)/$totalVotes)*100;
+                    $bar3star = (smCountMovieStars($idMovie,3)/$totalVotes)*100;
+                    $bar2star = (smCountMovieStars($idMovie,2)/$totalVotes)*100;
+                    $bar1star = (smCountMovieStars($idMovie,1)/$totalVotes)*100;
+                ?>
 
                 <div class="float-left">
                     <div class="float-left" style="width:35px; line-height:1;">
@@ -147,12 +157,12 @@ echo pgShowNavbar($logged, $idUser, $nameUser);
                     <div class="float-left" style="width:180px;">
                         <div class="progress" style="height:9px; margin:8px 0;">
                             <div class="progress-bar bg-success" role="progressbar" aria-valuenow="5" aria-valuemin="0"
-                                 aria-valuemax="5" style="width: 1000%">
-                                <span class="sr-only">80% Complete (danger)</span>
+                                 aria-valuemax="5" style="width: <?php echo $bar5star ?>">
+                                <span class="sr-only"><?php echo $bar5star ?> Complete (danger)</span>
                             </div>
                         </div>
                     </div>
-                    <div class="float-right" style="margin-left:10px;">1</div>
+                    <div class="float-right" style="margin-left:10px;"><?php echo smCountMovieStars($idMovie,5)?></div>
                 </div>
 
                 <div class="float-left">
@@ -162,12 +172,12 @@ echo pgShowNavbar($logged, $idUser, $nameUser);
                     <div class="float-left" style="width:180px;">
                         <div class="progress" style="height:9px; margin:8px 0;">
                             <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="4" aria-valuemin="0"
-                                 aria-valuemax="5" style="width: 80%">
-                                <span class="sr-only">80% Complete (danger)</span>
+                                 aria-valuemax="5" style="width: <?php echo $bar4star ?>">
+                                <span class="sr-only"><?php echo $bar4star ?> Complete (danger)</span>
                             </div>
                         </div>
                     </div>
-                    <div class="float-right" style="margin-left:10px;">1</div>
+                    <div class="float-right" style="margin-left:10px;"><?php echo smCountMovieStars($idMovie,4)?></div>
                 </div>
 
                 <div class="float-left">
@@ -177,12 +187,12 @@ echo pgShowNavbar($logged, $idUser, $nameUser);
                     <div class="float-left" style="width:180px;">
                         <div class="progress" style="height:9px; margin:8px 0;">
                             <div class="progress-bar bg-info" role="progressbar" aria-valuenow="3" aria-valuemin="0"
-                                 aria-valuemax="5" style="width: 60%">
-                                <span class="sr-only">80% Complete (danger)</span>
+                                 aria-valuemax="5" style="width: <?php echo $bar3star ?>">
+                                <span class="sr-only"><?php echo $bar3star ?> Complete (danger)</span>
                             </div>
                         </div>
                     </div>
-                    <div class="float-right" style="margin-left:10px;">0</div>
+                    <div class="float-right" style="margin-left:10px;"><?php echo smCountMovieStars($idMovie,3)?></div>
                 </div>
 
                 <div class="float-left">
@@ -192,12 +202,12 @@ echo pgShowNavbar($logged, $idUser, $nameUser);
                     <div class="float-left" style="width:180px;">
                         <div class="progress" style="height:9px; margin:8px 0;">
                             <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="2" aria-valuemin="0"
-                                 aria-valuemax="5" style="width: 40%">
-                                <span class="sr-only">80% Complete (danger)</span>
+                                 aria-valuemax="5" style="width: <?php echo $bar2star ?>">
+                                <span class="sr-only"><?php echo $bar2star ?> Complete (danger)</span>
                             </div>
                         </div>
                     </div>
-                    <div class="float-right" style="margin-left:10px;">0</div>
+                    <div class="float-right" style="margin-left:10px;"><?php echo smCountMovieStars($idMovie,2)?></div>
                 </div>
 
                 <div class="float-left">
@@ -207,12 +217,12 @@ echo pgShowNavbar($logged, $idUser, $nameUser);
                     <div class="float-left" style="width:180px;">
                         <div class="progress" style="height:9px; margin:8px 0;">
                             <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="1" aria-valuemin="0"
-                                 aria-valuemax="5" style="width: 20%">
-                                <span class="sr-only">80% Complete (danger)</span>
+                                 aria-valuemax="5" style="width: <?php echo $bar1star ?>">
+                                <span class="sr-only"><?php echo $bar1star ?> Complete (danger)</span>
                             </div>
                         </div>
                     </div>
-                    <div class="float-right" style="margin-left:10px;">0</div>
+                    <div class="float-right" style="margin-left:10px;"><?php echo smCountMovieStars($idMovie,1)?></div>
                 </div>
             </div>
         </div>
@@ -358,7 +368,7 @@ echo pgShowNavbar($logged, $idUser, $nameUser);
 </main>
 
 <?php
-echo pgShowFooter();
+    echo pgShowFooter();
 ?>
 
 <!-- SCRIPTS -->
