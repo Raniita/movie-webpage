@@ -157,12 +157,12 @@
                     <div class="float-left" style="width:180px;">
                         <div class="progress" style="height:9px; margin:8px 0;">
                             <div class="progress-bar bg-success" role="progressbar" aria-valuenow="5" aria-valuemin="0"
-                                 aria-valuemax="5" style="width: <?php echo $bar5star ?>">
+                                 aria-valuemax="5" style="width: <?php echo $bar5star."%;" ?>">
                                 <span class="sr-only"><?php echo $bar5star ?> Complete (danger)</span>
                             </div>
                         </div>
                     </div>
-                    <div class="float-right" style="margin-left:10px;"><?php echo smCountMovieStars($idMovie,5)?></div>
+                    <div class="float-right" style="margin-left:10px; font-size: 70%;"><?php echo smCountMovieStars($idMovie,5)?></div>
                 </div>
 
                 <div class="float-left">
@@ -172,12 +172,12 @@
                     <div class="float-left" style="width:180px;">
                         <div class="progress" style="height:9px; margin:8px 0;">
                             <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="4" aria-valuemin="0"
-                                 aria-valuemax="5" style="width: <?php echo $bar4star ?>">
+                                 aria-valuemax="5" style="width: <?php echo $bar4star."%;" ?>">
                                 <span class="sr-only"><?php echo $bar4star ?> Complete (danger)</span>
                             </div>
                         </div>
                     </div>
-                    <div class="float-right" style="margin-left:10px;"><?php echo smCountMovieStars($idMovie,4)?></div>
+                    <div class="float-right" style="margin-left:10px; font-size: 70%;"><?php echo smCountMovieStars($idMovie,4)?></div>
                 </div>
 
                 <div class="float-left">
@@ -187,12 +187,12 @@
                     <div class="float-left" style="width:180px;">
                         <div class="progress" style="height:9px; margin:8px 0;">
                             <div class="progress-bar bg-info" role="progressbar" aria-valuenow="3" aria-valuemin="0"
-                                 aria-valuemax="5" style="width: <?php echo $bar3star ?>">
+                                 aria-valuemax="5" style="width: <?php echo $bar3star."%;" ?>">
                                 <span class="sr-only"><?php echo $bar3star ?> Complete (danger)</span>
                             </div>
                         </div>
                     </div>
-                    <div class="float-right" style="margin-left:10px;"><?php echo smCountMovieStars($idMovie,3)?></div>
+                    <div class="float-right" style="margin-left:10px; font-size: 70%;"><?php echo smCountMovieStars($idMovie,3)?></div>
                 </div>
 
                 <div class="float-left">
@@ -202,12 +202,12 @@
                     <div class="float-left" style="width:180px;">
                         <div class="progress" style="height:9px; margin:8px 0;">
                             <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="2" aria-valuemin="0"
-                                 aria-valuemax="5" style="width: <?php echo $bar2star ?>">
+                                 aria-valuemax="5" style="width: <?php echo $bar2star."%;" ?>">
                                 <span class="sr-only"><?php echo $bar2star ?> Complete (danger)</span>
                             </div>
                         </div>
                     </div>
-                    <div class="float-right" style="margin-left:10px;"><?php echo smCountMovieStars($idMovie,2)?></div>
+                    <div class="float-right" style="margin-left:10px; font-size: 70%;"><?php echo smCountMovieStars($idMovie,2)?></div>
                 </div>
 
                 <div class="float-left">
@@ -217,12 +217,12 @@
                     <div class="float-left" style="width:180px;">
                         <div class="progress" style="height:9px; margin:8px 0;">
                             <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="1" aria-valuemin="0"
-                                 aria-valuemax="5" style="width: <?php echo $bar1star ?>">
+                                 aria-valuemax="5" style="width: <?php echo $bar1star."%;" ?>">
                                 <span class="sr-only"><?php echo $bar1star ?> Complete (danger)</span>
                             </div>
                         </div>
                     </div>
-                    <div class="float-right" style="margin-left:10px;"><?php echo smCountMovieStars($idMovie,1)?></div>
+                    <div class="float-right" style="margin-left:10px; font-size: 70%;"><?php echo smCountMovieStars($idMovie,1)?></div>
                 </div>
             </div>
         </div>
