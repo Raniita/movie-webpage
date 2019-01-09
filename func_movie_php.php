@@ -133,6 +133,118 @@
         return $return;
     }
 
+    function pmGenerateMovieStarRating($rating){
+        $starts = round($rating);
+        $return = '';
+
+        switch ($starts){
+            case 0:
+                $return = "<button type=\"button\" class=\"btn btn-default btn-grey btn-sm\" aria-label=\"Left Align\">
+                              <span class=\"fas fa-star\" aria-hidden=\"true\"></span>
+                           </button>
+                           <button type=\"button\" class=\"btn btn-default btn-grey btn-sm\" aria-label=\"Left Align\">
+                              <span class=\"fas fa-star\" aria-hidden=\"true\"></span>
+                            </button>
+                           <button type=\"button\" class=\"btn btn-default btn-grey btn-sm\" aria-label=\"Left Align\">
+                              <span class=\"fas fa-star\" aria-hidden=\"true\"></span>
+                           </button>
+                           <button type=\"button\" class=\"btn btn-default btn-grey btn-sm\" aria-label=\"Left Align\">
+                              <span class=\"fas fa-star\" aria-hidden=\"true\"></span>
+                           </button>
+                           <button type=\"button\" class=\"btn btn-default btn-grey btn-sm\" aria-label=\"Left Align\">
+                              <span class=\"fas fa-star\" aria-hidden=\"true\"></span>
+                           </button>";
+                break;
+            case 1:
+                $return = "<button type=\"button\" class=\"btn btn-warning btn-sm\" aria-label=\"Left Align\">
+                              <span class=\"fas fa-star\" aria-hidden=\"true\"></span>
+                           </button>
+                           <button type=\"button\" class=\"btn btn-default btn-grey btn-sm\" aria-label=\"Left Align\">
+                              <span class=\"fas fa-star\" aria-hidden=\"true\"></span>
+                            </button>
+                           <button type=\"button\" class=\"btn btn-default btn-grey btn-sm\" aria-label=\"Left Align\">
+                              <span class=\"fas fa-star\" aria-hidden=\"true\"></span>
+                           </button>
+                           <button type=\"button\" class=\"btn btn-default btn-grey btn-sm\" aria-label=\"Left Align\">
+                              <span class=\"fas fa-star\" aria-hidden=\"true\"></span>
+                           </button>
+                           <button type=\"button\" class=\"btn btn-default btn-grey btn-sm\" aria-label=\"Left Align\">
+                              <span class=\"fas fa-star\" aria-hidden=\"true\"></span>
+                           </button>";
+                break;
+            case 2:
+                $return = "<button type=\"button\" class=\"btn btn-warning btn-sm\" aria-label=\"Left Align\">
+                              <span class=\"fas fa-star\" aria-hidden=\"true\"></span>
+                           </button>
+                           <button type=\"button\" class=\"btn btn-warning btn-sm\" aria-label=\"Left Align\">
+                              <span class=\"fas fa-star\" aria-hidden=\"true\"></span>
+                            </button>
+                           <button type=\"button\" class=\"btn btn-default btn-grey btn-sm\" aria-label=\"Left Align\">
+                              <span class=\"fas fa-star\" aria-hidden=\"true\"></span>
+                           </button>
+                           <button type=\"button\" class=\"btn btn-default btn-grey btn-sm\" aria-label=\"Left Align\">
+                              <span class=\"fas fa-star\" aria-hidden=\"true\"></span>
+                           </button>
+                           <button type=\"button\" class=\"btn btn-default btn-grey btn-sm\" aria-label=\"Left Align\">
+                              <span class=\"fas fa-star\" aria-hidden=\"true\"></span>
+                           </button>";
+                break;
+            case 3:
+                $return = "<button type=\"button\" class=\"btn btn-warning btn-sm\" aria-label=\"Left Align\">
+                              <span class=\"fas fa-star\" aria-hidden=\"true\"></span>
+                           </button>
+                           <button type=\"button\" class=\"btn btn-warning btn-sm\" aria-label=\"Left Align\">
+                              <span class=\"fas fa-star\" aria-hidden=\"true\"></span>
+                            </button>
+                           <button type=\"button\" class=\"btn btn-warning btn-sm\" aria-label=\"Left Align\">
+                              <span class=\"fas fa-star\" aria-hidden=\"true\"></span>
+                           </button>
+                           <button type=\"button\" class=\"btn btn-default btn-grey btn-sm\" aria-label=\"Left Align\">
+                              <span class=\"fas fa-star\" aria-hidden=\"true\"></span>
+                           </button>
+                           <button type=\"button\" class=\"btn btn-default btn-grey btn-sm\" aria-label=\"Left Align\">
+                              <span class=\"fas fa-star\" aria-hidden=\"true\"></span>
+                           </button>";
+                break;
+            case 4:
+                $return = "<button type=\"button\" class=\"btn btn-warning btn-sm\" aria-label=\"Left Align\">
+                              <span class=\"fas fa-star\" aria-hidden=\"true\"></span>
+                           </button>
+                           <button type=\"button\" class=\"btn btn-warning btn-sm\" aria-label=\"Left Align\">
+                              <span class=\"fas fa-star\" aria-hidden=\"true\"></span>
+                            </button>
+                           <button type=\"button\" class=\"btn btn-warning btn-sm\" aria-label=\"Left Align\">
+                              <span class=\"fas fa-star\" aria-hidden=\"true\"></span>
+                           </button>
+                           <button type=\"button\" class=\"btn btn-warning btn-sm\" aria-label=\"Left Align\">
+                              <span class=\"fas fa-star\" aria-hidden=\"true\"></span>
+                           </button>
+                           <button type=\"button\" class=\"btn btn-default btn-grey btn-sm\" aria-label=\"Left Align\">
+                              <span class=\"fas fa-star\" aria-hidden=\"true\"></span>
+                           </button>";
+                break;
+            case 5:
+                $return = "<button type=\"button\" class=\"btn btn-warning btn-sm\" aria-label=\"Left Align\">
+                              <span class=\"fas fa-star\" aria-hidden=\"true\"></span>
+                           </button>
+                           <button type=\"button\" class=\"btn btn-warning btn-sm\" aria-label=\"Left Align\">
+                              <span class=\"fas fa-star\" aria-hidden=\"true\"></span>
+                            </button>
+                           <button type=\"button\" class=\"btn btn-warning btn-sm\" aria-label=\"Left Align\">
+                              <span class=\"fas fa-star\" aria-hidden=\"true\"></span>
+                           </button>
+                           <button type=\"button\" class=\"btn btn-warning btn-sm\" aria-label=\"Left Align\">
+                              <span class=\"fas fa-star\" aria-hidden=\"true\"></span>
+                           </button>
+                           <button type=\"button\" class=\"btn btn-warning btn-sm\" aria-label=\"Left Align\">
+                              <span class=\"fas fa-star\" aria-hidden=\"true\"></span>
+                           </button>";
+                break;
+        }
+
+        return $return;
+    }
+
     function pmSubStrYear($title){
         $newMovieName = substr($title,0,-6);
         return $newMovieName;

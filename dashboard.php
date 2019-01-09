@@ -179,11 +179,9 @@
 
 </main>
 
-<footer class="footer">
-    <div class="sticky-footer text-center">
-        <span class="text-muted">See you on my Github! <a href="#"> <i class="fab fa-github"></i> Raniita</a></span>
-    </div>
-</footer>
+<?php
+    echo pgShowFooter();
+?>
 
 <!-- SCRIPTS -->
 <script src="js/jquery-3.3.1.min.js"></script>
