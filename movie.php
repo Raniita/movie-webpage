@@ -1,41 +1,42 @@
 <?php
-    session_start();
-    include('func_gen_php.php');
-    include('func_gen_sql.php');
-    include('func_movie_php.php');
-    include('func_movie_sql.php');
+session_start();
+include('func_gen_php.php');
+include('func_gen_sql.php');
+include('func_movie_php.php');
+include('func_movie_sql.php');
 
-    $state = '';
-    if (isset($_GET['logout'])) {
-        header('Location:login.php?logout');
+$state = '';
+if (isset($_GET['logout'])) {
+    header('Location:login.php?logout');
+} else {
+    $state = pgCheckSession();
+    if ($state == 'OK!') {
+        $logged = true;
+        $idUser = $_SESSION['id'];
+        $nameUser = $_SESSION['name'];
     } else {
-        $state = pgCheckSession();
-        if ($state == 'OK!') {
-            $logged = true;
-            $idUser = $_SESSION['id'];
-            $nameUser = $_SESSION['name'];
-        } else {
-            $logged = false;
-        }
+        $logged = false;
     }
+}
 
-    if (isset($_GET['movie'])) {
-        $movieDecoded = pgEncodeDecode($_GET['movie'],0);
-        $movieSecure = pgSecureCheck($movieDecoded);
-        $idMovie = substr($movieDecoded, 0, -5);
-    }
+if (isset($_GET['movie'])) {
+    $movieDecoded = pgEncodeDecode($_GET['movie'], 0);
+    $movieSecure = pgSecureCheck($movieDecoded);
+    $idMovie = substr($movieDecoded, 0, -5);
+}
 
-    if(isset($_POST['comment'])){
+if (isset($_POST['comment'])) {
 
-    }
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="">
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
-    <title><?php echo smGetMovieName($idMovie);?> - Tuxflix</title>
-    <meta name="description" content="<?php echo smGetMovieName($idMovie);?> - Tuxflix">
+    <title><?php echo smGetMovieName($idMovie); ?> - Tuxflix</title>
+    <meta name="description" content="<?php echo smGetMovieName($idMovie); ?> - Tuxflix">
     <meta name="author" content="Ranii">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="svg+xml" href="img/tuxflix_logo.svg">
@@ -58,44 +59,56 @@
 <body>
 
 <?php
-    echo pgShowNavbar($logged, $idUser, $nameUser);
+echo pgShowNavbar($logged, $idUser, $nameUser);
 ?>
 
 <main role="main">
     <div class="container" style="margin-top: 30px;">
         <div class="row">
             <div class="col-3">
-                <img src="movie-images/<?php echo smGetMovieBackground($idMovie)?>"
-                     class="img-thumbnail" alt="<?php echo smGetMovieName($idMovie)?>">
+                <?php
+                $movieName = pmSubStrYear(smGetMovieName($idMovie));
+                $movieBackground = smGetMovieBackground($idMovie);
+                if (strlen($movieBackground) == 8) {
+                    //No tiene caratula
+                    $moviePoster = 'movie-images/default_movie.jpg';
+                } else {
+                    //Si tiene caratula
+                    $moviePoster = 'movie-images/' . $movieBackground;
+                }
+                ?>
+                <img src="movie-images/<?php echo $movieBackground ?>"
+                     class="img-thumbnail" alt="<?php echo $movieName ?>">
             </div>
             <div class="col-9">
-                <h3><?php echo smGetMovieName($idMovie)?></h3>
+                <h3><?php echo $movieName ?></h3>
 
                 <hr>
 
                 <div class="info-movie">
                     <label>Description</label><br>
-                    <span class="text-justify" style="display: inline-block"><?php echo smGetMovieDescription($idMovie)?></span>
+                    <span class="text-justify"
+                          style="display: inline-block"><?php echo smGetMovieDescription($idMovie) ?></span>
                 </div>
 
                 <div class="info-movie">
                     <label>Date</label><br>
-                    <span class="text-justify"><?php echo smGetMovieDate($idMovie)?></span>
+                    <span class="text-justify"><?php echo smGetMovieDate($idMovie) ?></span>
                 </div>
 
                 <div class="info-movie">
                     <label>Ponderate Rate</label><br>
-                    <span class="text-justify"><?php echo pmBayesianRating($idMovie)?></span>
+                    <span class="text-justify"><?php echo pmBayesianRating($idMovie) ?></span>
                 </div>
 
                 <div class="info-movie">
                     <label>Genre</label><br>
                     <span class="tag-links">
                         <?php
-                            $movieGenre = smGetMovieGenre($idMovie);
-                            foreach ($movieGenre as $genre){
-                                echo "<a href='#' rel='tag'>".$genre."</a>";
-                            }
+                        $movieGenre = smGetMovieGenre($idMovie);
+                        foreach ($movieGenre as $genre) {
+                            echo "<a href='#' rel='tag'>" . $genre . "</a>";
+                        }
                         ?>
                     </span>
                 </div>
@@ -113,12 +126,12 @@
             <div class="col-sm-3">
                 <div class="rating-block">
                     <h4>Average user rating</h4>
-                    <h2 class="bold padding-bottom-7"><?php echo round(smGetAvgRateMovie($idMovie),2)?>
+                    <h2 class="bold padding-bottom-7"><?php echo round(smGetAvgRateMovie($idMovie), 2) ?>
                         <small>/ 5</small>
                     </h2>
 
                     <?php
-                        echo pmGenerateMovieStarRating(smGetAvgRateMovie($idMovie));
+                    echo pmGenerateMovieStarRating(smGetAvgRateMovie($idMovie));
                     ?>
 
                 </div>
@@ -345,7 +358,7 @@
 </main>
 
 <?php
-    echo pgShowFooter();
+echo pgShowFooter();
 ?>
 
 <!-- SCRIPTS -->
