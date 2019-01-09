@@ -77,7 +77,7 @@ echo pgShowNavbar($logged, $idUser, $nameUser);
                     $moviePoster = 'movie-images/' . $movieBackground;
                 }
                 ?>
-                <img src="<?php echo $movieBackground ?>"
+                <img src="<?php echo $moviePoster ?>"
                      class="img-thumbnail" alt="<?php echo $movieName ?>">
             </div>
             <div class="col-9">
