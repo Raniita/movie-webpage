@@ -239,8 +239,10 @@
                     <?php
                         $comments = smGetMovieComments($idMovie);
 
-                        foreach($comments as $movieComment){
-                            echo pmGenerateComment($movieComment['user_id'],$movieComment['short'],$movieComment['comment']);
+                        if($comments <> 'KO'){
+                            foreach($comments as $movieComment){
+                                echo pmGenerateComment($movieComment['user_id'],$movieComment['short'],$movieComment['comment']);
+                            }
                         }
                     ?>
                 </div>
