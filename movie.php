@@ -246,6 +246,8 @@ echo pgShowNavbar($logged, $idUser, $nameUser);
             echo "</div>
             </div>
         </div>";
+        } else {
+            echo "<hr>";
         }
         ?>
     </div>
