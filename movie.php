@@ -76,6 +76,21 @@ echo pgShowNavbar($logged, $idUser, $nameUser);
 <main role="main">
     <div class="container" style="margin-top: 30px;">
         <div class="row">
+
+            <?php
+                if($error_submit == true){
+                    echo "<div class=\"alert alert-danger\">
+                    <strong>Error!</strong> Something goes wrong. Submit error.
+                  </div>";
+                }
+
+            if($succ_submit == true){
+                echo "<div class=\"alert alert-success\">
+                    <strong>Done!</strong> You successfully submit your comment.
+                  </div>";
+            }
+            ?>
+
             <div class="col-3">
                 <?php
                 $movieName = pmSubStrYear(smGetMovieName($idMovie));
