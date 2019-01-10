@@ -80,7 +80,7 @@ echo pgShowNavbar($logged, $idUser, $nameUser);
                 }
                 ?>
                 <img src="<?php echo $moviePoster ?>"
-                     class="rounded" width="248" height="366" alt="<?php echo $movieName ?>">
+                     class="img-fluid img-thumbnail" alt="<?php echo $movieName ?>">
             </div>
             <div class="col-9">
                 <h3><?php echo $movieName ?></h3>
