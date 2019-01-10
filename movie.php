@@ -1,35 +1,35 @@
 <?php
-    session_start();
-    include('func_gen_php.php');
-    include('func_gen_sql.php');
-    include('func_movie_php.php');
-    include('func_movie_sql.php');
+session_start();
+include('func_gen_php.php');
+include('func_gen_sql.php');
+include('func_movie_php.php');
+include('func_movie_sql.php');
 
-    $state = '';
-    if (isset($_GET['logout'])) {
-        header('Location:login.php?logout');
+$state = '';
+if (isset($_GET['logout'])) {
+    header('Location:login.php?logout');
+} else {
+    $state = pgCheckSession();
+    if ($state == 'OK!') {
+        $logged = true;
+        $idUser = $_SESSION['id'];
+        $nameUser = $_SESSION['name'];
     } else {
-        $state = pgCheckSession();
-        if ($state == 'OK!') {
-            $logged = true;
-            $idUser = $_SESSION['id'];
-            $nameUser = $_SESSION['name'];
-        } else {
-            $logged = false;
-        }
+        $logged = false;
     }
+}
 
-    if (isset($_GET['movie'])) {
-        $movieDecoded = pgEncodeDecode($_GET['movie'], 0);
-        $movieSecure = pgSecureCheck($movieDecoded);
-        $idMovie = substr($movieDecoded, 0, -5);
-    } else {
-        $error_movie = true;
-    }
+if (isset($_GET['movie'])) {
+    $movieDecoded = pgEncodeDecode($_GET['movie'], 0);
+    $movieSecure = pgSecureCheck($movieDecoded);
+    $idMovie = substr($movieDecoded, 0, -5);
+} else {
+    $error_movie = true;
+}
 
-    if (isset($_POST['comment'])) {
+if (isset($_POST['comment'])) {
 
-    }
+}
 
 ?>
 <!DOCTYPE html>
@@ -61,7 +61,7 @@
 <body>
 
 <?php
-    echo pgShowNavbar($logged, $idUser, $nameUser);
+echo pgShowNavbar($logged, $idUser, $nameUser);
 ?>
 
 <main role="main">
@@ -69,15 +69,15 @@
         <div class="row">
             <div class="col-3">
                 <?php
-                    $movieName = pmSubStrYear(smGetMovieName($idMovie));
-                    $movieBackground = smGetMovieBackground($idMovie);
-                    if (strlen($movieBackground) == 8) {
-                        //No tiene caratula
-                        $moviePoster = 'movie-images/default_movie.jpg';
-                    } else {
-                        //Si tiene caratula
-                        $moviePoster = 'movie-images/' . $movieBackground;
-                    }
+                $movieName = pmSubStrYear(smGetMovieName($idMovie));
+                $movieBackground = smGetMovieBackground($idMovie);
+                if (strlen($movieBackground) == 8) {
+                    //No tiene caratula
+                    $moviePoster = 'movie-images/default_movie.jpg';
+                } else {
+                    //Si tiene caratula
+                    $moviePoster = 'movie-images/' . $movieBackground;
+                }
                 ?>
                 <img src="<?php echo $moviePoster ?>"
                      class="img-thumbnail" alt="<?php echo $movieName ?>">
@@ -107,10 +107,10 @@
                     <label>Genre</label><br>
                     <span class="tag-links">
                         <?php
-                            $movieGenre = smGetMovieGenre($idMovie);
-                            foreach ($movieGenre as $genre) {
-                                echo "<a href='#' rel='tag'>" . $genre . "</a>";
-                            }
+                        $movieGenre = smGetMovieGenre($idMovie);
+                        foreach ($movieGenre as $genre) {
+                            echo "<a href='#' rel='tag'>" . $genre . "</a>";
+                        }
                         ?>
                     </span>
                 </div>
@@ -133,7 +133,7 @@
                     </h2>
 
                     <?php
-                        echo pmGenerateMovieStarRating(smGetAvgRateMovie($idMovie));
+                    echo pmGenerateMovieStarRating(smGetAvgRateMovie($idMovie));
                     ?>
 
                 </div>
@@ -142,12 +142,12 @@
             <div class="col-sm-3">
                 <h4>Rating breakdown</h4>
                 <?php
-                    $totalVotes = smCountAllMovieStars($idMovie);
-                    $bar5star = (smCountMovieStars($idMovie, 5) / $totalVotes) * 100;
-                    $bar4star = (smCountMovieStars($idMovie, 4) / $totalVotes) * 100;
-                    $bar3star = (smCountMovieStars($idMovie, 3) / $totalVotes) * 100;
-                    $bar2star = (smCountMovieStars($idMovie, 2) / $totalVotes) * 100;
-                    $bar1star = (smCountMovieStars($idMovie, 1) / $totalVotes) * 100;
+                $totalVotes = smCountAllMovieStars($idMovie);
+                $bar5star = (smCountMovieStars($idMovie, 5) / $totalVotes) * 100;
+                $bar4star = (smCountMovieStars($idMovie, 4) / $totalVotes) * 100;
+                $bar3star = (smCountMovieStars($idMovie, 3) / $totalVotes) * 100;
+                $bar2star = (smCountMovieStars($idMovie, 2) / $totalVotes) * 100;
+                $bar1star = (smCountMovieStars($idMovie, 1) / $totalVotes) * 100;
                 ?>
 
                 <div class="float-left">
@@ -232,27 +232,27 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-sm-7">
-                <hr/>
-                <div class="review-block">
-                    <?php
-                        $comments = smGetMovieComments($idMovie);
+        <?php
+        $comments = smGetMovieComments($idMovie);
 
-                        if($comments <> 'KO'){
-                            foreach($comments as $movieComment){
-                                echo pmGenerateComment($movieComment['user_id'],$movieComment['short'],$movieComment['comment']);
-                            }
-                        }
-                    ?>
-                </div>
+        if ($comments <> 'KO') {
+            echo "<div class=\"row\">
+            <div class=\"col-sm-7\">
+                <hr/>
+                <div class=\"review-block\">";
+            foreach ($comments as $movieComment) {
+                echo pmGenerateComment($movieComment['user_id'], $movieComment['short'], $movieComment['comment']);
+            }
+            echo "</div>
             </div>
-        </div>
+        </div>";
+        }
+        ?>
     </div>
 
     <?php
-        if ($logged) {
-            echo "<div class=\"container\" style=\"margin-top: auto;\">
+    if ($logged) {
+        echo "<div class=\"container\" style=\"margin-top: auto;\">
                     <hr>
                   </div>
 
@@ -282,14 +282,14 @@
                     </div>
                     </form>
                 </div>";
-        }
+    }
 
     ?>
 
 </main>
 
 <?php
-    echo pgShowFooter();
+echo pgShowFooter();
 ?>
 
 <!-- SCRIPTS -->
