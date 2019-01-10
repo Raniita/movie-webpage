@@ -245,7 +245,8 @@ echo pgShowNavbar($logged, $idUser, $nameUser);
             }
             echo "</div>
             </div>
-        </div>";
+        </div>
+        <hr>";
         } else {
             echo "<hr>";
         }
@@ -254,10 +255,7 @@ echo pgShowNavbar($logged, $idUser, $nameUser);
 
     <?php
     if ($logged) {
-        echo "<div class=\"container\" style=\"margin-top: auto;\">
-                    <hr>
-                  </div>
-
+        echo "
                 <div class=\"container\" style=\"margin-top: auto;margin-bottom: 10px;\">
                     <h4 style=\"margin-bottom: 10px;\">Review this title</h4>
                     <form action=\"movie.php?movie" . $_GET['movie'] . "\" method=\"post\">
