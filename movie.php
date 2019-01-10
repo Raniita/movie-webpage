@@ -27,8 +27,17 @@ if (isset($_GET['movie'])) {
     $error_movie = true;
 }
 
-if (isset($_POST['comment'])) {
+if (isset($_POST['stars']) AND isset($_POST['shortComment']) AND isset($_POST['fullReview'])) {
+    $stars = pgSecureCheck($_POST['stars']);
+    $shortComment = pgSecureCheck($_POST['shortComment']);
+    $fullReview = pgSecureCheck($_POST['fullReview']);
 
+    //Submit Comment
+    if (smSubmitComment($idMovie, $idUser, $stars, $shortComment, $fullReview) <> 'KO'){
+        $succ_submit = true;
+    } else {
+        $error_submit = true;
+    }
 }
 
 ?>
@@ -258,7 +267,7 @@ echo pgShowNavbar($logged, $idUser, $nameUser);
         echo "
                 <div class=\"container\" style=\"margin-top: auto;margin-bottom: 10px;\">
                     <h4 style=\"margin-bottom: 10px;\">Review this title</h4>
-                    <form action=\"movie.php?movie" . $_GET['movie'] . "\" method=\"post\">
+                    <form action=\"movie.php?movie=" . $_GET['movie'] . "\" method=\"post\">
                         <div class=\"form-group\">
                         <label for=\"exampleFormControlSelect1\"><i class=\"fas fa-star\"></i> Give stars</label>
                         <select class=\"form-control\" id=\"stars\">
