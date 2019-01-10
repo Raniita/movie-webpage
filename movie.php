@@ -282,9 +282,10 @@ echo pgShowNavbar($logged, $idUser, $nameUser);
         echo "
                 <div class=\"container\" style=\"margin-top: auto;margin-bottom: 10px;\">
                     <h4 style=\"margin-bottom: 10px;\">Review this title</h4>
+                    
                     <form action=\"movie.php?movie=" . $_GET['movie'] . "\" method=\"post\">
-                        <div class=\"form-group\">
-                        <label for=\"exampleFormControlSelect1\"><i class=\"fas fa-star\"></i> Give stars</label>
+                    <div class=\"form-group\">
+                        <label for=\"stars\"><i class=\"fas fa-star\"></i> Give stars</label>
                         <select class=\"form-control\" id=\"stars\">
                             <option>1</option>
                             <option>2</option>
@@ -292,19 +293,23 @@ echo pgShowNavbar($logged, $idUser, $nameUser);
                             <option>4</option>
                             <option>5</option>
                         </select>
-                        </div>
+                    </div>
+                    
                     <div class=\"form-group\">
                         <label for=\"shortComment\"><i class=\"fas fa-pen\"></i> Short comment</label>
                         <textarea class=\"form-control\" id=\"shortComment\" rows=\"1\"></textarea>
                     </div>
+                    
                     <div class=\"form-group\">
                         <label for=\"fullReview\"><i class=\"fas fa-edit\"></i> Write full review</label>
                         <textarea class=\"form-control\" id=\"fullReview\" rows=\"3\"></textarea>
                     </div>
+                    
                     <div class=\"text-center\">
                         <button class=\"btn btn-secondary\" type=\"submit\">Submit</button>
                     </div>
                     </form>
+                    
                 </div>";
     }
 
