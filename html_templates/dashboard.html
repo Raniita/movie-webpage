@@ -90,7 +90,7 @@
 
     <!-- NavBar Links -->
     <div class="collapse navbar-collapse" id="navbarsLinks">
-        <ul class="navbar-nav ml-auto navbar-links">
+        <ul class="navbar-nav ml-auto navbar-links text-center">
             <li class="nav-item active">
                 <a class="nav-link" href="#"><b>Home</b> <span class="sr-only">(current)</span></a>
             </li>
@@ -106,12 +106,23 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">Link 3</a>
             </li>
+
+            <li>
+                <div id="buscador" class="dropdown pull-right" style="margin-top: 5px;"><input type="text" id="search"
+                                                                                               placeholder="Search"/>
+                    <div id="display" style="background-color:white; position:absolute; z-index:10"></div>
+                </div>
+            </li>
+               
+
         </ul>
 
+        <!--
         <form class="form-inline md-form form-sm">
             <input aria-label="Search" class="form-control form-control-sm mr-3 w-75" placeholder="Search" type="text">
             <i aria-hidden="true" class="fas fa-search"></i>
-        </form>
+        </form>-->
+
 
     </div>
 </nav>
@@ -130,7 +141,8 @@
 
     <div class="row" style="margin-right: 0px;margin-left: 30px;">
         <a class="btn btn-secondary" href="#" role="button"><i class="fas fa-sort"></i> Sort by Name</a>
-        <a class="btn btn-secondary" href="#" role="button" style="margin-left: 10px;"><i class="fas fa-sort-amount-down"></i> Sort by Ranking</a>
+        <a class="btn btn-secondary" href="#" role="button" style="margin-left: 10px;"><i
+                class="fas fa-sort-amount-down"></i> Sort by Ranking</a>
     </div>
 
     <div class="row" style="margin-right: 0px;margin-left: 0px;">
