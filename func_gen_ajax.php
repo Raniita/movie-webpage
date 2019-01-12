@@ -1,4 +1,8 @@
 <?php
+    session_start();
+    include('func_gen_php.php');
+    include('func_gen_sql.php');
+
     //Aqui venimos si hay una peticion ajax de search
     if (isset($_POST['search'])) {
         $input = $_POST['search'];
