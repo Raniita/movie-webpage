@@ -35,7 +35,7 @@
         $pag = 1;
     }
 
-    if(isset($_GET['order'])){
+    if (isset($_GET['order'])) {
         $orderSecure = pgSecureCheck($_GET['order']);
         $_SESSION['order'] = $orderSecure;
 
@@ -89,13 +89,23 @@
             <h1 class="display-3">Welcome to Tuxflix!</h1>
             <p>This is a project working with PHP and MATLAB. Its like a movie website thats is working with some
                 algorithm recommendations for generating a sort of movies that you may like. Have fun!</p>
-            <p><a class="btn btn-primary btn-lg" href="#" role="button">Let's make a recommendation</a></p>
+            <p>
+                <?php
+                    if ($logged) {
+                        echo "<a class=\"btn btn-primary btn-lg\" href=\"#\" role=\"button\">New Recommendation!</a>
+                              <a class=\"btn btn-primary btn-lg\" href=\"#\" role=\"button\" style=\"margin-left: 10px;\">Watch last!</a>";
+                    } else {
+                        echo "<a class=\"btn btn-primary btn-lg\" href=\"login.php\" role=\"button\">Sign in!</a>";
+                    }
+                ?>
+            </p>
         </div>
     </div>
 
     <div class="row" style="margin-right: 0px;margin-left: 30px;">
         <a class="btn btn-secondary" href="?order=name" role="button"><i class="fas fa-sort"></i> Sort by Name</a>
-        <a class="btn btn-secondary" href="?order=rate" role="button" style="margin-left: 10px;"><i class="fas fa-sort-amount-down"></i> Sort by Ranking</a>
+        <a class="btn btn-secondary" href="?order=rate" role="button" style="margin-left: 10px;"><i
+                    class="fas fa-sort-amount-down"></i> Sort by Ranking</a>
     </div>
 
     <div class="row" style="margin-right: 0px;margin-left: 0px;">
@@ -112,7 +122,7 @@
             if ($pag == 1) {
                 $init = 0;
             } else {
-                $init = (($pagRows * $moviesPerRow) - 1) * ($pag-1);
+                $init = (($pagRows * $moviesPerRow) - 1) * ($pag - 1);
             }
             $offset = ($pagRows * $moviesPerRow);
             $sliceMovieList = array_slice($movieList, $init, $offset);
