@@ -157,7 +157,7 @@
     </select>
 
     <input type="checkbox" class="form-control" id="inputTerms" required>
-    <label class="form-check-label" for="inputTerms"><a href="template.html">Accept terms</a></label>
+    <label class="form-check-label" for="inputTerms"><a href="html_templates/template.html">Accept terms</a></label>
 
     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up!</button>
     <p class="mt-5 mb-3 text-muted">&copy; 2018-2019</p>

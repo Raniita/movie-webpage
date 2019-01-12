@@ -1,4 +1,4 @@
-function [Y,R,movieList] = getData()
+function [Y,R,movieList] = getMovieData()
     import java.net.*;
     import java.io.*;
     import java.sql.*;
@@ -8,9 +8,6 @@ function [Y,R,movieList] = getData()
     user='jdbc:mysql://labit601.upct.es:3306/ai18';
     pass='ai2019';
     conn=database(bbdd,user,pass);
-
-    Statement stmt = null;
-    ResultSet rs = null;
 
     %Query num movies
     stmt = conn.createStatement();
