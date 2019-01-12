@@ -93,3 +93,12 @@ h1, h2, h3, h4, h5, p {
     -ms-flex-pack: center;
     justify-content: center;
 }
+
+.jumbotron {
+    color: white;
+    text-shadow: black 0.3em 0.3em 0.3em;
+    background-image: url(../img/bg_jumbo3.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
