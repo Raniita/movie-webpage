@@ -92,8 +92,8 @@
             <p>
                 <?php
                     if ($logged) {
-                        echo "<a class=\"btn btn-primary btn-lg\" href=\"#\" role=\"button\">New Recommendation!</a>
-                              <a class=\"btn btn-primary btn-lg\" href=\"#\" role=\"button\" style=\"margin-left: 10px;\">Watch last!</a>";
+                        echo "<a class=\"btn btn-primary btn-lg\" href=\"process_recomen.php\" role=\"button\">New Recommendation!</a>
+                              <a class=\"btn btn-primary btn-lg\" href=\"recommendations.php\" role=\"button\" style=\"margin-left: 10px;\">Watch last!</a>";
                     } else {
                         echo "<a class=\"btn btn-primary btn-lg\" href=\"login.php\" role=\"button\">Sign in!</a>";
                     }
