@@ -183,6 +183,7 @@
     <!--NavBar Links-->
     <div class=\"collapse navbar-collapse\" id=\"navbarsLinks\">
         <ul class=\"navbar-nav ml-auto navbar-links\">
+            <!--
             <li class=\"nav-item active\">
                 <a class=\"nav-link\" href=\"#\"><b>Home</b> <span class=\"sr-only\">(current)</span></a>
             </li>
@@ -197,7 +198,7 @@
 
             <li class=\"nav-item\">
                 <a class=\"nav-link\" href=\"#\">Link 3</a>
-            </li>
+            </li> -->
             
             <li>
                 <div id=\"searchBox\" class=\"dropdown pull-right\" style=\"margin-top: 5px;\"><input type=\"text\" id=\"search\"
