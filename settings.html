@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <title>User Settings - Tuxflix</title>
+    <meta name="description" content="User Settings - Tuxflix">
+    <meta name="author" content="Ranii">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="svg+xml" href="img/tuxflix_logo.svg">
+
+    <!-- my css -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- Boostrap 4 -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="css/all.min.css">
+
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md navbar-light fixed-top bg-white ">
+    <a class="navbar-brand navbar-tuxflix" href="dashboard.php"><img alt="tuxflix" class="d-inline-block align-top"
+                                                                     height="45" src="img/tuxflix_logo+text.svg"
+                                                                     width="120"></a>
+
+    <button aria-controls="navbarsLinks" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
+            data-target="#navbarsLinks" data-toggle="collapse" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="left-navbar">
+
+        <!-- Buttons
+        <button type="button" class="btn btn-outline-info" onclick="location.href = 'login.php';" id="signInButton">Sign in</button>
+        <button type="button" class="btn btn-outline-secondary" onclick="location.href = 'register.php';" id="registerButton">Join us</button>
+        Buttons -->
+
+        <!-- User Panel
+        <ul class="navbar-nav mr-auto">
+            <li class="dropdown">
+                <a class="dropdown-toggle text-dark" data-toggle="dropdown" href="#">
+                    <span class="fas fa-user"></span> 
+                    <b>Username</b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <div class="navbar-login">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <p class="text-center">
+                                        <span class="fas fa-user icon-size"></span>
+                                    </p>
+                                </div>
+                                <div class="col-lg-8">
+                                    <p class="text-left"><strong>Nombre Apellido</strong></p>
+                                    <p class="text-left small">correoElectronico@email.com</p>
+                                    <p class="text-left">
+                                        <a class="btn btn-primary btn-block btn-sm" href="#">Actualizar Datos</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <div class="navbar-login navbar-login-session">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <p>
+                                        <a class="btn btn-danger btn-block" href="#">Cerrar Sesion</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        User Panel -->
+
+    </div>
+
+    <!-- NavBar Links -->
+    <div class="collapse navbar-collapse" id="navbarsLinks">
+        <ul class="navbar-nav ml-auto navbar-links">
+            <li class="nav-item active">
+                <a class="nav-link" href="#"><b>Home</b> <span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link 2</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link 3</a>
+            </li>
+        </ul>
+
+        <form class="form-inline md-form form-sm">
+            <input aria-label="Search" class="form-control form-control-sm mr-3 w-75" placeholder="Search" type="text">
+            <i aria-hidden="true" class="fas fa-search"></i>
+        </form>
+
+    </div>
+</nav>
+
+<main role="main">
+
+    <div class="container" style="margin-top: 30px;">
+        <div class="row">
+            <div class="col-3">
+                <img src="movie-images/MV5BMjA0MDUwODYwOV5BMl5BanBnXkFtZTcwNjY5ODUyMQ@@._V1_SX300.jpg"
+                     class="img-thumbnail" alt="default image test">
+            </div>
+            <div class="col-9">
+                <h3>Toy Story</h3>
+
+                <hr>
+
+                <div class="info-movie">
+                    <label>Description</label><br>
+                    <span class="text-justify" style="display: inline-block">A cowboy doll is profoundly threatened and jealous when a new spaceman figure supplants him as top toy in a boy's room.</span>
+                </div>
+
+                <div class="info-movie">
+                    <label>Date</label><br>
+                    <span class="text-justify">1995-01-01</span>
+                </div>
+
+                <div class="info-movie">
+                    <label>Ponderate Rate</label><br>
+                    <span class="text-justify">5.0</span>
+                </div>
+
+                <div class="info-movie">
+                    <label>Genre</label><br>
+                    <span class="tag-links">
+                        <a href="#" rel="tag">Profilet</a>
+                        <a href="#" rel="tag">asdas</a>
+                        <a href="#" rel="tag">34444</a>
+                        <a href="#" rel="tag">55555</a>
+                        <a href="#" rel="tag">fffff</a>
+
+                    </span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="margin-top: auto;">
+        <hr>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="sticky-footer text-center">
+        <span class="text-muted">See you on my Github! <a href="#"><i class="fab fa-github"></i> Raniita</a></span>
+    </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="js/jquery-3.3.1.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/jquery-3.3.1.min.js"><\/script>')</script>
+<script src="js/bootstrap.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -15,7 +15,7 @@ Theta = randn(num_users, num_features);
 initial_parameters = [X(:); Theta(:)];
 
 %Options fmincg
-options = optimset('GradObj', 'on', 'MaxIter', 1000);
+options = optimset('MaxIter', 1000);
 lambda = 10;
 theta = fmincg (@(t)(cofiCostFunc(t, Y, R, num_users, num_movies, num_features, lambda)), initial_parameters, options);
 
