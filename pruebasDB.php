@@ -5,7 +5,7 @@
     include("func_movie_php.php");
     include("func_movie_sql.php");
 
-    print_r(smGetMovieListDefault());
+    print_r($_POST);
 ?>
 
 <!DOCTYPE html>
