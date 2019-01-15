@@ -7,17 +7,17 @@
     <meta content="dashboard-tuxflix" name="description">
     <meta content="Ranii" name="author">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link href="img/tuxflix_logo.svg" rel="icon" type="svg+xml">
+    <link href="../img/tuxflix_logo.svg" rel="icon" type="svg+xml">
 
     <!-- my css -->
-    <link href="css/dashboard.css" rel="stylesheet">
-    <link href="css/movie-card.css" rel="stylesheet">
+    <link href="../css/dashboard.css" rel="stylesheet">
+    <link href="../css/movie-card.css" rel="stylesheet">
 
     <!-- Boostrap 4 -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Fontawesome -->
-    <link href="css/all.min.css" rel="stylesheet">
+    <link href="../css/all.min.css" rel="stylesheet">
 
     <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -27,9 +27,9 @@
 <body>
 
 <nav class="navbar navbar-expand-md navbar-light fixed-top bg-white ">
-    <a class="navbar-brand navbar-tuxflix" href="dashboard.php"><img alt="tuxflix" class="d-inline-block align-top"
-                                                                     height="45" src="img/tuxflix_logo+text.svg"
-                                                                     width="120"></a>
+    <a class="navbar-brand navbar-tuxflix" href="../dashboard.php"><img alt="tuxflix" class="d-inline-block align-top"
+                                                                        height="45" src="../img/tuxflix_logo+text.svg"
+                                                                        width="120"></a>
 
     <button aria-controls="navbarsLinks" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
             data-target="#navbarsLinks" data-toggle="collapse" type="button">
@@ -90,7 +90,7 @@
 
     <!-- NavBar Links -->
     <div class="collapse navbar-collapse" id="navbarsLinks">
-        <ul class="navbar-nav ml-auto navbar-links">
+        <ul class="navbar-nav ml-auto navbar-links text-center">
             <li class="nav-item active">
                 <a class="nav-link" href="#"><b>Home</b> <span class="sr-only">(current)</span></a>
             </li>
@@ -106,12 +106,23 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">Link 3</a>
             </li>
+
+            <li>
+                <div id="buscador" class="dropdown pull-right" style="margin-top: 5px;"><input type="text" id="search"
+                                                                                               placeholder="Search"/>
+                    <div id="display" style="background-color:white; position:absolute; z-index:10"></div>
+                </div>
+            </li>
+               
+
         </ul>
 
+        <!--
         <form class="form-inline md-form form-sm">
             <input aria-label="Search" class="form-control form-control-sm mr-3 w-75" placeholder="Search" type="text">
             <i aria-hidden="true" class="fas fa-search"></i>
-        </form>
+        </form>-->
+
 
     </div>
 </nav>
@@ -120,17 +131,18 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
         <div class="container">
-            <h1 class="display-3">Hello, world!</h1>
-            <p>This is a template for a simple marketing or informational website. It includes a large callout called a
-                jumbotron and three supporting pieces of content. Use it as a starting point to create something more
-                unique.</p>
-            <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+            <h1 class="display-3">Welcome to Tuxflix!</h1>
+            <p>This is a project working with PHP and MATLAB. Its like a movie website thats is working with some
+                algorithm recommendations for generating a sort of movies that you may like. Have fun!</p>
+            <p><a class="btn btn-primary btn-lg" href="#" role="button">New Recommendation!</a>
+                <a class="btn btn-primary btn-lg" href="#" role="button" style="margin-left: 10px;">Watch last!</a></p>
         </div>
     </div>
 
     <div class="row" style="margin-right: 0px;margin-left: 30px;">
         <a class="btn btn-secondary" href="#" role="button"><i class="fas fa-sort"></i> Sort by Name</a>
-        <a class="btn btn-secondary" href="#" role="button" style="margin-left: 10px;"><i class="fas fa-sort-amount-down"></i> Sort by Ranking</a>
+        <a class="btn btn-secondary" href="#" role="button" style="margin-left: 10px;"><i
+                class="fas fa-sort-amount-down"></i> Sort by Ranking</a>
     </div>
 
     <div class="row" style="margin-right: 0px;margin-left: 0px;">
@@ -446,10 +458,10 @@
 </footer>
 
 <!-- SCRIPTS -->
-<script src="js/jquery-3.3.1.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/jquery-3.3.1.min.js"><\/script>')</script>
-<script src="js/bootstrap.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/main.js"></script>
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script>window.jQuery || document.write('<script src="../js/jquery-3.3.1.min.js"><\/script>')</script>
+<script src="../js/bootstrap.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/main.js"></script>
 </body>
 </html>

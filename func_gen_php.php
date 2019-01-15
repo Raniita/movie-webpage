@@ -183,6 +183,7 @@
     <!--NavBar Links-->
     <div class=\"collapse navbar-collapse\" id=\"navbarsLinks\">
         <ul class=\"navbar-nav ml-auto navbar-links\">
+            <!--
             <li class=\"nav-item active\">
                 <a class=\"nav-link\" href=\"#\"><b>Home</b> <span class=\"sr-only\">(current)</span></a>
             </li>
@@ -197,13 +198,23 @@
 
             <li class=\"nav-item\">
                 <a class=\"nav-link\" href=\"#\">Link 3</a>
+            </li> -->
+            
+            <li>
+                <div id=\"searchBox\" class=\"dropdown pull-right\" style=\"margin-top: 5px;\"><input type=\"text\" id=\"search\"
+                                                                                               placeholder=\"Search\"/>
+                    <i aria-hidden=\"true\" class=\"fas fa-search\"></i>
+                    <div id=\"display\" style=\"background-color:white; position:absolute; z-index:10\"></div>
+                </div>
             </li>
+        
         </ul>
 
+        <!--
         <form class=\"form-inline md-form form-sm\">
             <input aria-label=\"Search\" class=\"form-control form-control-sm mr-3 w-75\" placeholder=\"Search\" type=\"text\">
             <i aria-hidden=\"true\" class=\"fas fa-search\"></i>
-        </form>
+        </form>-->
 
     </div>
 </nav>";
