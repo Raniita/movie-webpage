@@ -34,7 +34,7 @@ if (isset($_POST['stars']) AND isset($_POST['shortComment']) AND isset($_POST['f
 
     //Submit Comment
     $submit = smSubmitComment($idMovie,$idUser,$stars,$shortComment,$fullReview);
-    if ($submit <> 'KO-score' OR $submit <> 'KO-comment'){
+    if ($submit <> 'KO-score' AND $submit <> 'KO-comment'){
         $succ_submit = true;
     } else {
         $error_submit = true;
@@ -77,13 +77,12 @@ echo pgShowNavbar($logged, $idUser, $nameUser);
 <main role="main">
     <div class="container" style="margin-top: 30px;">
         <div class="row">
-
             <?php
-                if($error_submit == true){
-                    echo "<div class=\"alert alert-danger\">
-                    <strong>Error!</strong> Something goes wrong. Submit error.
+            if($error_submit == true){
+                echo "<div class=\"alert alert-danger\">
+                    <strong>Error!</strong> Something goes wrong. Submit error. ".$submit."
                   </div>";
-                }
+            }
 
             if($succ_submit == true){
                 echo "<div class=\"alert alert-success\">
@@ -91,7 +90,9 @@ echo pgShowNavbar($logged, $idUser, $nameUser);
                   </div>";
             }
             ?>
+        </div>
 
+        <div class="row">
             <div class="col-3">
                 <?php
                 $movieName = pmSubStrYear(smGetMovieName($idMovie));
