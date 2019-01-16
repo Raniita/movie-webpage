@@ -28,30 +28,36 @@
 
         if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] === UPLOAD_ERR_OK) {
             //Image Validation
-            $currentDir = getcwd();
-            $uploadDir = "/user-images";
             $fileExtensions = ['jpeg', 'jpg', 'png'];
             $fileName = $_FILES['avatar']['name'];
             $fileSize = $_FILES['avatar']['size'];
             $fileTmpName = $_FILES['avatar']['tmp_name'];
             $fileExtension = strtolower(end(explode('.', $fileName)));
-            $uploadPath = $currentDir . $uploadDir . basename($fileName);
+
+            $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
 
             if (!in_array($fileExtension, $fileExtensions)) {
                 $error_img = true;
+                $error = 'bad extension';
             } elseif ($fileSize > 2000000) {
                 $error_img = true;
+                $error = 'bad size';
             } else {
-                $upload = move_uploaded_file($fileTmpName, $uploadPath);
+                $uploadDir = "./user-images";
+                $destPath = $uploadDir.$newFileName;
+                $upload = move_uploaded_file($fileTmpName, $destPath);
 
                 if ($upload) {
                     $pic = 'img-name';
                 } else {
                     $error_img = true;
+                    $error = 'no move';
                 }
             }
         } else {
             $pic = '';
+            $error_img = true;
+            $error = 'no image';
         }
 
         if ($_POST['gender'] == 'Women') {
@@ -140,7 +146,7 @@
 
         if ($error_img == true) {
             echo "<div class=\"alert alert-danger\">
-                    <strong>Error!</strong> Incorrect image. Please, upload a correct avatar.
+                    <strong>Error!</strong> Incorrect image.".$error."
                   </div>";
         }
     ?>
