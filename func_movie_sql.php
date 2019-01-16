@@ -301,7 +301,7 @@
 
     function smGetMovieComments($id) {
         $connect = sgConnectDB();
-        $query = "SELECT user_id,short,comment FROM moviecomments WHERE movie_id='$id' ";
+        $query = "SELECT user_id,short,comment,stars FROM moviecomments WHERE movie_id='$id' ";
         $result = $connect->query($query);
 
         if ($result->num_rows == 0) {
