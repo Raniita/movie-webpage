@@ -157,8 +157,8 @@
     </select>
 
     <div class="form-group">
-        <label for="avatar">Select your avatar image</label>
-        <input type="file" class="form-control-file" id="avatar" name="avatar">
+        <label for="avatar" class="sr-only">Select your avatar image</label>
+        <input type="file" class="form-control form-control-file" id="avatar" name="avatar">
     </div>
 
     <input type="checkbox" class="form-control" id="inputTerms" required>
