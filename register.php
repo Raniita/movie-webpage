@@ -26,10 +26,38 @@
         $age = $_POST['age'];
         $occupation = $_POST['occupation'];
 
-        if($_POST['gender']=='Women'){
-            $gender='F';
-        }else{
-            $gender='M';
+        if (isset($_POST['avatar'])) {
+            //Image Validation
+            $currentDir = getcwd();
+            $uploadDir = "/user-images/";
+            $fileExtensions = ['jpeg', 'jpg', 'png'];
+            $fileName = $_FILES['avatar']['name'];
+            $fileSize = $_FILES['avatar']['size'];
+            $fileTmpName = $_FILES['avatar']['tmp_name'];
+            $fileExtension = strtolower(end(explode('.', $fileName)));
+            $uploadPath = $currentDir . $uploadDir . basename($fileName);
+
+            if (!in_array($fileExtension, $fileExtensions)) {
+                $error_img = true;
+            } elseif ($fileSize > 2000000) {
+                $error_img = true;
+            } else {
+                $upload = move_uploaded_file($fileTmpName, $uploadPath);
+
+                if ($upload) {
+                    $pic = 'img-name';
+                } else {
+                    $error_img = true;
+                }
+            }
+        } else {
+            $pic = '';
+        }
+
+        if ($_POST['gender'] == 'Women') {
+            $gender = 'F';
+        } else {
+            $gender = 'M';
         }
 
         if ($passwd <> $confirm_passwd) {
@@ -42,8 +70,8 @@
 
                 if ($state == 'OK!') {
                     //Reg succesful
-                    $code = pgEncodeDecode('ackregister',1);
-                    header('Location:login.php?reg='.$code);
+                    $code = pgEncodeDecode('ackregister', 1);
+                    header('Location:login.php?reg=' . $code);
                 } else {
                     $error_register = true;
                 }
@@ -107,6 +135,12 @@
         if ($error_age == true) {
             echo "<div class=\"alert alert-danger\">
                     <strong>Error!</strong> Incorrect age. Send values more than 10 and less than 110.
+                  </div>";
+        }
+
+        if ($error_img == true) {
+            echo "<div class=\"alert alert-danger\">
+                    <strong>Error!</strong> Incorrect image. Please, upload a correct avatar.
                   </div>";
         }
     ?>
