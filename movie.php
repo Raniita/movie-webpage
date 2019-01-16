@@ -282,7 +282,7 @@ echo pgShowNavbar($logged, $idUser, $nameUser);
         echo "<div class=\"container\" style=\"margin-top: auto;margin-bottom: 10px;\">
                     <h4 style=\"margin-bottom: 10px;\">Review this title</h4>
                     
-                    <form action=\"pruebasDB.php\" method=\"GET\">
+                    <form action=\"pruebasDB.php\" method=\"POST\">
                     <div class=\"form-group\">
                         <label for=\"stars\"><i class=\"fas fa-star\"></i> Give stars</label>
                         <select class=\"form-control\" id=\"stars\">
