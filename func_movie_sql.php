@@ -325,7 +325,7 @@
         if ($result) { //1 -> Query succ
             $date = date('m-d-Y h:i:s', time());
             //Add Star rate to user_score
-            $query = "INSERT INTO user_score (id_user, id_movie, score. time) values ($idUser, $idMovie, $stars, $date)";
+            $query = "INSERT INTO user_score (id_user, id_movie, score, time) values ($idUser, $idMovie, $stars, '$date')";
             $result = $connect->query($query);
 
             if ($result) {
