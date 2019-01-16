@@ -267,7 +267,12 @@ echo pgShowNavbar($logged, $idUser, $nameUser);
                 <hr/>
                 <div class=\"review-block\">";
             foreach ($comments as $movieComment) {
-                echo pmGenerateComment($movieComment['user_id'], $movieComment['short'], $movieComment['comment']);
+                if($movieComment['stars'] == null){
+                    $stars = 0;
+                } else {
+                    $stars = $movieComment['stars'];
+                }
+                echo pmGenerateComment($movieComment['user_id'], $movieComment['short'], $movieComment['comment'], $stars);
             }
             echo "</div>
             </div>

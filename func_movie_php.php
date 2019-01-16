@@ -250,7 +250,7 @@
         return $newMovieName;
     }
 
-    function pmGenerateComment($user, $short, $comment) {
+    function pmGenerateComment($user, $short, $comment, $stars) {
         $userImg = pgGetUserImg($user);
         $return = '';
         $return = "<div class=\"row\">
@@ -259,6 +259,7 @@
                             <div class=\"review-block-name\">" . sgNameUser($user) . "</div>
                         </div>
                         <div class=\"col-sm-9\">
+                            <div class=\"review-block-rate\">". pmGenerateMovieStarRating($stars) ."</div>
                             <div class=\"review-block-title\">" . $short . "</div>
                             <div class=\"review-block-description\">" . $comment . "</div>
                         </div>
