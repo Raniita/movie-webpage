@@ -26,7 +26,8 @@
         $age = $_POST['age'];
         $occupation = $_POST['occupation'];
 
-        if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] === UPLOAD_ERR_OK) {
+        //&& $_FILES['avatar']['error'] === UPLOAD_ERR_OK
+        if (isset($_FILES['avatar'])) {
             //Image Validation
             $fileExtensions = ['jpeg', 'jpg', 'png'];
             $fileName = $_FILES['avatar']['name'];
