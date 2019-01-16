@@ -80,7 +80,7 @@ echo pgShowNavbar($logged, $idUser, $nameUser);
             <?php
             if($error_submit == true){
                 echo "<div class=\"alert alert-danger\">
-                    <strong>Error!</strong> Something goes wrong. Submit error. ".$submit." ".date('Y-m-d h:i:s', time())."
+                    <strong>Error!</strong> Something goes wrong. Submit error. Already vote this movie
                   </div>";
             }
 
