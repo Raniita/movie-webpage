@@ -285,7 +285,7 @@ echo pgShowNavbar($logged, $idUser, $nameUser);
                     <form action=\"pruebasDB.php\" method=\"POST\">
                     <div class=\"form-group\">
                         <label for=\"stars\"><i class=\"fas fa-star\"></i> Give stars</label>
-                        <select class=\"form-control\" id=\"stars\">
+                        <select class=\"form-control\" id=\"stars\" name=\"stars\">
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
@@ -296,12 +296,12 @@ echo pgShowNavbar($logged, $idUser, $nameUser);
                     
                     <div class=\"form-group\">
                         <label for=\"shortComment\"><i class=\"fas fa-pen\"></i> Short comment</label>
-                        <textarea class=\"form-control\" id=\"shortComment\" rows=\"1\"></textarea>
+                        <textarea class=\"form-control\" id=\"shortComment\" name=\"shortComment\" rows=\"1\"></textarea>
                     </div>
                     
                     <div class=\"form-group\">
                         <label for=\"fullReview\"><i class=\"fas fa-edit\"></i> Write full review</label>
-                        <textarea class=\"form-control\" id=\"fullReview\" rows=\"3\"></textarea>
+                        <textarea class=\"form-control\" id=\"fullReview\" name=\"fullReview\" rows=\"3\"></textarea>
                     </div>
                     
                     <div class=\"text-center\">
