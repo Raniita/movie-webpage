@@ -33,7 +33,8 @@ if (isset($_POST['stars']) AND isset($_POST['shortComment']) AND isset($_POST['f
     $fullReview = pgSecureCheck($_POST['fullReview']);
 
     //Submit Comment
-    if (smSubmitComment($idMovie, $idUser, $stars, $shortComment, $fullReview) <> 'KO'){
+    $submit = smSubmitComment($idMovie,$idUser,$stars,$shortComment,$fullReview);
+    if ($submit <> 'KO-score' OR $submit <> 'KO-comment'){
         $succ_submit = true;
     } else {
         $error_submit = true;

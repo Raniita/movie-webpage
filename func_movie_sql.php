@@ -319,23 +319,23 @@
 
     function smSubmitComment($idMovie, $idUser, $stars, $shortComment, $fullReview) {
         $connect = sgConnectDB();
-        $query = "INSERT INTO moviecomments (comment, movie_id, short, stars, user_id) values ($fullReview,$idMovie,$shortComment,$stars,$fullReview,$idUser)";
+        $query = "INSERT INTO moviecomments (movie_id, user_id, short, comment, stars) values ($idMovie,$idUser,$shortComment,$fullReview,$stars)";
         $result = $connect->query($query);
 
         if ($result) { //1 -> Query succ
             $date = date('m-d-Y h:i:s', time());
             //Add Star rate to user_score
-            $query = "INSERT INTO user_score (id_movie, id_user, score. time) values ($idMovie, $idUser, $stars, $date)";
+            $query = "INSERT INTO user_score (id_user, id_movie, score. time) values ($idUser, $idMovie, $stars, $date)";
             $result = $connect->query($query);
 
             if ($result) {
                 $return = 'succ';
             } else {
-                $return = 'KO';
+                $return = 'KO-score';
             }
         } else {
             //Codigo error
-            $return = "KO";
+            $return = "KO-comment";
         }
 
         mysqli_close($connect);
