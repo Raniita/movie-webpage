@@ -157,25 +157,8 @@
     </select>
 
     <div class="form-group">
-        <label >Cargar imagen <span class="required">*</span></label>
-        <div class="row">
-            <div  class="col-sm-6 mb-lg">
-                <div class="fileupload fileupload-new" data-provides="fileupload">
-                    <div class="input-append">
-                        <div class="uneditable-input">
-                            <i class="fas fa-file fileupload-exists"></i>
-                            <span class="fileupload-preview"></span>
-                        </div>
-                        <span class="btn btn-default btn-file">
-															<span class="fileupload-exists"> Cambiar</span>
-															<span class="fileupload-new">Seleccionar archivo</span>
-															<input type="file" name="imagen" required />
-														</span>
-                        <a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload">Eliminar</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <label for="avatar">Select your avatar image</label>
+        <input type="file" class="form-control-file" id="avatar" name="avatar">
     </div>
 
     <input type="checkbox" class="form-control" id="inputTerms" required>
