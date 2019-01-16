@@ -122,7 +122,7 @@
 
 <body class="text-center">
 
-<form class="form-signin" action="register.php" method="post">
+<form class="form-signin" action="register.php" method="post" enctype="multipart/form-data">
     <img class="mb-4" src="img/tuxflix_logo.svg" alt="tuxflix_logo" width="220" height="220">
     <h1 class="h3 mb-3 font-weight-normal">Create an account</h1>
 
