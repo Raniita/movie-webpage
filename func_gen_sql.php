@@ -24,9 +24,9 @@
         return $return;
     }
 
-    function sgRegister($id, $user, $age, $gender, $occupation, $passwd) {
+    function sgRegister($id, $user, $age, $gender, $occupation, $passwd, $pic) {
         $connect = sgConnectDB();
-        $query = "INSERT INTO users (id, name, edad, sex, ocupacion, pic, passwd) values ($id, '$user', '$age','$gender','$occupation', '','$passwd')";
+        $query = "INSERT INTO users (id, name, edad, sex, ocupacion, pic, passwd) values ($id, '$user', '$age','$gender','$occupation','$pic','$passwd')";
         $result = $connect->query($query);
 
         // Devolvemos el uuid del user

@@ -68,14 +68,14 @@
         }
     }
 
-    function pgRegister($user, $age, $gender, $occupation, $passwd) {
+    function pgRegister($user, $age, $gender, $occupation, $passwd, $pic) {
         $id = rand(1, 500000);
         while (sgExists($id) == 'OK!') {
             $id = rand(1, 500000);
         }
 
         $passw_crypt = pgCodifica($user, $passwd);
-        $uuid = sgRegister($id, $user, $age, $gender, $occupation, $passw_crypt);
+        $uuid = sgRegister($id, $user, $age, $gender, $occupation, $passw_crypt, $pic);
 
         //Si el id es diferente al error...
         if ($uuid <> 'KO!') {
@@ -236,7 +236,7 @@
     function pgGetUserImg($id) {
         $pic = sgUserImg($id);
 
-        if ($pic == '') {
+        if ($pic == 'no-img' OR $pic == '') {
             //No existe la img
             $picture = 'user-images/default-user.jpg';
         } elseif (file_exists("user-images/" . $pic)) {

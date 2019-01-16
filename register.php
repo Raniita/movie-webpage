@@ -48,14 +48,14 @@
                 $upload = move_uploaded_file($fileTmpName, $destPath);
 
                 if ($upload) {
-                    $pic = 'img-name';
+                    $pic = $newFileName;
                 } else {
                     $error_img = true;
                     $error = 'no move';
                 }
             }
         } else {
-            $pic = '';
+            $pic = 'no-img';
             $error_img = true;
             $error = 'no image';
         }
@@ -72,7 +72,7 @@
         } else {
             //Passw correctas
             if ($age > 12 AND $age < 110) {
-                $state = pgRegister($user, $age, $gender, $occupation, $passwd);
+                $state = pgRegister($user, $age, $gender, $occupation, $passwd, $pic);
 
                 if ($state == 'OK!') {
                     //Reg succesful
