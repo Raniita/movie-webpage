@@ -26,10 +26,10 @@
         $age = $_POST['age'];
         $occupation = $_POST['occupation'];
 
-        if (isset($_POST['avatar'])) {
+        if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] === UPLOAD_ERR_OK) {
             //Image Validation
             $currentDir = getcwd();
-            $uploadDir = "/user-images/";
+            $uploadDir = "/user-images";
             $fileExtensions = ['jpeg', 'jpg', 'png'];
             $fileName = $_FILES['avatar']['name'];
             $fileSize = $_FILES['avatar']['size'];
