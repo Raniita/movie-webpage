@@ -101,8 +101,19 @@
     }
 
     function pgShowUserBar($id, $name) {
-        //TODO
-        //Image user
+        $pic = pgGetUserImg($id);
+        if ($pic == '' OR $pic == 'no-img') {
+            $img = "<p class=\"text-center\">
+                        <!--Pic check --> 
+                        <span class=\"fas fa-user icon-size\"></span>
+                      </p>";
+        } else {
+            $path = '.user-images/' . $pic;
+            $img = "<p class=\"text-center\">
+                        <img src=\"" . $path . "\" class=\"rounded\" alt=\"avatarTuxflix\" width='90' height='105'> 
+                      </p>";
+        }
+
         $return = '';
         $return = "<ul class=\"navbar-nav mr-auto\">
                     <li class=\"dropdown\">
@@ -115,10 +126,7 @@
                         <div class=\"navbar-login\">
                             <div class=\"row\">
                                 <div class=\"col-lg-4\">
-                                    <p class=\"text-center\">
-                                        <!--Pic check --> 
-                                        <span class=\"fas fa-user icon-size\"></span>
-                                    </p>
+                                    ".$img."
                                 </div>
                                 <div class=\"col-lg-8\">
                                     <p class=\"text-left\"><strong>" . $name . "</strong></p>
