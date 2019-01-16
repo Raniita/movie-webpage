@@ -48,6 +48,10 @@
         $order = 'default';
     }
 
+    if(isset($_GET['submit'])){
+        $submitRecommendation = true;
+    }
+
 
 ?>
 <!DOCTYPE html>
@@ -100,6 +104,18 @@
                 ?>
             </p>
         </div>
+    </div>
+
+    <div class="row" style="margin-right: 0px;margin-left: 30px;">
+        <?php
+
+        if($submitRecommendation == true){
+            echo "<div class=\"alert alert-success\">
+                    <strong>Success!</strong> Recommendation send. See recommendations webpage
+                  </div>";
+        }
+
+        ?>
     </div>
 
     <div class="row" style="margin-right: 0px;margin-left: 30px;">

@@ -37,6 +37,7 @@
         $info = $pwd . $fun . chr(0);
         $sent = socket_write($socket, $info, strlen($info));
         socket_close($socket);
+        header('Location:dashboard.php?submit');
     }
 
 ?>
