@@ -108,9 +108,8 @@
                         <span class=\"fas fa-user icon-size\"></span>
                       </p>";
         } else {
-            $path = '.user-images/' . $pic;
             $img = "<p class=\"text-center\">
-                        <img src=\"" . $path . "\" class=\"rounded\" alt=\"avatarTuxflix\" width='90' height='105'> 
+                        <img src=\"" . $pic . "\" class=\"rounded\" alt=\"avatarTuxflix\" width='90' height='105'> 
                       </p>";
         }
 
