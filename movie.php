@@ -282,7 +282,7 @@ echo pgShowNavbar($logged, $idUser, $nameUser);
         echo "<div class=\"container\" style=\"margin-top: auto;margin-bottom: 10px;\">
                     <h4 style=\"margin-bottom: 10px;\">Review this title</h4>
                     
-                    <form action=\"pruebasDB.php\" method=\"POST\">
+                    <form action=\"movie.php?movie=" . $_GET['movie'] . "\" method=\"POST\">
                     <div class=\"form-group\">
                         <label for=\"stars\"><i class=\"fas fa-star\"></i> Give stars</label>
                         <select class=\"form-control\" id=\"stars\" name=\"stars\">
@@ -305,7 +305,7 @@ echo pgShowNavbar($logged, $idUser, $nameUser);
                     </div>
                     
                     <div class=\"text-center\">
-                        <button class=\"btn btn-secondary\" type=\"submit\" name=\"comment\">Submit</button>
+                        <button class=\"btn btn-secondary\" type=\"submit\">Submit</button>
                     </div>
                     </form>
                     
