@@ -319,7 +319,7 @@
 
     function smSubmitComment($idMovie, $idUser, $stars, $shortComment, $fullReview) {
         $connect = sgConnectDB();
-        $query = "INSERT INTO moviecomments (movie_id, user_id, short, comment, stars) values ($idMovie,$idUser,$shortComment,$fullReview,$stars)";
+        $query = "INSERT INTO moviecomments (movie_id, user_id, short, comment, stars) values ($idMovie, $idUser, '$shortComment', '$fullReview', $stars)";
         $result = $connect->query($query);
 
         if ($result) { //1 -> Query succ
