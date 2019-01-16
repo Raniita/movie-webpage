@@ -123,6 +123,10 @@
     <label for="inputPassword2" class="sr-only">Confirm Password</label>
     <input type="password" name="confirm_password" id="inputPassword2" class="form-control"
            placeholder="Confirm Password" required>
+    <div class="form-group">
+        <label for="avatar" class="sr-only">Select your avatar image</label>
+        <input type="file" class="form-control form-control-file" id="avatar" name="avatar">
+    </div>
 
 
     <label for="inputGender"></label>
@@ -155,11 +159,6 @@
         <option>none</option>
         <option>other</option>
     </select>
-
-    <div class="form-group">
-        <label for="avatar" class="sr-only">Select your avatar image</label>
-        <input type="file" class="form-control form-control-file" id="avatar" name="avatar">
-    </div>
 
     <input type="checkbox" class="form-control" id="inputTerms" required>
     <label class="form-check-label" for="inputTerms"><a href="html_templates/template.html">Accept terms</a></label>
