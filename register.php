@@ -72,7 +72,7 @@
         } else {
             //Passw correctas
             if ($age > 12 AND $age < 110) {
-                $state = pgRegister($user, $age, $gender, $occupation, $passwd, $pic);
+                //$state = pgRegister($user, $age, $gender, $occupation, $passwd, $pic);
 
                 if ($state == 'OK!') {
                     //Reg succesful
