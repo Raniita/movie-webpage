@@ -268,4 +268,70 @@
         return $return;
     }
 
+    function pmGenerateMovieCardRecommendation($idMovie, $stars, $time) {
+        $movieName = smGetMovieName($idMovie);
+        $movieBackground = smGetMovieBackground($idMovie);
+        $movieDescription = smGetMovieDescription($idMovie);
+
+        $movieDate = smGetMovieDate($idMovie);
+        $movieRate = pmBayesianRating($idMovie);
+        $movieAvgRate = smGetAvgRateMovie($idMovie);
+
+        //creamos el link
+        $movieLink = 'movie.php?movie=' . pgEncodeDecode($idMovie . 'movie', 1);
+
+        //Hack img incoming
+        if (strlen($movieBackground) == 8) {
+            //No tiene caratula
+            $moviePoster = 'movie-images/default_movie.jpg';
+        } else {
+            //Si tiene caratula
+            $moviePoster = 'movie-images/' . $movieBackground;
+        }
+
+        $return = "<div class=\"movie-card\">
+            <div class=\"movie-header\"
+                 style=\"background: url(" . $moviePoster . ");
+                        background-size: cover;\">
+                <div class=\"header-icon-container\">
+                    <a href=\"" . $movieLink . "\">
+                        <i class=\"fa fa-info header-icon\"></i>
+                    </a>
+                </div>
+            </div><!--movie-header-->
+
+            <div class=\"movie-content\">
+                <div class=\"movie-content-header\">
+                    <a href=\"" . $movieLink . "\">
+                        <h3 class=\"movie-title\">" . pmSubStrYear($movieName) . "</h3>
+                    </a>
+                    <div class=\"info-section\">
+                        " . pmGenerateStarRating($movieRate) . "
+                        <span>" . smGetCountRate($idMovie) . "</span>
+                    </div>
+                </div><!--movie-content-header-->
+
+                <div class=\"movie-info\">
+                    <div class=\"info-section\">
+                        <label>Description</label>
+                        <span class=\"text-justify\" style=\"font-size: 60%;\">" . $movieDescription . "</span>
+                    </div>
+
+                    <div class=\"info-section\">
+                        <label>Recommendation Score</label>
+                        <span style=\"font-size: 70%;\">" . round($stars, 2) . "</span>
+                    </div>
+                    
+                    <div class=\"info-section\">
+                        <label>Created</label>
+                        <span style=\"font-size: 70%;\">" . $time . "</span>
+                    </div>
+                    
+                </div><!-- movie-info-->
+            </div><!--movie-content-->
+        </div><!--movie-card-->";
+
+        return $return;
+    }
+
 ?>
