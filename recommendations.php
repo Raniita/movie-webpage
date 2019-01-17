@@ -54,9 +54,11 @@
 ?>
 
 <main role="main">
-    <div class="row" style="margin-right: 0px;margin-left: 0px;">
+    <div class="row" style="margin-top: 10px;margin-right: 0px;margin-left: 0px;">
         <?php
             $movieList = smGetRecommendations($idUser);
+            echo $movieList;
+            print_r($movieList);
             foreach ($movieList as $movie) {
                 echo pmGenerateMovieCardRecommendation($movie['movie_id'], $movie['rec_score'], $movie['time']);
             }
