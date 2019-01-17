@@ -109,7 +109,7 @@
                       </p>";
         } else {
             $img = "<p class=\"text-center\">
-                        <img src=\"" . $pic . "\" class=\"rounded\" alt=\"avatarTuxflix\" width='90' height='105'> 
+                        <img src=\"" . $pic . "\" class=\"rounded\" alt=\"avatarTuxflix\" width='90' height='105' style='margin-left:5px;'> 
                       </p>";
         }
 
@@ -127,7 +127,7 @@
                                 <div class=\"col-lg-4\">
                                     ".$img."
                                 </div>
-                                <div class=\"col-lg-8\">
+                                <div class=\"col-lg-8\" style='left: 15px;'>
                                     <p class=\"text-left\"><strong>" . $name . "</strong></p>
                                     <!--<p class=\"text-left small\">correoElectronico@email.com</p>-->
                                     <p class=\"text-left\">
