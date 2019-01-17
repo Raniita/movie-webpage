@@ -109,7 +109,7 @@
     <link rel="stylesheet" href="css/all.min.css">
 
     <!-- sign in CSS -->
-    <link rel="stylesheet" href="css/sign-in.css">
+    <link rel="stylesheet" href="css/sign-up.css">
 
     <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -152,23 +152,23 @@
 
     ?>
 
-    <label for="inputName" class="sr-only"><?php echo $userName ?></label>
-    <input type="text" name="name" id="inputName" class="form-control" placeholder="Username" required autofocus
+    <label for="inputName" class="sr-only">Username</label>
+    <input type="text" name="name" id="inputName" class="form-control" placeholder="<?php echo $userName ?>" required autofocus
            readonly>
 
     <label for="inputAge" class="sr-only">Age</label>
     <input type="number" name="age" id="inputAge" class="form-control" placeholder="Age" required>
 
     <label for="inputCurrentPassword" class="sr-only">Current password</label>
-    <input type="password" name="current_password" id="inputCurrentPassword" class="form-control" placeholder="Password"
+    <input type="password" name="current_password" id="inputCurrentPassword" class="form-control" placeholder="Current password"
            required>
 
     <label for="inputPassword" class="sr-only">New password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="New password" required>
 
     <label for="inputPassword2" class="sr-only">Confirm new password</label>
     <input type="password" name="confirm_password" id="inputPassword2" class="form-control"
-           placeholder="Confirm Password" required>
+           placeholder="Confirm new password" required>
     <div class="form-group">
         <label for="avatar" class="sr-only">Select your avatar image</label>
         <input type="file" class="form-control form-control-file" id="avatar" name="avatar">
