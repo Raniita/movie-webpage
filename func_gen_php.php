@@ -68,14 +68,14 @@
         }
     }
 
-    function pgRegister($user, $age, $gender, $occupation, $passwd) {
+    function pgRegister($user, $age, $gender, $occupation, $passwd, $pic) {
         $id = rand(1, 500000);
         while (sgExists($id) == 'OK!') {
             $id = rand(1, 500000);
         }
 
         $passw_crypt = pgCodifica($user, $passwd);
-        $uuid = sgRegister($id, $user, $age, $gender, $occupation, $passw_crypt);
+        $uuid = sgRegister($id, $user, $age, $gender, $occupation, $passw_crypt, $pic);
 
         //Si el id es diferente al error...
         if ($uuid <> 'KO!') {
@@ -101,8 +101,18 @@
     }
 
     function pgShowUserBar($id, $name) {
-        //TODO
-        //Image user
+        $pic = pgGetUserImg($id);
+        if ($pic == '' OR $pic == 'no-img') {
+            $img = "<p class=\"text-center\">
+                        <!--Pic check --> 
+                        <span class=\"fas fa-user icon-size\"></span>
+                      </p>";
+        } else {
+            $img = "<p class=\"text-center\">
+                        <img src=\"" . $pic . "\" class=\"rounded\" alt=\"avatarTuxflix\" width='90' height='105' style='margin-left:5px;'> 
+                      </p>";
+        }
+
         $return = '';
         $return = "<ul class=\"navbar-nav mr-auto\">
                     <li class=\"dropdown\">
@@ -115,12 +125,9 @@
                         <div class=\"navbar-login\">
                             <div class=\"row\">
                                 <div class=\"col-lg-4\">
-                                    <p class=\"text-center\">
-                                        <!--Pic check --> 
-                                        <span class=\"fas fa-user icon-size\"></span>
-                                    </p>
+                                    ".$img."
                                 </div>
-                                <div class=\"col-lg-8\">
+                                <div class=\"col-lg-8\" style='left: 15px;'>
                                     <p class=\"text-left\"><strong>" . $name . "</strong></p>
                                     <!--<p class=\"text-left small\">correoElectronico@email.com</p>-->
                                     <p class=\"text-left\">
@@ -236,7 +243,7 @@
     function pgGetUserImg($id) {
         $pic = sgUserImg($id);
 
-        if ($pic == '') {
+        if ($pic == 'no-img' OR $pic == '') {
             //No existe la img
             $picture = 'user-images/default-user.jpg';
         } elseif (file_exists("user-images/" . $pic)) {

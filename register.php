@@ -26,10 +26,45 @@
         $age = $_POST['age'];
         $occupation = $_POST['occupation'];
 
-        if($_POST['gender']=='Women'){
-            $gender='F';
-        }else{
-            $gender='M';
+        //&& $_FILES['avatar']['error'] === UPLOAD_ERR_OK
+        if (isset($_FILES['avatar'])) {
+            //Image Validation
+            $fileExtensions = ['jpeg', 'jpg', 'png'];
+            $fileName = $_FILES['avatar']['name'];
+            $fileSize = $_FILES['avatar']['size'];
+            $fileTmpName = $_FILES['avatar']['tmp_name'];
+            $fileExtension = strtolower(end(explode('.', $fileName)));
+
+            $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
+
+            if (!in_array($fileExtension, $fileExtensions)) {
+                $error_img = true;
+                $error = 'bad extension';
+            } elseif ($fileSize > 2000000) {
+                $error_img = true;
+                $error = 'bad size';
+            } else {
+                $uploadDir = "./user-images/";
+                $destPath = $uploadDir.$newFileName;
+                $upload = move_uploaded_file($fileTmpName, $destPath);
+
+                if ($upload) {
+                    $pic = $newFileName;
+                } else {
+                    $error_img = true;
+                    $error = 'no move';
+                }
+            }
+        } else {
+            $pic = 'no-img';
+            $error_img = true;
+            $error = 'no image';
+        }
+
+        if ($_POST['gender'] == 'Women') {
+            $gender = 'F';
+        } else {
+            $gender = 'M';
         }
 
         if ($passwd <> $confirm_passwd) {
@@ -38,12 +73,12 @@
         } else {
             //Passw correctas
             if ($age > 12 AND $age < 110) {
-                $state = pgRegister($user, $age, $gender, $occupation, $passwd);
+                $state = pgRegister($user, $age, $gender, $occupation, $passwd, $pic);
 
                 if ($state == 'OK!') {
                     //Reg succesful
-                    $code = pgEncodeDecode('ackregister',1);
-                    header('Location:login.php?reg='.$code);
+                    $code = pgEncodeDecode('ackregister', 1);
+                    header('Location:login.php?reg=' . $code);
                 } else {
                     $error_register = true;
                 }
@@ -87,7 +122,7 @@
 
 <body class="text-center">
 
-<form class="form-signin" action="register.php" method="post">
+<form class="form-signin" action="register.php" method="post" enctype="multipart/form-data">
     <img class="mb-4" src="img/tuxflix_logo.svg" alt="tuxflix_logo" width="220" height="220">
     <h1 class="h3 mb-3 font-weight-normal">Create an account</h1>
 
@@ -109,6 +144,12 @@
                     <strong>Error!</strong> Incorrect age. Send values more than 10 and less than 110.
                   </div>";
         }
+
+        if ($error_img == true) {
+            echo "<div class=\"alert alert-danger\">
+                    <strong>Error!</strong> Incorrect image.".$error."
+                  </div>";
+        }
     ?>
 
     <label for="inputName" class="sr-only">Username</label>
@@ -123,6 +164,10 @@
     <label for="inputPassword2" class="sr-only">Confirm Password</label>
     <input type="password" name="confirm_password" id="inputPassword2" class="form-control"
            placeholder="Confirm Password" required>
+    <div class="form-group">
+        <label for="avatar" class="sr-only">Select your avatar image</label>
+        <input type="file" class="form-control form-control-file" id="avatar" name="avatar">
+    </div>
 
 
     <label for="inputGender"></label>
