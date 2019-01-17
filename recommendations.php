@@ -59,10 +59,10 @@
             $movieList = smGetRecommendations($idUser);
             echo $movieList;
             print_r($movieList);
-            foreach ($movieList as $movie) {
+            //foreach ($movieList as $movie) {
                 //echo pmGenerateMovieCardRecommendation($movie['movie_id'], $movie['rec_score']);
-                echo $movie['rec_score'];
-            }
+            //    echo $movie['rec_score'];
+            //}
         ?>
 
     </div>

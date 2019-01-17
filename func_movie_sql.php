@@ -362,10 +362,10 @@
 
     function smGetRecommendations($idUser){
         $connect = sgConnectDB();
-        $query = "SELECT movie_id,rec_score FROM recs WHERE user_id='$idUser'  ORDER BY `recs`.`rec_score` DESC";
+        $query = "SELECT user_id,short,comment,stars FROM moviecomments WHERE movie_id='$idUser' ";
         $result = $connect->query($query);
 
-        if ($result->num_rows==0) {
+        if ($result->num_rows == 0) {
             $return = 'KO';
         } else {
             $return = array();
