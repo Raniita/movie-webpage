@@ -347,7 +347,7 @@
         $query = "SELECT title,id FROM movie WHERE title LIKE '%$input%' LIMIT 5";
         $result = $connect->query($query);
 
-        if($result->num_rows == 0){
+        if($result->num_rows==0){
             $return = 'KO';
         } else {
             $return = array();
@@ -365,7 +365,7 @@
         $query = "SELECT movie_id,rec_score FROM recs WHERE user_id='$idUser' ORDER BY rec_score DESC LIMIT 10";
         $result = $connect->query($query);
 
-        if($result->num_rows == 0){
+        if($result->num_rows==0){
             $return = 'KO';
         } else {
             $return = array();
