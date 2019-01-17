@@ -42,6 +42,9 @@
            $succesfull_reg = true;
         }
 
+        if($decode=='ackupdate'){
+            $succesfull_update = true;
+        }
     }
 
 ?>
@@ -91,6 +94,12 @@
         if($succesfull_reg == true){
             echo "<div class=\"alert alert-success\">
                     <strong>Success!</strong> Register done. Please sign in!
+                  </div>";
+        }
+
+        if($succesfull_update == true){
+            echo "<div class=\"alert alert-success\">
+                    <strong>Success!</strong> Update done. Please sign in!
                   </div>";
         }
 

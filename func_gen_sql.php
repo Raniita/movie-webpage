@@ -1,5 +1,5 @@
 <?php
-    require $_SERVER['DOCUMENT_ROOT'].'/secret.php';
+    require $_SERVER['DOCUMENT_ROOT'] . '/secret.php';
 
     /**
      * Funcion SQL para login en la app
@@ -12,7 +12,7 @@
         $query = "SELECT id FROM users WHERE name='$user' and passwd='$passwd_crypt'";
         $result = $connect->query($query);
 
-        if ($result->num_rows==0) {
+        if ($result->num_rows == 0) {
             $return = 'KO!';
         } else {
             while ($row = $result->fetch_assoc()) {
@@ -52,7 +52,7 @@
         $connect = sgConnectDB();
         $query = "SELECT * FROM users WHERE id='$id'";
         $result = $connect->query($query);
-        if ($result->num_rows==0) {
+        if ($result->num_rows == 0) {
             $return = 'KO';
         } else {
             $return = 'OK!';
@@ -62,16 +62,16 @@
         return $return;
     }
 
-    function sgInfoUser($uuid){
+    function sgInfoUser($uuid) {
         $connect = sgConnectDB();
         $query = "SELECT name FROM users WHERE id='$uuid'";
         $result = $connect->query($query);
-        if($result->num_rows==0){
+        if ($result->num_rows == 0) {
             $return = "KO";
         } else {
             $return = array();
-            while($row = $result->fetch_assoc()){
-                $return= $row;
+            while ($row = $result->fetch_assoc()) {
+                $return = $row;
             }
         }
 
@@ -79,16 +79,16 @@
         return $return;
     }
 
-    function sgNameUser($id){
+    function sgNameUser($id) {
         $connect = sgConnectDB();
         $query = "SELECT name FROM users WHERE id='$id'";
         $result = $connect->query($query);
-        if($result->num_rows==0){
+        if ($result->num_rows == 0) {
             $return = "KO";
         } else {
             $return = array();
-            while($row = $result->fetch_assoc()){
-                $return= $row;
+            while ($row = $result->fetch_assoc()) {
+                $return = $row;
             }
         }
 
@@ -96,20 +96,53 @@
         return $return['name'];
     }
 
-    function sgUserImg($id){
+    function sgUserImg($id) {
         $connect = sgConnectDB();
         $query = "SELECT pic FROM users WHERE id='$id'";
         $result = $connect->query($query);
-        if($result->num_rows==0){
+        if ($result->num_rows == 0) {
             $return = "KO";
         } else {
             $return = array();
-            while($row = $result->fetch_assoc()){
-                $return= $row;
+            while ($row = $result->fetch_assoc()) {
+                $return = $row;
             }
         }
 
         mysqli_close($connect);
         return $return['pic'];
     }
+
+    function sgGetPasswd($idUser) {
+        $connect = sgConnectDB();
+        $query = "SELECT passwd FROM users WHERE id='$idUser'";
+        $result = $connect->query($query);
+
+        if ($result->num_rows == 0) {
+            $return = "KO";
+        } else {
+            while ($row = $result->fetch_assoc()) {
+                $return = $row;
+            }
+        }
+
+        mysqli_close($connect);
+        return $return;
+    }
+
+    function sgUpdateUserInfo($idUser, $age, $occupation, $passwd, $pic, $sex) {
+        $connect = sgConnectDB();
+        $query = "UPDATE users SET edad=$age,ocupacion='$occupation',passwd='$passwd',pic='$pic',sex='$sex' WHERE id='$idUser'";
+        $result = $connect->query($query);
+
+        if ($result) {
+            $return = 'OK';
+        } else {
+            $return = 'KO';
+        }
+
+        mysqli_close($connect);
+        return $return;
+    }
+
 ?>

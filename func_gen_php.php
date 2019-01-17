@@ -68,6 +68,17 @@
         }
     }
 
+    function pgIsPasswdCorrect($idUser,$passwd){
+        $passwd_crypt = pgCodifica($idUser,$passwd);
+        $passwd_crypt_db = sgGetPasswd($idUser);
+
+        if($passwd_crypt == $passwd_crypt_db){
+            return 'OK';
+        } else {
+            return 'KO';
+        }
+    }
+
     function pgRegister($user, $age, $gender, $occupation, $passwd, $pic) {
         $id = rand(1, 500000);
         while (sgExists($id) == 'OK!') {
@@ -84,6 +95,17 @@
         } else {
             //Error al registrar
             return 'KO!';
+        }
+    }
+
+    function pgUpdateUserInfo($idUser, $age, $gender, $occupation, $passwd, $pic){
+        $passw_crypt = pgCodifica($idUser, $passwd);
+        $state = sgUpdateUserInfo($idUser,$age,$occupation,$passw_crypt,$pic,$gender);
+
+        if($state <> 'KO'){
+            return 'OK';
+        } else {
+            return 'KO';
         }
     }
 

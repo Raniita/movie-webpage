@@ -5,16 +5,16 @@
 
     $state = '';
     if (isset($_GET['logout'])) {
-        if (!empty($_GET['logout'])) {
-            $logout = pgSecureCheck($_GET['logout']);
-            if ($logout == 'timeout') {
-                $state = pgKillSession();
-            }
-        } else {
-            $state = pgKillSession();
-        }
+        header('Location:login.php?logout');
     } else {
         $state = pgCheckSession();
+        if ($state == 'OK!') {
+            $logged = true;
+            $idUser = $_SESSION['id'];
+            $nameUser = $_SESSION['name'];
+        } else {
+            $logged = false;
+        }
     }
 
     //Validacion del registro
