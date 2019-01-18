@@ -56,14 +56,18 @@
 <main role="main">
     <div class="row" style="margin-top: 10px;margin-right: 0px;margin-left: 0px;">
         <?php
-            echo $idUser;
             $movieList = smGetRecommendations($idUser);
-            echo $movieList;
-            print_r($movieList);
-            //foreach ($movieList as $movie) {
-                //echo pmGenerateMovieCardRecommendation($movie['movie_id'], $movie['rec_score']);
-            //    echo $movie['rec_score'];
-            //}
+            if ($movieList == 'KO') {
+                echo "<div class=\"alert alert-danger\">
+                    <strong>Error!</strong> Something goes wrong. No recommendations found
+                  </div>";
+            } else {
+                foreach ($movieList as $movie) {
+                    echo pmGenerateMovieCardRecommendation($movie['movie_id'], $movie['rec_score'], $movie['time']);
+
+                }
+            }
+
         ?>
 
     </div>
