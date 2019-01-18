@@ -56,6 +56,7 @@
 <main role="main">
     <div class="row" style="margin-top: 10px;margin-right: 0px;margin-left: 0px;">
         <?php
+            echo $idUser;
             $movieList = smGetRecommendations($idUser);
             echo $movieList;
             print_r($movieList);
