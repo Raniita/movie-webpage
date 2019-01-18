@@ -54,7 +54,7 @@
 ?>
 
 <main role="main">
-    <div class="row" style="margin-top: 10px;margin-right: 0px;margin-left: 0px;">
+    <div class="row" style="margin-top: 15px;margin-right: 0px;margin-left: 0px;">
         <?php
             $movieList = smGetRecommendations($idUser);
             if ($movieList == 'KO') {
