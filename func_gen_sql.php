@@ -1,5 +1,5 @@
 <?php
-    require $_SERVER['DOCUMENT_ROOT'] . '/secret.php';
+    require './secret.php';
 
     /**
      * Funcion SQL para login en la app
