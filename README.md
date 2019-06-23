@@ -4,6 +4,7 @@ University project about PHP, MYSQL and HTML, implementing technics about rating
 Working:
 * Fully working register/log in. Securized.
 * Pagination movies for about 1600 movies catalog.
+* Movie recommendation (result of collab filter)
 * AJAX Search.
 * User rating.
 * Collab filter running with MATLAB server. Sending all information over sockets. 
